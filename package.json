@@ -9,7 +9,7 @@
     "start": "concurrently \"npm run start:sanity\" \"npm run start:frontend\"",
     "install:sanity": "cd sanity && npm install",
     "install:frontend": "cd client && npm install",
-    "postinstall": "(cd sanity && npm install); (cd frontclientend && npm install)"
+    "postinstall": "(cd sanity && npm install); (cd client && npm install)"
   },
   "keywords": [],
   "author": "",
