@@ -1,14 +1,26 @@
-import type { NextPage } from 'next';
+import type { NextPage, GetStaticProps } from 'next';
 import Head from 'next/head';
-import Image from 'next/image';
-import Navbar from '../components/Navbar';
 
-const Home: NextPage = () => {
+import Navbar from '../components/Navbar';
+import sanityClient from '../sanityClient';
+
+const Home: NextPage = ({ data }) => {
+  console.log(data);
+
   return (
     <div>
       <Navbar />
+      {data && <h1>{data._id}</h1>}
     </div>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const data = await sanityClient.fetch(`*[_type == "post"]`);
+
+  return {
+    props: { data },
+  };
 };
 
 export default Home;
