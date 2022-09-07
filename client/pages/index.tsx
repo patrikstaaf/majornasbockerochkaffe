@@ -2,6 +2,7 @@ import type { NextPage, GetStaticProps } from 'next';
 import Head from 'next/head';
 
 import Navbar from '../components/Navbar';
+import SearchInput from '../components/SearchInput';
 import sanityClient from '../sanityClient';
 
 const Home: NextPage = ({ data }) => {
@@ -11,6 +12,7 @@ const Home: NextPage = ({ data }) => {
     <div>
       <Navbar />
       {data && <h1>{data._id}</h1>}
+      <SearchInput />
     </div>
   );
 };
