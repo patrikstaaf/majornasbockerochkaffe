@@ -1,5 +1,5 @@
 const bookClub = () => {
-  return <div>bookClub</div>;
-};
+  return <div>bookClub</div>
+}
 
-export default bookClub;
+export default bookClub

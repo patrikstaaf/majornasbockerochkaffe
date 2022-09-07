@@ -1,10 +1,10 @@
-import sanityClient from '@sanity/client';
+import sanityClient from '@sanity/client'
 
 interface ClientConfig {
-  projectId: string;
-  dataset: string;
-  apiVersion?: string;
-  useCdn?: boolean;
+  projectId: string
+  dataset: string
+  apiVersion?: string
+  useCdn?: boolean
 }
 
 // export default sanityClient({
@@ -19,6 +19,6 @@ const sanityConfig: ClientConfig = {
   dataset: process.env.SANITY_DATASET!,
   useCdn: process.env.SANITY_CDN !== 'production',
   apiVersion: process.env.SANITY_APIVERSION!,
-};
+}
 
-export default sanityClient(sanityConfig);
+export default sanityClient(sanityConfig)
