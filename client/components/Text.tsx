@@ -1,12 +1,16 @@
 import styled from 'styled-components'
 
-export const Text = styled.p`
+interface textColor {
+  Color: boolean
+}
+
+export const Text = styled.p<textColor>`
   font-family: 'Calibri';
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 24px;
-  color: ${(props) => (props.textColor ? '#1e1f22' : '#fbf6ef')};
+  color: ${(props) => (props.Color ? '#1e1f22' : '#fbf6ef')};
 
   @media screen and (min-width: 834px) {
     font-size: 18px;
@@ -18,13 +22,13 @@ export const Text = styled.p`
   }
 `
 
-export const H1 = styled.h1`
+export const H1 = styled.h1<textColor>`
   font-family: 'Sitka';
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
   line-height: 34px;
-  color: ${(props) => (props.textColor ? '#1e1f22' : '#fbf6ef')};
+  color: ${(props) => (props.Color ? '#1e1f22' : '#fbf6ef')};
 
   @media screen and (min-width: 834px) {
     font-size: 28px;
@@ -47,13 +51,13 @@ export const ButtonText = styled(Text)`
   }
 `
 
-export const LinkText = styled.p`
+export const LinkText = styled.p<textColor>`
   font-family: 'Sitka';
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
   line-height: 25px;
-  color: ${(props) => (props.textColor ? '#1e1f22' : '#fbf6ef')};
+  color: ${(props) => (props.Color ? '#1e1f22' : '#fbf6ef')};
   @media screen and (min-width: 834px) {
   }
   @media screen and (min-width: 1512px) {
