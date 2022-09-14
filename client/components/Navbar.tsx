@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Text, H1 } from './Text'
 
 const Nav = styled.nav`
   width: 100%;
@@ -10,7 +11,8 @@ const Nav = styled.nav`
 const Navbar = () => {
   return (
     <Nav>
-      <h1>Navbar</h1>
+      <H1 Color={true}>Navbar</H1>
+      <Text Color={false}>Test</Text>
     </Nav>
   )
 }
