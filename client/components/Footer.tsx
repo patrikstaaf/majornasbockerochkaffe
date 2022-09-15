@@ -136,6 +136,10 @@ const Link = styled.a`
   border-bottom: 1px solid #fbf6ef;
   text-decoration: none;
   font-family: ${FontCalibri};
+  &:hover,
+  :focus {
+    font-style: italic;
+  }
   @media screen and (min-width: 834px) {
     font-size: 18px;
     line-height: 23px;
@@ -152,6 +156,10 @@ const ContactLink = styled.a`
   border-bottom: 1px solid #fbf6ef;
   text-decoration: none;
   font-family: ${FontCalibri};
+  &:hover,
+  :focus {
+    font-style: italic;
+  }
 `
 
 const UnorderedList = styled.ul`
