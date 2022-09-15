@@ -1,35 +1,20 @@
-// First, we must import the schema creator
-import createSchema from "part:@sanity/base/schema-creator";
+import createSchema from 'part:@sanity/base/schema-creator';
+import schemaTypes from 'all:part:@sanity/base/schema-type';
+import companyInfo from './documents/companyInfo';
+import bookOfTheMonth from './documents/bookOfTheMonth';
+import aboutTheStore from './documents/aboutTheStore';
+import aboutTheEvents from './documents/aboutTheEvents';
+import permanentOffer from './documents/permanentOffer';
+import calendar from './documents/calendar';
 
-// Then import schema types from any plugins that might expose them
-import schemaTypes from "all:part:@sanity/base/schema-type";
-
-// We import object and document schemas
-import blockContent from "./objects/blockContent";
-import category from "./documents/category";
-import post from "./documents/post";
-import author from "./documents/author";
-import book from "./documents/book";
-import companyInfo from "./documents/companyInfo";
-import basicInfoSection from "./documents/basicInfoSection";
-
-// Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
-  // We name our schema
-  name: "default",
-  // Then proceed to concatenate our document type
-  // to the ones provided by any plugins that are installed
+  name: 'default',
   types: schemaTypes.concat([
-    // The following are document types which will appear
-    // in the studio.
-    post,
-    author,
-    book,
     companyInfo,
-    category,
-    basicInfoSection,
-    // When added to this list, object types can be used as
-    // { type: 'typename' } in other document schemas
-    blockContent,
+    bookOfTheMonth,
+    aboutTheStore,
+    aboutTheEvents,
+    permanentOffer,
+    calendar,
   ]),
 });

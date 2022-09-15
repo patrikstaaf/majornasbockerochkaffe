@@ -1,23 +1,25 @@
-import { FaBook } from 'react-icons/fa';
-
 export default {
-  title: 'Bok',
-  name: 'book',
+  title: 'Stående erbjudande',
+  name: 'permanentOffer',
   type: 'document',
-  icon: FaBook,
   fields: [
     {
-      title: 'Titel',
+      title: 'Stående erbjudande',
       name: 'title',
       type: 'string',
-      description: 'Titel av boken',
-      validation: (Rule) => Rule.required(),
+      description: 'Beskriv erbjudandet.',
     },
     {
-      title: 'Omslag',
-      name: 'cover',
+      title: 'Pris',
+      name: 'price',
+      type: 'string',
+      description: 'Ange priset i siffror.',
+    },
+    {
+      title: 'Inbjudande bild',
+      name: 'image',
       type: 'image',
-      description: 'Frivilligt',
+      description: 'En inbjudande bild på erbjudandet.',
       options: {
         hotspot: true,
       },
@@ -32,17 +34,6 @@ export default {
           },
           validation: (Rule) =>
             Rule.required().warning('Lägg till en alt text'),
-        },
-      ],
-    },
-    {
-      title: 'Författare',
-      name: 'authors',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [{ type: 'author' }],
         },
       ],
     },
