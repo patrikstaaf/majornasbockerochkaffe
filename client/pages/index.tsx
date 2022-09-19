@@ -17,12 +17,4 @@ const Home: NextPage = () => {
   )
 }
 
-// export const getStaticProps: GetStaticProps = async () => {
-//     const data = await sanityClient.fetch(`*[_type == "post"]`)
-
-//     return {
-//         props: { data },
-//     }
-// }
-
 export default Home
