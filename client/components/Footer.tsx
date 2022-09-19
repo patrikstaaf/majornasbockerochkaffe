@@ -98,9 +98,10 @@ const Logo = styled.img`
 const Text = styled.p`
   font-size: 18px;
   line-height: 23px;
-  font-family: 'Calibri';
+  /* font-family: 'Calibri'; */
   color: #fbf6ef;
-  font-family: ${FontCalibri};
+  /* font-family: ${FontCalibri}; */
+  font-family: ${({ theme }) => theme.fontFamily.calibri};
 `
 
 const H3 = styled.h3`
@@ -127,7 +128,7 @@ const H4 = styled.h4`
 `
 
 const Link = styled.a`
-  font-family: 'Calibri';
+  /* font-family: 'Calibri'; */
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -135,7 +136,8 @@ const Link = styled.a`
   color: #fbf6ef;
   border-bottom: 1px solid #fbf6ef;
   text-decoration: none;
-  font-family: ${FontCalibri};
+  /* font-family: ${FontCalibri}; */
+  font-family: ${({ theme }) => theme.fontFamily.calibri};
   &:hover,
   :focus {
     font-style: italic;
