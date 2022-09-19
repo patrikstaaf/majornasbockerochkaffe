@@ -8,10 +8,15 @@ const Nav = styled.nav`
   background-color: #333;
 `
 
+const TextFont = styled.p`
+  font-family: ${({ theme }) => theme.fontFamily.calibri};
+`
+
 const Navbar = () => {
   return (
     <Nav>
       <H1 Color={true}>Navbar</H1>
+      <TextFont>testar fonten</TextFont>
       <Text Color={false}>Test</Text>
     </Nav>
   )

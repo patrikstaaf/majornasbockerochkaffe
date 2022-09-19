@@ -30,8 +30,8 @@ export default {
     {
       title: 'Datum',
       name: 'authorEventDate',
-      type: 'string',
-      description: 'Skriv datum + förkortning av månad, tex: 20 okt, 11 apr',
+      type: 'date',
+      // description: 'Skriv datum + förkortning av månad, tex: 20 okt, 11 apr',
       hidden: ({ parent }) => parent?.event !== 'authorNight',
     },
 
