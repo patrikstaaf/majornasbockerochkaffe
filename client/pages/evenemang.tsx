@@ -1,7 +1,15 @@
 import { NextPage } from 'next'
+import Layout from '../components/Layout'
 
 const Evenemang: NextPage = () => {
-  return <h1>Evenemang</h1>
+  return (
+    <Layout
+      title="Majornas Böcker och Kaffe"
+      description="Här finner man info om Majornas Böcker och Kaffe evenemang."
+    >
+      Evenemang
+    </Layout>
+  )
 }
 
 export default Evenemang

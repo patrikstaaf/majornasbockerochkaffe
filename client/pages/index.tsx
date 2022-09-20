@@ -1,20 +1,23 @@
 import type { NextPage, GetStaticProps } from 'next'
-import Head from 'next/head'
-import Footer from '../components/Footer'
 import BetweenSections from '../components/BetweenSections'
 import styled from 'styled-components'
-import Navbar from '../components/Navbar'
 import sanityClient from '../sanityClient'
+import Layout from '../components/Layout'
 
 const Home: NextPage = () => {
   return (
-    <div>
-      <Navbar />
+    <Layout
+      title="Majornas Böcker och Kaffe"
+      description="Välkommen till startsidan för Majornas Böcker och Kaffe"
+    >
       <BetweenSections />
-      <Footer />
       <BetweenSections />
-    </div>
+    </Layout>
   )
 }
 
 export default Home
+
+// export const getStaticProps: GetStaticProps = async (context) => {
+//   return
+// }

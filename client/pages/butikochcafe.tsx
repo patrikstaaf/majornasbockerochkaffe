@@ -1,7 +1,15 @@
 import { NextPage } from 'next'
+import Layout from '../components/Layout'
 
 const Butik: NextPage = () => {
-  return <h1>Hej</h1>
+  return (
+    <Layout
+      title="Majornas Böcker och Kaffe"
+      description="Här finner man info om Majornas Böcker och Kaffe butik och kaffe."
+    >
+      Hej
+    </Layout>
+  )
 }
 
 export default Butik
