@@ -1,17 +1,15 @@
 import type { NextPage, GetStaticProps } from 'next'
 import BetweenSections from '../components/BetweenSections'
-import styled from 'styled-components'
-import sanityClient from '../sanityClient'
 import Layout from '../components/Layout'
-import { StartPageSanityData } from '../types'
+import sanityClient from '../lib/sanity/client'
+import { StartPageSanityData } from '../lib/sanity/types'
+import { startPageQuery } from '../lib/sanity/queries'
 
 interface Props {
   data: StartPageSanityData
 }
 
 const Home: NextPage<Props> = ({ data }) => {
-  // console.log(data.aboutTheEvents.generalImageAuthorBookClubAlt)
-
   return (
     <Layout
       title="Majornas Böcker och Kaffe"
@@ -27,59 +25,12 @@ const Home: NextPage<Props> = ({ data }) => {
 export default Home
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const query = `*[_type == "companyInfo"][0]{
-  "companyInfo": {
-  address,
-  email,
-  facebookUrl,
-  heroText,
-  instagramUrl,
-  openingHours,
-  phone
-  },
-  "bookOfTheMonth": *[_type == "bookOfTheMonth"][0]{
-  "cover": cover.asset->url,
-  "coverAlt": cover.alt,
-  author,
-  description,
-  genre,
-  releaseYear,
-  title,
-  },
-"aboutTheStore": *[_type == "aboutTheStore"][0]{
-  shortGeneralDescriptionAboutTheStore,
-  "generalImage": generalImage.asset->url,
-  "generalImageAlt": generalImage.alt,
-shortDescriptionAboutTheCafe,
-  "cafeImage": cafeImage.asset->url,
-  "cafeImageAlt": cafeImage.alt,
-},
-"permanentOffer": *[_type == "permanentOffer"][0]{
-title,
-price,
-  "image": image.asset->url,
-  "imageAlt": image.alt,
-},
-"aboutTheEvents": *[_type == "aboutTheEvents"][0]{
-descriptionHostingAuthorNights,
- shortGeneralDescriptionAboutBookClub,
-  shortGeneralDescriptionAboutTheStore,
-  "generalImageAuthorBookClub": generalImageAuthorBookClub.asset->url,
-"generalImageAuthorBookClubAlt": generalImageAuthorBookClub.alt,
-    "generalImageAuthorNights": generalImageAuthorNights.asset->url,
-"generalImageAuthorNightsAlt": generalImageAuthorNights.alt,
-},
-"calendar": *[_type == "calendar"] | order(calendarDate){
-...
-},
-}`
-
-  const data = await sanityClient.fetch(query)
+  const data = await sanityClient.fetch(startPageQuery)
 
   return {
     props: {
       data,
     },
-    revalidate: 10,
+    revalidate: 10, // add webhook later on
   }
 }

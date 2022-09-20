@@ -1,9 +1,12 @@
-export interface Calendar {
+interface SanityDocument {
   _createdAt: string
   _id: string
   _rev: string
   _type: string
   _updatedAt: string
+}
+
+interface Calendar extends SanityDocument {
   authorEventTime: string
   authorEventTitle: string
   authorNightDescription: string
@@ -11,12 +14,7 @@ export interface Calendar {
   event: string
 }
 
-export interface CompanyInfo {
-  _createdAt: string
-  _id: string
-  _rev: string
-  _type: string
-  _updatedAt: string
+interface CompanyInfo extends SanityDocument {
   address: string
   closestPublicTransportStop: string
   companyName: string
@@ -29,12 +27,7 @@ export interface CompanyInfo {
   phone: string
 }
 
-export interface BookOfTheMonth {
-  _createdAt: string
-  _id: string
-  _rev: string
-  _type: string
-  _updatedAt: string
+interface BookOfTheMonth extends SanityDocument {
   author: string
   description: string
   genre: string
@@ -50,12 +43,7 @@ export interface BookOfTheMonth {
   }
 }
 
-export interface AboutTheStore {
-  _createdAt: string
-  _id: string
-  _rev: string
-  _type: string
-  _updatedAt: string
+interface AboutTheStore extends SanityDocument {
   cafeImage: {
     _type: string
     alt: string
@@ -87,12 +75,7 @@ export interface AboutTheStore {
   shortGeneralDescriptionAboutTheStore: string
 }
 
-export interface AboutTheEvents {
-  _createdAt: string
-  _id: string
-  _rev: string
-  _type: string
-  _updatedAt: string
+interface AboutTheEvents extends SanityDocument {
   generalImageAuthorBookClub: {
     _type: string
     alt: string
@@ -121,12 +104,7 @@ export interface AboutTheEvents {
   shortGeneralDescriptionAboutTheStore: string
 }
 
-export interface PermanentOffer {
-  _createdAt: string
-  _id: string
-  _rev: string
-  _type: string
-  _updatedAt: string
+interface PermanentOffer extends SanityDocument {
   image: {
     _type: string
     alt: string
