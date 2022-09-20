@@ -62,11 +62,20 @@ export default {
     },
     {
       title: 'Öppettider',
-      name: 'openinghours',
+      name: 'openingHours',
       type: 'text',
       rows: 2,
       description:
         'Skriv vardagar och dess tider på en rad samt helger och dess tider på andra.',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      title: 'Välkomsttext',
+      name: 'heroText',
+      type: 'text',
+      rows: 2,
+      description:
+        'Visas på "hero-sektionen" på startsidan, alltså det första textstycket under navigation.',
       validation: (Rule) => Rule.required(),
     },
     // {
