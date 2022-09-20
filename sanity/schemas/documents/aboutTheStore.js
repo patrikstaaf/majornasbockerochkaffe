@@ -12,7 +12,7 @@ export default {
         'En kort beskrivning/summering om Majornas böcker & kaffe som renderas ut på startsidan.',
       validation: (Rule) => Rule.required(),
       validation: (Rule) =>
-        Rule.required().max(120).error('Håll det kort, max 120 tecken.'),
+        Rule.required().max(200).error('Håll det kort, max 200 tecken.'),
     },
     {
       title: 'Generell bild på lokalen',

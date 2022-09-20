@@ -8,13 +8,13 @@ const GlobalStyles = createGlobalStyle`
         font-weight: 400;
         font-display: swap;
     }
-      @font-face {
+      /* @font-face {
         font-family: 'Sitka';
         src: url('../assets/fonts/Sitka-Display.woff') format('woff');
         font-style: normal;
         font-weight: 400;
         font-display: swap;
-    }
+    } */
 
     html,
     body {

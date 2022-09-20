@@ -21,19 +21,24 @@ export default {
       },
     },
     {
+      title: 'Datum',
+      name: 'calendarDate',
+      type: 'date',
+    },
+    {
       title: 'Titel',
       name: 'authorEventTitle',
       type: 'string',
       description: 'Skriv tex: Författarkväll med (namn på författare)',
       hidden: ({ parent }) => parent?.event !== 'authorNight',
     },
-    {
-      title: 'Datum',
-      name: 'authorEventDate',
-      type: 'date',
-      // description: 'Skriv datum + förkortning av månad, tex: 20 okt, 11 apr',
-      hidden: ({ parent }) => parent?.event !== 'authorNight',
-    },
+    // {
+    //   title: 'Datum',
+    //   name: 'calendarDate',
+    //   type: 'date',
+    //   description: 'Skriv datum + förkortning av månad, tex: 20 okt, 11 apr',
+    //   hidden: ({ parent }) => parent?.event !== 'authorNight',
+    // },
 
     {
       title: 'Klockslag',
@@ -58,13 +63,13 @@ export default {
       description: 'Skriv tex: Pocketbokcirkel',
       hidden: ({ parent }) => parent?.event !== 'bookClub',
     },
-    {
-      title: 'Datum',
-      name: 'bookClubDate',
-      type: 'string',
-      description: 'Skriv datum + förkortning av månad, tex: 20 okt, 11 apr',
-      hidden: ({ parent }) => parent?.event !== 'bookClub',
-    },
+    // {
+    //   title: 'Datum',
+    //   name: 'calendarDate',
+    //   type: 'date',
+    //   description: 'Skriv datum + förkortning av månad, tex: 20 okt, 11 apr',
+    //   hidden: ({ parent }) => parent?.event !== 'bookClub',
+    // },
     {
       title: 'Klockslag',
       name: 'bookClubTime',
@@ -88,13 +93,13 @@ export default {
       description: 'Skriv tex: Snart är det jul',
       hidden: ({ parent }) => parent?.event !== 'bookNight',
     },
-    {
-      title: 'Datum',
-      name: 'bookNightDate',
-      type: 'string',
-      description: 'Skriv datum + förkortning av månad, tex: 20 okt, 11 apr',
-      hidden: ({ parent }) => parent?.event !== 'bookNight',
-    },
+    // {
+    //   title: 'Datum',
+    //   name: 'calendarDate',
+    //   type: 'date',
+    //   description: 'Skriv datum + förkortning av månad, tex: 20 okt, 11 apr',
+    //   hidden: ({ parent }) => parent?.event !== 'bookNight',
+    // },
     {
       title: 'Klockslag',
       name: 'bookNightTime',
@@ -117,18 +122,18 @@ export default {
       description: 'Skriv tex: "Releasefest" eller "Ändrade öppettider" etc.',
       hidden: ({ parent }) => parent?.event !== 'misc',
     },
-    {
-      title: 'Datum',
-      name: 'miscEventDate',
-      type: 'string',
-      description: 'Skriv datum + förkortning av månad, tex: 20 okt, 11 apr',
-      hidden: ({ parent }) => parent?.event !== 'misc',
-    },
+    // {
+    //   title: 'Datum',
+    //   name: 'calendarDate',
+    //   type: 'date',
+    //   description: 'Skriv datum + förkortning av månad, tex: 20 okt, 11 apr',
+    //   hidden: ({ parent }) => parent?.event !== 'misc',
+    // },
     {
       title: 'Klockslag',
       name: 'miscEventTime',
       type: 'string',
-      description: 'Skriv tex: 17:00-19:30',
+      description: 'Skriv tex: 17:00-19:30, eller "stängt" om det är semester.',
       hidden: ({ parent }) => parent?.event !== 'misc',
     },
     {

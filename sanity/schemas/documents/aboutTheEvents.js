@@ -12,7 +12,7 @@ export default {
         'En kort beskrivning/summering om författarkvällar som renderas ut på startsidan.',
       validation: (Rule) => Rule.required(),
       validation: (Rule) =>
-        Rule.required().max(120).error('Håll det kort, max 120 tecken.'),
+        Rule.required().max(200).error('Håll det kort, max 200 tecken.'),
     },
     {
       title: 'Genrell bild tillhörande författarkvällar',
@@ -43,9 +43,9 @@ export default {
       type: 'text',
       rows: 10,
       description: 'En beskrivning om att sitta med på författarkvällar.',
-      validation: (Rule) => Rule.required(),
-      validation: (Rule) =>
-        Rule.required().max(300).error('Håll det kort, max 300 tecken.'),
+      // validation: (Rule) => Rule.required(),
+      // validation: (Rule) =>
+      //   Rule.required().max(300).error('Håll det kort, max 300 tecken.'),
     },
     {
       title: 'Vill du hålla författarkväll hos oss?',
@@ -53,9 +53,9 @@ export default {
       type: 'text',
       rows: 10,
       description: 'En beskrivning om att hålla i en författarkväll.',
-      validation: (Rule) => Rule.required(),
-      validation: (Rule) =>
-        Rule.required().max(300).error('Håll det kort, max 300 tecken.'),
+      // validation: (Rule) => Rule.required(),
+      // validation: (Rule) =>
+      //   Rule.required().max(300).error('Håll det kort, max 300 tecken.'),
     },
     {
       title: 'Bilder på tidigare författarkvällar',
@@ -102,7 +102,7 @@ export default {
         'En kort beskrivning/summering om bokcirklar som renderas ut på startsidan.',
       validation: (Rule) => Rule.required(),
       validation: (Rule) =>
-        Rule.required().max(120).error('Håll det kort, max 120 tecken.'),
+        Rule.required().max(200).error('Håll det kort, max 200 tecken.'),
     },
     {
       title: 'Genrell bild tillhörande bokcirklar',
@@ -133,9 +133,9 @@ export default {
       type: 'text',
       rows: 10,
       description: 'En beskrivning om att delta i en bokcirkel.',
-      validation: (Rule) => Rule.required(),
-      validation: (Rule) =>
-        Rule.required().max(300).error('Håll det kort, max 300 tecken.'),
+      // validation: (Rule) => Rule.required(),
+      // validation: (Rule) =>
+      //   Rule.required().max(300).error('Håll det kort, max 300 tecken.'),
     },
     {
       title: 'Välkommen in på bokhandelskväll',
@@ -143,9 +143,9 @@ export default {
       type: 'text',
       rows: 10,
       description: 'En beskrivning om bokhandelskvällar.',
-      validation: (Rule) => Rule.required(),
-      validation: (Rule) =>
-        Rule.required().max(300).error('Håll det kort, max 300 tecken.'),
+      // validation: (Rule) => Rule.required(),
+      // validation: (Rule) =>
+      //   Rule.required().max(300).error('Håll det kort, max 300 tecken.'),
     },
     {
       title: 'Genrell bild tillhörande bokhandelskvällar',

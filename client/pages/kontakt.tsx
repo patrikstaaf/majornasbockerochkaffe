@@ -1,7 +1,9 @@
 import { NextPage } from 'next'
+
 import styled from 'styled-components'
 import { H2 } from '../components/Text'
 import Map from '../components/Map'
+
 
 const ContactSection = styled.section`
   display: flex;
@@ -220,6 +222,7 @@ const Link = styled.a`
 `
 const Kontakt: NextPage = () => {
   return (
+
     <div>
       <ContactSection>
         <ContactContainer>
