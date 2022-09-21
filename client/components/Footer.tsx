@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import { FontCalibri } from './Font'
 
-const Container = styled.div`
+const Container = styled.footer`
   background: #b17b54;
-  height: 1003px;
+  /* height: 1003px; */
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -12,10 +12,10 @@ const Container = styled.div`
   flex-direction: column;
 
   @media screen and (min-width: 834px) {
-    height: 636px;
+    /* height: 636px; */
   }
   @media screen and (min-width: 1440px) {
-    height: 581px;
+    /* height: 581px; */
   }
 `
 const LogoWrapper = styled.div`
@@ -72,6 +72,10 @@ const CopyWrapper = styled.div`
   }
   @media screen and (min-width: 1440px) {
     margin: 86px 0 24px 124px;
+  }
+  * {
+    margin: 0;
+    padding-bottom: 20px;
   }
 `
 
