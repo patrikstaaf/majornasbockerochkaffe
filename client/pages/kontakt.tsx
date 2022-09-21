@@ -1,9 +1,8 @@
 import { NextPage } from 'next'
-
 import styled from 'styled-components'
 import { H2 } from '../components/Text'
 import Map from '../components/Map'
-
+import Layout from '../components/Layout'
 
 const ContactSection = styled.section`
   display: flex;
@@ -222,8 +221,10 @@ const Link = styled.a`
 `
 const Kontakt: NextPage = () => {
   return (
-
-    <div>
+    <Layout
+      title="Majornas Böcker och Kaffe"
+      description="Här finner man info om Majornas Böcker och Kaffe kontaktuppgifter."
+    >
       <ContactSection>
         <ContactContainer>
           <Openinghours>
@@ -283,7 +284,7 @@ const Kontakt: NextPage = () => {
           </ContentFindUs>
         </FindUs>
       </MapSection>
-    </div>
+    </Layout>
   )
 }
 
