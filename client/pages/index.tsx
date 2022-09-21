@@ -16,8 +16,8 @@ const Home: NextPage<Props> = ({ data }) => {
       description="Välkommen till startsidan för Majornas Böcker och Kaffe"
     >
       <h1>{data.companyInfo.address}</h1>
-      <BetweenSections />
-      <BetweenSections />
+      <BetweenSections color={'#B17B54'} />
+      <BetweenSections color={'#B17B54'} />
     </Layout>
   )
 }
