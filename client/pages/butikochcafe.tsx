@@ -7,15 +7,28 @@ import { H1, Text } from '../components/Text'
 
 const AboutContainer = styled.div`
   @media screen and (min-width: 834px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 259px 225px 259px;
   }
   @media screen and (min-width: 1440px) {
+    grid-template-rows: 455px 424px 455px;
   }
 `
 const AboutBookImage = styled.div`
+  background-color: yellow;
   height: 438px;
   border-width: 0px 2px 0px 2px;
   border-style: solid;
   border-color: #1e1f22;
+  @media screen and (min-width: 834px) {
+    grid-column: 2;
+    grid-row: 2/4;
+    height: 100%;
+    border-width: 0px 3px 3px 0px;
+  }
+  @media screen and (min-width: 1440px) {
+  }
 `
 const AboutBookShop = styled.div`
   height: 351px;
@@ -23,31 +36,93 @@ const AboutBookShop = styled.div`
   border-width: 0px 2px;
   border-style: solid;
   border-color: #1e1f22;
+  @media screen and (min-width: 834px) {
+    grid-column: 2;
+    grid-row: 1;
+    height: 100%;
+    border-width: 0px 3px;
+  }
+  @media screen and (min-width: 1440px) {
+  }
 `
 const Content = styled.div`
   padding: 56px 20px 32px 20px;
+  @media screen and (min-width: 834px) {
+    padding: 11px 20px 32px 20px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding: 70px 41px 0px 40px;
+  }
 `
 const AboutCafeImage = styled(AboutBookImage)`
+  background-color: blueviolet;
   height: 434px;
   border-width: 2px 2px 0px 2px;
+  @media screen and (min-width: 834px) {
+    grid-column: 1;
+    grid-row: 1/3;
+    height: 100%;
+    border-width: 0px 3px;
+  }
+  @media screen and (min-width: 1440px) {
+  }
 `
 const AboutCafe = styled(AboutBookShop)`
   height: 353px;
+  @media screen and (min-width: 834px) {
+    grid-column: 1;
+    grid-row: 3/4;
+    height: 100%;
+  }
+  @media screen and (min-width: 1440px) {
+  }
 `
-const OfferContainer = styled.div``
+const OfferContainer = styled.div`
+  @media screen and (min-width: 834px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-width: 3px 3px 0px 3px;
+    border-style: solid;
+    border-color: #1e1f22;
+  }
+  @media screen and (min-width: 1440px) {
+  }
+`
 const Offer = styled.div`
   background-color: #b17b54;
   height: 250px;
   border-width: 2px 2px 0px 2px;
   border-style: solid;
   border-color: #1e1f22;
-  padding: 56px 20px 0px 20px;
+  padding: 0px 20px 0px 20px;
+  @media screen and (min-width: 834px) {
+    grid-column: 1;
+    grid-row: 1;
+    height: 254px;
+    border-width: 0px 3px 0px 0px;
+  }
+  @media screen and (min-width: 1440px) {
+    height: 376px;
+    padding: 72px 40px 0px 83px;
+  }
 `
 const OfferImage = styled.div`
+  background-color: lightblue;
   height: 161px;
   border-width: 0px 2px;
   border-style: solid;
   border-color: #1e1f22;
+  @media screen and (min-width: 834px) {
+    grid-column: 2;
+    grid-row: 1;
+    width: 575px;
+    height: 100%;
+    border-width: 0;
+  }
+  @media screen and (min-width: 1440px) {
+    height: 448px;
+    width: 963px;
+  }
 `
 const Price = styled.p`
   color: #fbf6ef;
@@ -56,31 +131,93 @@ const Price = styled.p`
   font-size: 48px;
   line-height: 60px;
 `
-const AboutChildrenContainer = styled.div``
+const AboutChildrenContainer = styled.div`
+  @media screen and (min-width: 834px) {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+  @media screen and (min-width: 1440px) {
+  }
+`
 const AboutChildrenImageLarge = styled.div`
   height: 392px;
   border-width: 0px 2px;
   border-style: solid;
   border-color: #1e1f22;
+  background-color: #1e1f22;
+  @media screen and (min-width: 834px) {
+    grid-column: 1;
+    grid-row: 1;
+    height: 377px;
+    border-width: 0 0 0 3px;
+  }
+  @media screen and (min-width: 1440px) {
+    grid-column: 1/3;
+    grid-row: 1/3;
+    height: 100%;
+  }
 `
-const AboutChildrenImageSmallContainer = styled.div`
-  border-width: 0px 2px;
-  border-style: solid;
-  border-color: #1e1f22;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+// const AboutChildrenImageSmallContainer = styled.div`
+//   border-width: 0px 2px;
+//   border-style: solid;
+//   border-color: #1e1f22;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+//   @media screen and (min-width: 834px) {
+//     display: none;
+//   }
+//   @media screen and (min-width: 1440px) {
+//     display: block;
+//     grid-column: 2;
+//     grid-row: 1/3;
+//   }
+//`
+
+const AboutChildrenImageSmallOne = styled.div`
+  height: 167px;
+  background-color: blue;
+  @media screen and (min-width: 834px) {
+    display: none;
+  }
+  @media screen and (min-width: 1440px) {
+    display: block;
+    grid-column: 4;
+    grid-row: 2/3;
+    height: 100%;
+  }
 `
 
-const AboutChildrenImageSmall = styled.div`
+const AboutChildrenImageSmallTwo = styled.div`
   height: 167px;
+  background-color: red;
+  @media screen and (min-width: 834px) {
+    display: none;
+  }
+  @media screen and (min-width: 1440px) {
+    display: block;
+    grid-column: 3;
+    grid-row: 2/3;
+    height: 100%;
+  }
 `
+
 const AboutChildren = styled.div`
   background-color: #fbf6ef;
   border-width: 0px 2px;
   border-style: solid;
   border-color: #1e1f22;
   height: 484px;
+  @media screen and (min-width: 834px) {
+    height: 377px;
+    border-width: 0px 3px;
+  }
+  @media screen and (min-width: 1440px) {
+    grid-column: 3/5;
+    grid-row: 1;
+    border-right: 3px solid #1e1f22;
+  }
 `
 
 const Butik: NextPage = () => {
@@ -127,11 +264,10 @@ const Butik: NextPage = () => {
       <BetweenSections color={'red'} />
       <AboutChildrenContainer>
         <AboutChildrenImageLarge></AboutChildrenImageLarge>
-        <AboutChildrenImageSmallContainer>
-          {' '}
-          <AboutChildrenImageSmall></AboutChildrenImageSmall>
-          <AboutChildrenImageSmall></AboutChildrenImageSmall>
-        </AboutChildrenImageSmallContainer>
+
+        <AboutChildrenImageSmallOne></AboutChildrenImageSmallOne>
+        <AboutChildrenImageSmallTwo></AboutChildrenImageSmallTwo>
+
         <AboutChildren>
           <Content>
             <H1 Color={true}>Om barnavdelning</H1>
