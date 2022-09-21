@@ -18,16 +18,6 @@ declare module 'styled-components' {
       calibri: string
       sourceSerifPro: string
     }
-    // fontSize: {
-    //   desktop: {
-    //     size: {
-    //       h1: string
-    //       h2: string
-    //       body: string
-    //       link: string
-    //     }
-    //   }
-    // }
     fontColor: {
       coffee: string
       paper: string

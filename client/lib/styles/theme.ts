@@ -17,16 +17,6 @@ const theme: DefaultTheme = {
     calibri: 'Calibri',
     sourceSerifPro: 'SourceSerifPro',
   },
-  // fontSize: {
-  //   desktop: {
-  //     size: {
-  //       h1: '40px',
-  //       h2: '42px',
-  //       body: '24px',
-  //       link: '24px',
-  //     },
-  //   },
-  // },
   fontColor: {
     coffee: '#1E1F22',
     paper: '#FBF6EF',
