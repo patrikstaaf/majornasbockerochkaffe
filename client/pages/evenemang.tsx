@@ -223,7 +223,7 @@ const Evenemang: NextPage = () => {
             Föranmälan krävs, den mailar du tillsammans med ditt namn och
             mobilnummer.
           </Text>
-          <Button></Button>
+          <Button>knapp 2</Button>
         </ContentContainer>
         <ImageContainer>
           <ImageOne></ImageOne>
@@ -240,10 +240,10 @@ const Evenemang: NextPage = () => {
             från yrkeslivet och försäljning &amp; signering. Skicka ett mail och
             berätta om dig själv för mer information och bokning.
           </Text>
-          <Button></Button>
+          <Button>hej</Button>
         </AuthorEveningContainer>
       </Author>
-      <BetweenSections />
+      <BetweenSections color={'green'} />
       <Book>
         <BookImage></BookImage>
         <BookCirkleContainer Color={'#84965D'}>
@@ -259,7 +259,7 @@ const Evenemang: NextPage = () => {
             börjat gå ännu. Om du är intresserad så maila eller kom förbi
             bokhandeln för anmälan eller frågor. Välkommen!
           </Text>
-          <Button></Button>
+          <Button>Hej</Button>
         </BookCirkleContainer>
         <BookEveningImage></BookEveningImage>
         <BookEvening Color={'#B17B54'}>
@@ -274,7 +274,7 @@ const Evenemang: NextPage = () => {
           <LinkText Color={false}>Läs i kalendarium</LinkText>
         </BookEvening>
       </Book>
-      <BetweenSections />
+      <BetweenSections color={'yellow'} />
     </div>
   )
 }

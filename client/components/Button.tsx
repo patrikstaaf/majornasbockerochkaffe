@@ -1,10 +1,16 @@
 import styled from 'styled-components'
 
-interface Props {
-  Color: boolean
+interface StyledProps {
+  Color?: boolean
 }
 
-const StyledButton = styled.button<Props>`
+interface Props {
+  Color?: boolean
+  children: React.ReactNode
+  handleClick?: React.MouseEventHandler<HTMLButtonElement>
+}
+
+const StyledButton = styled.button<StyledProps>`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -21,8 +27,12 @@ const StyledButton = styled.button<Props>`
     height: 57px;
   }
 `
-const Button = ({}) => {
-  return <StyledButton Color={true}>Hitta till butiken</StyledButton>
+const Button: React.FC<Props> = ({ handleClick, children, Color }) => {
+  return (
+    <StyledButton Color={Color} onClick={handleClick}>
+      {children}
+    </StyledButton>
+  )
 }
 
 export default Button

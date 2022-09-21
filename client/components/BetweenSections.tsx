@@ -1,6 +1,11 @@
+import { FC, PropsWithoutRef } from 'react'
 import styled from 'styled-components'
 
-const StripesContaier = styled.div`
+interface Props {
+  color?: string
+}
+
+const StripesContaier = styled.div<Props>`
   height: 100px;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -17,12 +22,16 @@ const StripesContaier = styled.div`
   @media screen and (min-width: 1440px) {
     grid-template-columns: repeat(20, 1fr);
   }
+
+  > div {
+    background-color: ${(props) => props.color};
+  }
 `
-const Stripes = styled.div`
-  background-color: ${(props) => props.color};
+const Stripes = styled.div<Props>`
+  background-color: ${(props) => (props.color ? props.color : '#ffffff')};
 `
 
-const StripesTablet = styled.div`
+const StripesTablet = styled.div<Props>`
   display: none;
   @media screen and (min-width: 834px) {
     display: block;
@@ -32,7 +41,7 @@ const StripesTablet = styled.div`
   }
 `
 
-const StripesDesktop = styled.div`
+const StripesDesktop = styled.div<Props>`
   display: none;
   @media screen and (min-width: 834px) {
     display: none;
@@ -43,9 +52,13 @@ const StripesDesktop = styled.div`
   }
 `
 
-const BetweenSections = () => {
+interface CompProps {
+  color: string
+}
+
+const BetweenSections: FC<CompProps> = ({ color }) => {
   return (
-    <StripesContaier>
+    <StripesContaier color={color}>
       <Stripes></Stripes>
       <Stripes></Stripes>
       <Stripes></Stripes>
