@@ -15,18 +15,8 @@ declare module 'styled-components' {
       desktop: string
     }
     fontFamily: {
-      // sitka: string
       calibri: string
-    }
-    fontSize: {
-      desktop: {
-        size: {
-          h1: string
-          h2: string
-          body: string
-          link: string
-        }
-      }
+      sourceSerifPro: string
     }
     fontColor: {
       coffee: string

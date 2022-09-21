@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import BetweenSections from '../components/BetweenSections'
 import Button from '../components/Button'
 import { H1, Text, LinkText } from '../components/Text'
+import Layout from '../components/Layout'
 
 interface Props {
   Color: string
@@ -203,7 +204,10 @@ const BookEvening = styled.div<Props>`
 `
 const Evenemang: NextPage = () => {
   return (
-    <div>
+    <Layout
+      title="Majornas Böcker och Kaffe"
+      description="Här finner man info om Majornas Böcker och Kaffe evenemang."
+    >
       <Author>
         <Image></Image>
         <ContentContainer Color={'#739598'}>
@@ -275,7 +279,7 @@ const Evenemang: NextPage = () => {
         </BookEvening>
       </Book>
       <BetweenSections color={'yellow'} />
-    </div>
+    </Layout>
   )
 }
 
