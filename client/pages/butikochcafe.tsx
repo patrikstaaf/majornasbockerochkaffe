@@ -124,7 +124,7 @@ const Butik: NextPage = () => {
         </Offer>
         <OfferImage></OfferImage>
       </OfferContainer>
-      <BetweenSections />
+      <BetweenSections color={'red'} />
       <AboutChildrenContainer>
         <AboutChildrenImageLarge></AboutChildrenImageLarge>
         <AboutChildrenImageSmallContainer>
