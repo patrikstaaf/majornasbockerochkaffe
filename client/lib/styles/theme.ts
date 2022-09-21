@@ -15,18 +15,18 @@ const theme: DefaultTheme = {
   },
   fontFamily: {
     calibri: 'Calibri',
-    // sitka: 'Sitka',
+    sourceSerifPro: 'SourceSerifPro',
   },
-  fontSize: {
-    desktop: {
-      size: {
-        h1: '40px',
-        h2: '42px',
-        body: '24px',
-        link: '24px',
-      },
-    },
-  },
+  // fontSize: {
+  //   desktop: {
+  //     size: {
+  //       h1: '40px',
+  //       h2: '42px',
+  //       body: '24px',
+  //       link: '24px',
+  //     },
+  //   },
+  // },
   fontColor: {
     coffee: '#1E1F22',
     paper: '#FBF6EF',

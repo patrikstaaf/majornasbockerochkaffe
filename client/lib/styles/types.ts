@@ -15,19 +15,19 @@ declare module 'styled-components' {
       desktop: string
     }
     fontFamily: {
-      // sitka: string
       calibri: string
+      sourceSerifPro: string
     }
-    fontSize: {
-      desktop: {
-        size: {
-          h1: string
-          h2: string
-          body: string
-          link: string
-        }
-      }
-    }
+    // fontSize: {
+    //   desktop: {
+    //     size: {
+    //       h1: string
+    //       h2: string
+    //       body: string
+    //       link: string
+    //     }
+    //   }
+    // }
     fontColor: {
       coffee: string
       paper: string
