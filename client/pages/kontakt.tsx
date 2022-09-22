@@ -1,17 +1,17 @@
 import { NextPage } from 'next'
 import styled from 'styled-components'
-import { H2 } from '../components/Text'
+import { H2, Text } from '../components/Text'
 import Map from '../components/Map'
 import Layout from '../components/Layout'
 
 const ContactSection = styled.section`
   display: flex;
   flex-direction: column-reverse;
-  @media screen and (min-width: 834px) {
+  @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     grid-template-columns: 40% 60%;
   }
 `
@@ -22,14 +22,13 @@ const MapSection = styled.section`
   -webkit-box-sizing: border-box;
   border-width: 0px 2px 2px 2px;
   border-style: solid;
-  border-color: #1e1f22;
-
-  @media screen and (min-width: 834px) {
+  border-color: ${({ theme }) => theme.colors.coffee};
+  @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    border-width: 3px 3px 3px 3px;
+    border-width: 3px 3px 1px 3px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
   }
 `
 
@@ -40,65 +39,57 @@ const ContactContainer = styled.div`
 
 const MapContainer = styled.div`
   height: 353px;
-  @media screen and (min-width: 834px) {
+  @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     height: 401px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     height: 732px;
   }
 `
 const FindUs = styled.div`
-  height: 479px;
-  background-color: #fbf6ef;
-
-  @media screen and (min-width: 834px) {
-    height: 401px;
-  }
-  @media screen and (min-width: 1440px) {
-    height: 732px;
-  }
+  background-color: ${({ theme }) => theme.colors.paper};
 `
-const ContentFindUs = styled.div``
-
 const Openinghours = styled.div`
   height: 215px;
-  background-color: #ecdbc9;
+  background-color: ${({ theme }) => theme.colors.cream};
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   border-width: 0px 2px 0px 2px;
   border-style: solid;
-  border-color: #1e1f22;
-  @media screen and (min-width: 834px) {
+  border-color: ${({ theme }) => theme.colors.coffee};
+  @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     height: 175px;
     border-width: 0px 3px 3px 3px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     height: 265px;
   }
 `
 const ContactContent = styled.div`
-  padding: 16px 0 48px 0;
-  @media screen and (min-width: 834px) {
+  padding: 0px 0 44px 0;
+  @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     padding: 0 0 16px 0;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     padding: 0 0 40px 0;
   }
 `
 const Heading = styled.div`
-  padding: 56px 0px 16px 22px;
-  @media screen and (min-width: 834px) {
-    padding: 40px 0 16px 32px;
+  margin: 56px 0px 16px 22px;
+  @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
+    padding: 25px 0 0px 32px;
+    margin: 0px;
   }
   @media screen and (min-width: 1440px) {
-    padding: 70px 0px 0px 40px;
+    padding: 35px 0px 0px 38px;
+    margin: 0px;
   }
 `
 const HeadingFindUs = styled.div`
-  padding: 56px 0px 16px 20px;
-  @media screen and (min-width: 834px) {
-    padding: 40px 0 16px 32px;
+  padding: 20px 0px 9px 20px;
+  @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
+    padding: 30px 0 0 32px;
   }
   @media screen and (min-width: 1440px) {
     padding: 70px 0 24px 40px;
@@ -106,87 +97,90 @@ const HeadingFindUs = styled.div`
 `
 const Content = styled.div`
   padding: 0px 0px 0px 24px;
-  @media screen and (min-width: 834px) {
+  @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     padding: 0 0 0 32px;
   }
-  @media screen and (min-width: 1440px) {
-    padding: 24px 0 0 40px;
+  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    padding: 0 0 0 40px;
   }
 `
+const TextBox = styled(Text)`
+  margin: 0;
+  font-weight: bold;
+`
+
 const TextContainer = styled.div`
-  padding: 16px 0px 0px 20px;
-  @media screen and (min-width: 834px) {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 0px 0px 20px;
+  @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     padding: 0 0 0 32px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     padding: 0 0 0 40px;
   }
 `
 const AdressContainer = styled.div`
+  display: flex;
+  gap: 4px;
   padding: 0px 0px 8px 0px;
-  @media screen and (min-width: 834px) {
+  @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     padding: 0 0 16px 0;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     padding: 0 0 24px 0;
   }
 `
 const StopContainer = styled.div`
+  display: flex;
+  gap: 4px;
   padding: 0px 0px 48px 0px;
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     padding: 0 0 170px 0;
   }
 `
 const DescriptionContainer = styled.div`
-  padding: 0px 0px 0px 0px;
-`
-
-const Text = styled.p`
-  font-family: 'Calibri';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 26px;
-  color: #1e1f22;
-  @media screen and (min-width: 834px) {
-    font-size: 18px;
-    line-height: 22px;
-  }
-  @media screen and (min-width: 1440px) {
-    font-size: 24px;
-    line-height: 31px;
-  }
+  display: flex;
+  gap: 4px;
+  padding: 0px 0px 56px 0px;
 `
 const Contact = styled.div`
   height: 331px;
-  background-color: #fbf6ef;
+  background-color: ${({ theme }) => theme.colors.paper};
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   border-width: 2px;
   border-style: solid;
-  border-color: #1e1f22;
-  @media screen and (min-width: 834px) {
+  border-color: ${({ theme }) => theme.colors.coffee};
+  @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     height: 263px;
     border-width: 0px 3px 0px 3px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     height: 354px;
   }
 `
+const ContentOpeninghours = styled(Content)`
+  display: flex;
+  flex-direction: column;
+`
+
 const Image = styled.div`
   background-color: pink;
   height: 347px;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  border: 2px solid #1e1f22;
+  border-width: 2px;
+  border-style: solid;
+  border-color: ${({ theme }) => theme.colors.coffee};
   border-bottom: none;
-  @media screen and (min-width: 834px) {
+  @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     height: 438px;
     border-width: 0px 3px 3px 0px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     height: 619px;
   }
 `
@@ -199,25 +193,51 @@ const SocialMediaLink = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-  margin: 16px 0 0 0;
+  margin: 8px 0 0 0;
 `
 
 const Link = styled.a`
+  font-family: ${({ theme }) => theme.fontFamily.calibri};
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 24px;
-  color: #1e1f22;
-  border-bottom: 1px solid #1e1f22;
+  color: ${({ theme }) => theme.colors.coffee};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.coffee};
   text-decoration: none;
   &:hover,
   :focus {
     font-style: italic;
   }
-  @media screen and (min-width: 834px) {
+  @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     font-size: 18px;
     line-height: 23px;
   }
+  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    font-size: 24px;
+    line-height: 29px;
+  }
+`
+const Fetchdata = styled.p`
+  font-family: ${({ theme }) => theme.fontFamily.calibri};
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: ${({ theme }) => theme.colors.coffee};
+  margin: 0;
+  @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
+    font-size: 18px;
+    line-height: 23px;
+  }
+  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    font-size: 24px;
+    line-height: 29px;
+  }
+`
+const OpeninghoursBox = styled.div`
+  display: flex;
+  gap: 4px;
 `
 const Kontakt: NextPage = () => {
   return (
@@ -231,21 +251,32 @@ const Kontakt: NextPage = () => {
             <Heading>
               <H2 Color={true}>Öppettider</H2>
             </Heading>
-            <Content>
-              <Text>Tisdag-Fredag: </Text>
-              <Text>Lördag: </Text>
-            </Content>
+            <ContentOpeninghours>
+              <OpeninghoursBox>
+                <TextBox Color>Tisdag-Fredag:</TextBox>
+                <Fetchdata>Hämta data</Fetchdata>
+              </OpeninghoursBox>
+              <OpeninghoursBox>
+                <TextBox Color>Lördag:</TextBox>
+                <Fetchdata>Hämta data</Fetchdata>
+              </OpeninghoursBox>
+            </ContentOpeninghours>
           </Openinghours>
           <Contact>
             <Heading>
-              <H2 Color={true}>Kontakt</H2>
+              <H2 Color>Kontakt</H2>
             </Heading>
             <Content>
               <ContactContent>
-                <Text>Telefon: </Text>
-                <Text>Mail: </Text>
+                <TextBox Color>
+                  Telefon: <Link href="tel:0763 414 000">Hämta data</Link>
+                </TextBox>
+                <TextBox Color>
+                  Mail:{' '}
+                  <Link href="mailto:info@majornasbocker.se">Hämta data</Link>{' '}
+                </TextBox>
               </ContactContent>
-              <Text>Sociala medier: </Text>
+              <TextBox Color>Sociala medier: </TextBox>
               <SocialMediaContainer>
                 <SocialMediaLink>
                   <img src="/assets/icons/instagramBlack.svg" />
@@ -266,22 +297,23 @@ const Kontakt: NextPage = () => {
           <Map />
         </MapContainer>
         <FindUs>
-          <ContentFindUs>
-            <HeadingFindUs>
-              <H2 Color={true}>Hitta hit</H2>
-            </HeadingFindUs>
-            <TextContainer>
-              <AdressContainer>
-                <Text>Adress: </Text>
-              </AdressContainer>
-              <StopContainer>
-                <Text>Närmaste hållplats:</Text>
-              </StopContainer>
-              <DescriptionContainer>
-                <Text>Beskrivning: </Text>
-              </DescriptionContainer>
-            </TextContainer>
-          </ContentFindUs>
+          <HeadingFindUs>
+            <H2 Color>Hitta hit</H2>
+          </HeadingFindUs>
+          <TextContainer>
+            <AdressContainer>
+              <TextBox Color>Adress: </TextBox>
+              <Fetchdata>Hämta data</Fetchdata>
+            </AdressContainer>
+            <StopContainer>
+              <TextBox Color>Närmaste hållplats: </TextBox>
+              <Fetchdata>Hämta data</Fetchdata>
+            </StopContainer>
+            <DescriptionContainer>
+              <TextBox Color>Beskrivning: </TextBox>
+              <Fetchdata>Hämta data</Fetchdata>
+            </DescriptionContainer>
+          </TextContainer>
         </FindUs>
       </MapSection>
     </Layout>
