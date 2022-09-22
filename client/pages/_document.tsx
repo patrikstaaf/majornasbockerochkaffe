@@ -18,6 +18,7 @@ export default function Document() {
           type="font/woff"
           crossOrigin=""
         /> */}
+        <link rel="icon" href="/favicon.svg" />
       </Head>
       <body>
         <Main />
