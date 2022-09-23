@@ -1,6 +1,6 @@
 import { NextPage } from 'next'
 import styled from 'styled-components'
-import { H2, Text } from '../components/Text'
+import { H1, H2, Text } from '../components/Text'
 import Map from '../components/Map'
 import Layout from '../components/Layout'
 
@@ -249,7 +249,7 @@ const Kontakt: NextPage = () => {
         <ContactContainer>
           <Openinghours>
             <Heading>
-              <H2 Color={true}>Öppettider</H2>
+              <H1 Color={true}>Öppettider</H1>
             </Heading>
             <ContentOpeninghours>
               <OpeninghoursBox>
