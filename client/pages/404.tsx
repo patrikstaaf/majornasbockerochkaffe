@@ -12,10 +12,6 @@ const Section = styled.section`
   flex-direction: column;
 `
 
-const Underline = styled.span`
-  text-decoration: underline;
-`
-
 const NotFound: NextPage = () => {
   return (
     <Layout
