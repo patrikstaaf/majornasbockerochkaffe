@@ -32,13 +32,27 @@ const Container = styled.div`
   -webkit-box-sizing: border-box;
   border: 2px solid #1e1f22;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 
   @media screen and (min-width: 834px) {
     height: 636px;
+
+    .InstaImage {
+      &:nth-child(3) {
+        display: none;
+      }
+    }
   }
   @media screen and (min-width: 1440px) {
     height: 581px;
+    .InstaImage {
+      &:nth-child(2) {
+        display: none;
+      }
+      &:nth-child(3) {
+        display: none;
+      }
+    }
   }
 `
 
@@ -51,7 +65,7 @@ export default function Gallery({ images }: { images: Array<OneImage> }) {
           {images &&
             images.map((image) => {
               return (
-                <div key={image.id}>
+                <div className="InstaImage" key={image.id}>
                   <Image
                     src={image.media_url}
                     alt={image.caption}
