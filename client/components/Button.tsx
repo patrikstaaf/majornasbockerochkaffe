@@ -17,6 +17,7 @@ const StyledButton = styled.button<StyledProps>`
   align-items: center;
   padding: 13px 16px;
   gap: 8px;
+  cursor: pointer;
   border: 2px solid ${(props) => (props.Color ? '#1e1f22' : '#fbf6ef')};
   height: 48px;
   line-height: 25px;
