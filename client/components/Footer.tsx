@@ -3,6 +3,7 @@ import { H4, H3 } from './Text'
 
 const Container = styled.footer`
   background-color: ${({ theme }) => theme.colors.crust};
+
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -11,6 +12,7 @@ const Container = styled.footer`
   border-style: solid;
   display: flex;
   flex-direction: column;
+
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     border-width: 2px 3px 3px 3px;
   }
@@ -69,6 +71,10 @@ const CopyWrapper = styled.div`
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     margin: 86px 0 24px 140px;
+  }
+  * {
+    margin: 0;
+    padding-bottom: 20px;
   }
 `
 const SocialMediaLink = styled.div`
