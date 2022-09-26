@@ -17,10 +17,12 @@ const StripesContaier = styled.div<Props>`
   gap: 34px;
   @media screen and (min-width: 834px) {
     grid-template-columns: repeat(12, 1fr);
-    height: 224px;
+    height: 140px;
+    border: 3px solid #1e1f22;
   }
   @media screen and (min-width: 1440px) {
     grid-template-columns: repeat(20, 1fr);
+    height: 224px;
   }
 
   > div {

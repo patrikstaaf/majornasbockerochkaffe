@@ -15,17 +15,7 @@ const theme: DefaultTheme = {
   },
   fontFamily: {
     calibri: 'Calibri',
-    // sitka: 'Sitka',
-  },
-  fontSize: {
-    desktop: {
-      size: {
-        h1: '40px',
-        h2: '42px',
-        body: '24px',
-        link: '24px',
-      },
-    },
+    sourceSerifPro: 'SourceSerifPro',
   },
   fontColor: {
     coffee: '#1E1F22',
