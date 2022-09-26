@@ -7,7 +7,9 @@ import sanityClient from '../lib/sanity/client'
 import { StartPageSanityData } from '../lib/sanity/types'
 import { startPageQuery } from '../lib/sanity/queries'
 import { H1, H2, Text, LinkText } from '../components/Text'
+import HomePageCalendar from '../components/Calendar/HomePageCalendar'
 import theme from '../lib/styles/theme'
+
 
 interface Props {
   data: StartPageSanityData
@@ -503,8 +505,10 @@ const Home: NextPage<Props> = ({ data }) => {
           </TextBox>
           <Button Color>Bokning och frågor</Button>
         </AuthorReading>
-        <Calendar></Calendar>
       </AuthorContainer>
+      <Calendar>
+        <HomePageCalendar calendar={data.calendar} />
+      </Calendar>
       <BooktipsContainer>
         <Image></Image>
         <BookTips>

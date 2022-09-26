@@ -31,6 +31,11 @@ export default {
       type: 'string',
       description: 'Skriv tex: Författarkväll med (namn på författare)',
       hidden: ({ parent }) => parent?.event !== 'authorNight',
+      // validation: (Rule) => Rule.required(),
+      // validation: (Rule) =>
+      //   Rule.required().max(50).error('Håll det kort, max 50 tecken.'),
+      // validation: (Rule) =>
+      //   Rule.required().max(50).warning('Håll det kort, max 50 tecken.'),
     },
     // {
     //   title: 'Datum',
@@ -58,7 +63,7 @@ export default {
     },
     {
       title: 'Titel',
-      name: 'bookClubtTitle',
+      name: 'bookClubTitle',
       type: 'string',
       description: 'Skriv tex: Pocketbokcirkel',
       hidden: ({ parent }) => parent?.event !== 'bookClub',
@@ -119,8 +124,14 @@ export default {
       title: 'Titel',
       name: 'miscEventTitle',
       type: 'string',
-      description: 'Skriv tex: "Releasefest" eller "Ändrade öppettider" etc.',
+      description:
+        'Skriv tex: "Releasefest" eller "Ändrade öppettider" etc. MAX 20 tecken.',
       hidden: ({ parent }) => parent?.event !== 'misc',
+      // validation: (Rule) =>
+      //   Rule.required().max(20).warning('Håll det kort, max 20 tecken.'),
+      // validation: (Rule) => Rule.required(),
+      // validation: (Rule) =>
+      //   Rule.required().max(20).error('Håll det kort, max 20 tecken.'),
     },
     // {
     //   title: 'Datum',

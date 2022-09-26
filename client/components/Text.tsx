@@ -97,7 +97,7 @@ export const ButtonText = styled(Text)`
 export const LinkText = styled.a<textColor>`
   font-family: ${({ theme }) => theme.fontFamily.sourceSerifPro};
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 20px;
   line-height: 25px;
   color: ${(props) =>
