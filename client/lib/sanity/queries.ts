@@ -40,7 +40,7 @@ descriptionHostingAuthorNights,
     "generalImageAuthorNights": generalImageAuthorNights.asset->url,
 "generalImageAuthorNightsAlt": generalImageAuthorNights.alt,
 },
-"calendar": *[_type == "calendar"] | order(calendarDate){
+"calendar": *[_type == "calendar"] | order(calendarDate asc)[0..4]{
 ...
 },
 }`
