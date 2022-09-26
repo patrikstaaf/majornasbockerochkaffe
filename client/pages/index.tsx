@@ -15,7 +15,7 @@ const Home: NextPage<Props> = ({ data }) => {
       title="Majornas Böcker och Kaffe"
       description="Välkommen till startsidan för Majornas Böcker och Kaffe"
     >
-      <h1>{data.companyInfo.address}</h1>
+      {/* <h1>{data.companyInfo.address}</h1> */}
       <BetweenSections color={'#B17B54'} />
       <BetweenSections color={'#B17B54'} />
     </Layout>
@@ -29,7 +29,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   return {
     props: {
-      data,
+      sanity: data,
     },
     revalidate: 10, // add webhook later on
   }
