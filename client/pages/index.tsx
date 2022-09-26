@@ -7,7 +7,7 @@ import sanityClient from '../lib/sanity/client'
 import { StartPageSanityData } from '../lib/sanity/types'
 import { startPageQuery } from '../lib/sanity/queries'
 import { H1, H2, Text, LinkText } from '../components/Text'
-import SingleEvent from '../components/Calendar/SingleEvent/SingleEvent'
+import HomePageCalendar from '../components/Calendar/HomePageCalendar'
 
 interface Props {
   data: StartPageSanityData
@@ -177,8 +177,6 @@ const BookTips = styled.div`
 `
 
 const Home: NextPage<Props> = ({ data }) => {
-  console.log(data.calendar)
-
   return (
     <Layout
       title="Majornas Böcker och Kaffe"
@@ -258,7 +256,7 @@ const Home: NextPage<Props> = ({ data }) => {
         </AuthorReading>
       </AuthorContainer>
       <Calendar>
-        <SingleEvent calendar={data.calendar} />
+        <HomePageCalendar calendar={data.calendar} />
       </Calendar>
       <BooktipsContainer>
         <Image></Image>

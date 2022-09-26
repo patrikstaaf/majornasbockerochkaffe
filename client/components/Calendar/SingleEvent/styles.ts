@@ -37,6 +37,7 @@ export const EventDate = styled.div<Props>`
   border-style: solid;
   border-width: 13px;
   padding: 6px 12px 6px 12px;
+  width: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
