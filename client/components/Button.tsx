@@ -23,7 +23,7 @@ const StyledButton = styled.button<StyledProps>`
   font-size: 21px;
   background-color: rgba(0, 0, 0, 0);
   color: ${(props) => (props.Color ? '#1e1f22' : '#fbf6ef')};
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     height: 57px;
   }
 `

@@ -94,7 +94,7 @@ export const ButtonText = styled(Text)`
   }
 `
 
-export const LinkText = styled.p<textColor>`
+export const LinkText = styled.a<textColor>`
   font-family: ${({ theme }) => theme.fontFamily.sourceSerifPro};
   font-style: normal;
   font-weight: 700;
@@ -102,6 +102,11 @@ export const LinkText = styled.p<textColor>`
   line-height: 25px;
   color: ${(props) =>
     props.Color ? props.theme.fontColor.coffee : props.theme.fontColor.paper};
+  text-decoration: underline;
+  &:hover,
+  :focus {
+    font-style: italic;
+  }
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {

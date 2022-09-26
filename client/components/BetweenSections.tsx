@@ -15,12 +15,12 @@ const StripesContaier = styled.div<Props>`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 34px;
-  @media screen and (min-width: 834px) {
+  @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     grid-template-columns: repeat(12, 1fr);
     height: 140px;
     border: 3px solid #1e1f22;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     grid-template-columns: repeat(20, 1fr);
     height: 224px;
   }
@@ -35,20 +35,20 @@ const Stripes = styled.div<Props>`
 
 const StripesTablet = styled.div<Props>`
   display: none;
-  @media screen and (min-width: 834px) {
+  @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     display: block;
     background-color: #739598;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
   }
 `
 
 const StripesDesktop = styled.div<Props>`
   display: none;
-  @media screen and (min-width: 834px) {
+  @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     display: none;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     display: block;
     background-color: #739598;
   }
