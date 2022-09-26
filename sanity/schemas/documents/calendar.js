@@ -58,7 +58,7 @@ export default {
     },
     {
       title: 'Titel',
-      name: 'bookClubtTitle',
+      name: 'bookClubTitle',
       type: 'string',
       description: 'Skriv tex: Pocketbokcirkel',
       hidden: ({ parent }) => parent?.event !== 'bookClub',

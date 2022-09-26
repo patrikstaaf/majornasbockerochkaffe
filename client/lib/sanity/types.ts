@@ -6,17 +6,17 @@ interface SanityDocument {
   _updatedAt: string
 }
 
-interface Calendar extends SanityDocument {
+export interface Calendar extends SanityDocument {
   authorEventTime?: string
-  authorEventTitle?: string
+  authorEventTitle: string
   authorNightDescription?: string
   bookClubTime?: string
-  bookClubTitle?: string
+  bookClubTitle: string
   bookClubDescription?: string
-  bookNightTitle?: string
+  bookNightTitle: string
   bookNightTime?: string
   bookNightDescription?: string
-  miscEventTitle?: string
+  miscEventTitle: string
   miscEventTime?: string
   miscEventDescription?: string
   calendarDate: string

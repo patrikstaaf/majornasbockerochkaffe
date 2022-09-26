@@ -1,4 +1,6 @@
-export interface FrontPageCalendarTypes {
+import { GeneralTypes } from '../generaltypes'
+
+export interface HomePageCalendar extends GeneralTypes {
   authorEventTime?: string
   authorEventTitle?: string
   authorNightDescription?: string

@@ -1,4 +1,4 @@
-import { GeneralTypes } from '../../generaltype'
+import { GeneralTypes } from '../../generaltypes'
 
 export interface BookCircleProps extends GeneralTypes {
   bookClubTime?: string
