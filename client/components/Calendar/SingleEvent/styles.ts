@@ -11,7 +11,8 @@ export const HomePageCalendarSection = styled.section`
   border-style: solid;
   display: flex;
   flex-direction: column;
-  padding: 56px 20px 32px 20px;
+  padding: 0px 20px 0px 20px;
+  height: 100%;
 `
 
 export const HomePageCalendarWrapper = styled.div`
@@ -92,8 +93,12 @@ export const LinkWrapper = styled.div`
   font-size: 20px;
   line-height: 25px;
   color: ${({ theme }) => theme.fontColor.coffee};
+  display: flex;
+  align-items: end;
+  height: 100%;
+  margin-bottom: 20px;
   text-decoration: underline;
-  &:hover,
+  /* &:hover, */
   :focus {
     font-style: italic;
   }
