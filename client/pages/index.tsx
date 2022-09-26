@@ -19,6 +19,7 @@ const HeroContainer = styled.div`
     grid-template-columns: 53fr 31fr;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    grid-template-columns: repeat(2, 1fr);
   }
 `
 
@@ -34,7 +35,7 @@ const Hero = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
   }
 `
-const Illustration = styled.div`
+const IllustrationContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.paper};
   border-width: 0px 2px;
   border-style: solid;
@@ -45,17 +46,25 @@ const Illustration = styled.div`
     padding: 110px 16px 32px 0px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    padding: 110px 0px 32px 135px;
   }
 `
-
+const IllustrationImage = styled.img`
+  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    width: 500px;
+  }
+`
 const Container = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     display: grid;
     grid-template-columns: 30fr 29fr 24fr;
-    grid-template-rows: 30fr 10fr 5fr 45fr;
+    grid-template-rows: 25fr 10fr 5fr 45fr;
     aspect-ratio: 4/3;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    grid-template-columns: 54fr 53fr 44fr;
+    grid-template-rows: 25fr 10fr 5fr 20fr;
+    aspect-ratio: 4/3;
   }
 `
 const Image = styled.div`
@@ -70,7 +79,6 @@ const Image = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
   }
 `
-
 const ImageOne = styled.div`
   background-color: lightcoral;
   border-width: 2px 2px 0px 2px;
@@ -94,18 +102,6 @@ const ImageTwo = styled(ImageOne)`
 const ImageThree = styled(ImageOne)`
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     grid-column: 3/4;
-    grid-row: 1/2;
-  }
-  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
-  }
-`
-const ImageAuthor = styled.div`
-  background-color: lightcoral;
-  border-width: 0px 2px;
-  border-style: solid;
-  border-color: ${({ theme }) => theme.colors.coffee};
-  @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
-    grid-column: 1/2;
     grid-row: 1/2;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
@@ -172,7 +168,6 @@ const InstagramTextContainer = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
   }
 `
-
 const InstagramImageContainer = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     display: flex;
@@ -182,6 +177,7 @@ const InstagramImageContainer = styled.div`
     grid-row: 1;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    gap: 20px;
   }
 `
 const InstagramImageOne = styled.div`
@@ -191,8 +187,12 @@ const InstagramImageOne = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     height: 178px;
     width: 178px;
+    margin: 0px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    width: 260px;
+    height: 217px;
+    margin: 32px 0px 0px 0px;
   }
 `
 const InstagramImageTwo = styled(InstagramImageOne)`
@@ -216,6 +216,10 @@ const OfferContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
+  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    grid-template-columns: 36fr 49fr 66fr;
+    grid-template-rows: 30fr 23fr;
+  }
 `
 const OfferImageOne = styled.div`
   background-color: lightcoral;
@@ -227,6 +231,8 @@ const OfferImageOne = styled.div`
     grid-row: 1;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    grid-column: 2/3;
+    grid-row: 1/3;
   }
 `
 const OfferImageTwo = styled(OfferImageOne)`
@@ -234,9 +240,11 @@ const OfferImageTwo = styled(OfferImageOne)`
     display: none;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    display: block;
+    grid-column: 3/4;
+    grid-row: 1/3;
   }
 `
-
 const Offer = styled.div`
   background-color: ${({ theme }) => theme.colors.crust};
   border-width: 0px 2px 2px 2px;
@@ -248,6 +256,8 @@ const Offer = styled.div`
     grid-row: 1;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    grid-column: 1/2;
+    grid-row: 1/3;
   }
 `
 const Price = styled.p`
@@ -259,19 +269,19 @@ const Price = styled.p`
   line-height: 60px;
   margin: 0;
 `
-
 const OfferText = styled(Offer)`
   background-color: ${({ theme }) => theme.colors.paper};
-  padding: 25px 20px 0px 20px;
+  padding: 25px 20px 32px 20px;
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     grid-column: 3/4;
     grid-row: 1;
     border-width: 0px 3px 1px 1px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    grid-column: 3/4;
+    grid-row: 2/3;
   }
 `
-
 const AuthorContainer = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     display: grid;
@@ -279,6 +289,8 @@ const AuthorContainer = styled.div`
     grid-template-rows: 372px 406px 304px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    grid-template-columns: 36fr 62fr 53fr;
+    grid-template-rows: 41fr 40fr;
   }
 `
 const AuthorWith = styled.div`
@@ -289,6 +301,18 @@ const AuthorWith = styled.div`
     grid-row: 2/3;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+`
+const ImageAuthor = styled.div`
+  background-color: lightcoral;
+  border-width: 0px 2px;
+  border-style: solid;
+  border-color: ${({ theme }) => theme.colors.coffee};
+  @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
+    grid-column: 1/2;
+    grid-row: 1/2;
   }
 `
 const AuthorReading = styled.div`
@@ -300,6 +324,8 @@ const AuthorReading = styled.div`
     grid-row: 3/4;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    grid-column: 1/3;
+    grid-row: 2/3;
   }
 `
 const Calendar = styled.div`
@@ -311,6 +337,9 @@ const Calendar = styled.div`
     height: 100%;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    grid-column: 3/4;
+    grid-row: 1/3;
+    height: 100%;
   }
 `
 const BooktipsContainer = styled.div`
@@ -319,6 +348,7 @@ const BooktipsContainer = styled.div`
     grid-template-columns: 33fr 50fr;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    grid-template-columns: 48fr 100fr;
   }
 `
 
@@ -328,7 +358,12 @@ const BookTips = styled.div`
   border-width: 0px 2px;
   border-style: solid;
   border-color: #1e1f22;
+  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    display: flex;
+    flex-direction: row;
+  }
 `
+const BooktipsTextContainer = styled.div``
 const ContainerBookTipsText = styled.div`
   display: flex;
   flex-direction: column;
@@ -355,6 +390,10 @@ const ButtonBox = styled.div`
 const TextBox = styled(Text)`
   margin: 0px 0px 40px 0px;
 `
+const IllustrationBookContainer = styled.div``
+const IllustrationBookImage = styled.img`
+  width: 380px;
+`
 const Home: NextPage<Props> = ({ data }) => {
   return (
     <Layout
@@ -375,12 +414,12 @@ const Home: NextPage<Props> = ({ data }) => {
             </ButtonLink>
           </ButtonBox>
         </Hero>
-        <Illustration>
-          <img
+        <IllustrationContainer>
+          <IllustrationImage
             src="/assets/illustration/bookAndCoffe.svg/"
             alt="En kaffekopp och en hög med böcker."
           />
-        </Illustration>
+        </IllustrationContainer>
       </HeroContainer>
       <Container>
         <ImageOne></ImageOne>
@@ -469,31 +508,39 @@ const Home: NextPage<Props> = ({ data }) => {
       <BooktipsContainer>
         <Image></Image>
         <BookTips>
-          <H2 Color>Evas boktips!</H2>
-          <ContainerBookTipsText>
-            <BoxBookTipsText>
-              <HeadingBookTips Color>Title: </HeadingBookTips>
-              <TextBookTips Color>Hämta data</TextBookTips>
-            </BoxBookTipsText>
-            <BoxBookTipsText>
-              <HeadingBookTips Color>Författare: </HeadingBookTips>
-              <TextBookTips Color>Hämta data</TextBookTips>
-            </BoxBookTipsText>
-            <BoxBookTipsText>
-              <HeadingBookTips Color>Utgivningsår: </HeadingBookTips>
-              <TextBookTips Color>Hämta data</TextBookTips>
-            </BoxBookTipsText>
-            <BoxBookTipsText>
-              <HeadingBookTips Color>Gener: </HeadingBookTips>
-              <TextBookTips Color>Hämta data</TextBookTips>
-            </BoxBookTipsText>
-          </ContainerBookTipsText>
-          <Text Color>
-            ”Kärlek på svenska” är ett dokumentärt verk där olika röster bildar
-            en lyrisk helhet. I boken berättar en rad människor i olika åldrar
-            och med olika bakgrunder om kärleken i sina liv. Perfekt bok framför
-            brasan. Perfekt bok framför brasan.
-          </Text>
+          <BooktipsTextContainer>
+            <H2 Color>Evas boktips!</H2>
+            <ContainerBookTipsText>
+              <BoxBookTipsText>
+                <HeadingBookTips Color>Title: </HeadingBookTips>
+                <TextBookTips Color>Hämta data</TextBookTips>
+              </BoxBookTipsText>
+              <BoxBookTipsText>
+                <HeadingBookTips Color>Författare: </HeadingBookTips>
+                <TextBookTips Color>Hämta data</TextBookTips>
+              </BoxBookTipsText>
+              <BoxBookTipsText>
+                <HeadingBookTips Color>Utgivningsår: </HeadingBookTips>
+                <TextBookTips Color>Hämta data</TextBookTips>
+              </BoxBookTipsText>
+              <BoxBookTipsText>
+                <HeadingBookTips Color>Gener: </HeadingBookTips>
+                <TextBookTips Color>Hämta data</TextBookTips>
+              </BoxBookTipsText>
+            </ContainerBookTipsText>
+            <Text Color>
+              ”Kärlek på svenska” är ett dokumentärt verk där olika röster
+              bildar en lyrisk helhet. I boken berättar en rad människor i olika
+              åldrar och med olika bakgrunder om kärleken i sina liv. Perfekt
+              bok framför brasan. Perfekt bok framför brasan.
+            </Text>
+          </BooktipsTextContainer>
+          <IllustrationBookContainer>
+            <IllustrationBookImage
+              src="/assets/illustration/book.svg/"
+              alt="En stående bok. Lite öppnad med grön pärm och texten veckans bok på."
+            />
+          </IllustrationBookContainer>
         </BookTips>
       </BooktipsContainer>
       <BetweenSections color={theme.colors.cream} />
