@@ -18,7 +18,7 @@ export const getStaticProps = async () => {
   }
 }
 
-interface InstaImage {
+interface OneImage {
   id: number
   media_url: string
   caption: string
@@ -42,14 +42,14 @@ const Container = styled.div`
   }
 `
 
-export default function Gallery({ images }: { images: Array<object> }) {
+export default function Gallery({ images }: { images: Array<OneImage> }) {
   console.log(images)
   return (
     <Container>
       <div>
         <div>
           {images &&
-            images.map(image) => {
+            images.map((image) => {
               return (
                 <div key={image.id}>
                   <Image
