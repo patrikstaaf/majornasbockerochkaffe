@@ -9,8 +9,14 @@ const Author = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows:
+      500px
+      380px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    grid-template-rows:
+      50%
+      50%;
   }
 `
 const TextContainer = styled.div`
@@ -31,13 +37,11 @@ const ImageContainer = styled.div`
   }
 `
 const Image = styled.div`
-  height: 336px;
   border-width: 2px 2px 0px 2px;
   border-style: solid;
   border-color: ${({ theme }) => theme.colors.coffee};
   background-color: pink;
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
-    height: 500px;
     border-width: 0px 0px 3px 3px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
@@ -104,6 +108,7 @@ const ContentContainer = styled.div`
   border-color: ${({ theme }) => theme.colors.coffee};
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     border-width: 0px 3px 3px 0px;
+    padding: 8px 24px 32px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     height: 624px;
@@ -176,9 +181,10 @@ const BookCirkleContainer = styled.div`
 const Book = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 38fr 45fr;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    grid-template-columns: repeat(2, 1fr);
   }
 `
 const BookEvening = styled.div`
@@ -199,8 +205,18 @@ const BookEvening = styled.div`
 const ButtonLink = styled.a`
   text-decoration: none;
 `
+const ButtonBox = styled.div`
+  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    margin: 0px 0px 32px 0px;
+  }
+`
 const TextBox = styled(Text)`
   margin: 0px 0px 40px 0px;
+  @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
+    margin: 0px 0px 30px 0px;
+  }
+  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+  }
 `
 const Evenemang: NextPage = () => {
   return (
@@ -229,9 +245,11 @@ const Evenemang: NextPage = () => {
               mobilnummer.
             </Text>
           </TextContainer>
-          <ButtonLink href="mailto:info@majornasbocker.se?subject=Föranmälan till författarkväll">
-            <Button>Föranmäl dig här</Button>
-          </ButtonLink>
+          <ButtonBox>
+            <ButtonLink href="mailto:info@majornasbocker.se?subject=Föranmälan till författarkväll">
+              <Button>Föranmäl dig här</Button>
+            </ButtonLink>
+          </ButtonBox>
         </ContentContainer>
         <ImageContainer>
           <ImageOne></ImageOne>
@@ -248,9 +266,11 @@ const Evenemang: NextPage = () => {
             från yrkeslivet och försäljning &amp; signering. Skicka ett mail och
             berätta om dig själv för mer information och bokning.
           </TextBox>
-          <ButtonLink href="mailto:info@majornasbocker.se?subject=Jag vill hålla författarkväll hos dig">
-            <Button Color>Bokning &amp; frågor</Button>
-          </ButtonLink>
+          <ButtonBox>
+            <ButtonLink href="mailto:info@majornasbocker.se?subject=Jag vill hålla författarkväll hos dig">
+              <Button Color>Bokning &amp; frågor</Button>
+            </ButtonLink>
+          </ButtonBox>
         </AuthorEveningContainer>
       </Author>
       <BetweenSections color={'#739598'} />
