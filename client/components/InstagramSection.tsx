@@ -13,9 +13,15 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      feed,
+      images: feed.data,
     },
   }
+}
+
+interface InstaImage {
+  id: number
+  media_url: string
+  caption: string
 }
 
 const Container = styled.div`
@@ -36,19 +42,17 @@ const Container = styled.div`
   }
 `
 
-export default function Gallery({ feed }) {
-  const images = feed.data
+export default function Gallery({ images }: { images: Array<object> }) {
   console.log(images)
   return (
     <Container>
       <div>
         <div>
           {images &&
-            images.map((image) => {
+            images.map(image) => {
               return (
                 <div key={image.id}>
                   <Image
-                    className="object-cover aspect-square"
                     src={image.media_url}
                     alt={image.caption}
                     width={500}
