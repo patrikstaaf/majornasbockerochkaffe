@@ -5,7 +5,7 @@ export default {
   fields: [
     {
       title: 'Kort om författarkvällar',
-      name: 'shortGeneralDescriptionAboutTheStore',
+      name: 'shortGeneralDescriptionAboutTheEvents',
       type: 'text',
       rows: 5,
       description:

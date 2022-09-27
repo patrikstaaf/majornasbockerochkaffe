@@ -11,6 +11,7 @@ declare module 'styled-components' {
       paper: string
     }
     device: {
+      mini: string
       tablet: string
       desktop: string
     }

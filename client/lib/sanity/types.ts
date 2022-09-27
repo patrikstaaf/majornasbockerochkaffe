@@ -137,7 +137,6 @@ export interface StartPageSanityData {
 
 export interface EventPageSanityData {
   companyInfo: CompanyInfo
-  aboutTheStore: AboutTheStore
   aboutTheEvents: AboutTheEvents
   calendar: Calendar[]
 }

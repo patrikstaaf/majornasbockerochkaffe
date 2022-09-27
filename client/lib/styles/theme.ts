@@ -10,6 +10,7 @@ const theme: DefaultTheme = {
     paper: '#FBF6EF',
   },
   device: {
+    mini: '340px',
     tablet: '834px',
     desktop: '1440px',
   },
