@@ -3,8 +3,9 @@ import { Text, H1 } from './Text'
 
 const Nav = styled.nav`
   width: 100%;
+  height: 15vh;
   margin: 0 auto;
-  padding: 20px;
+  /* padding: 20px; */
   background-color: #333;
 `
 

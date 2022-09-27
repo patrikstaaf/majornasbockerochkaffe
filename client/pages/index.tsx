@@ -184,7 +184,7 @@ const InstagramImageContainer = styled.div`
   }
 `
 const InstagramImageOne = styled.div`
-  height: 320px;
+  position: relative;
   margin: 32px 0px 0px 0px;
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     height: 178px;
@@ -213,6 +213,7 @@ const InstagramImageThree = styled(InstagramImageOne)`
     display: block;
   }
 `
+
 const OfferContainer = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     display: grid;
@@ -470,28 +471,46 @@ const Home: NextPage<Props> = ({ data, images }) => {
         </InstagramTextContainer>
         <InstagramImageContainer>
           <InstagramImageOne>
-            <NextImage
-              src={images[0].media_url}
-              alt={images[0].caption}
-              height={500}
-              width={500}
-            />
+            <>
+              <a href={images[0].permalink} target="_blank" rel="noreferrer">
+                <NextImage
+                  src={images[0].media_url}
+                  alt={images[0].caption}
+                  width="100%"
+                  height="100%"
+                  layout="responsive"
+                  objectFit="cover"
+                />
+              </a>
+            </>
           </InstagramImageOne>
           <InstagramImageTwo>
-            <NextImage
-              src={images[1].media_url}
-              alt={images[1].caption}
-              height={500}
-              width={500}
-            />
+            <>
+              <a href={images[1].permalink} target="_blank" rel="noreferrer">
+                <NextImage
+                  src={images[1].media_url}
+                  alt={images[1].caption}
+                  width="100%"
+                  height="100%"
+                  layout="responsive"
+                  objectFit="cover"
+                />
+              </a>
+            </>
           </InstagramImageTwo>
           <InstagramImageThree>
-            <NextImage
-              src={images[2].media_url}
-              alt={images[2].caption}
-              height={500}
-              width={500}
-            />
+            <>
+              <a href={images[2].permalink} target="_blank" rel="noreferrer">
+                <NextImage
+                  src={images[2].media_url}
+                  alt={images[2].caption}
+                  width="100%"
+                  height="100%"
+                  layout="responsive"
+                  objectFit="cover"
+                />
+              </a>
+            </>
           </InstagramImageThree>
         </InstagramImageContainer>
       </InstagramContainer>
@@ -584,7 +603,7 @@ export default Home
 
 export const getStaticProps: GetStaticProps = async () => {
   const data = await sanityClient.fetch(startPageQuery)
-  const url = `https://graph.instagram.com/me/media?fields=id,username,media_url,caption&access_token=${process.env.INSTAGRAM_KEY}`
+  const url = `https://graph.instagram.com/me/media?fields=id,username,media_url,caption,permalink&access_token=${process.env.INSTAGRAM_KEY}`
   const instagramData = await fetch(url)
   const feed = await instagramData.json()
   const images = feed.data

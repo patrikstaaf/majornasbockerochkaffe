@@ -130,6 +130,7 @@ export interface Images {
   caption: string
   media_url: string
   id: number
+  permalink: string
 }
 
 export interface StartPageSanityData {
