@@ -7,8 +7,31 @@ export function firstWord(text: string) {
   return text.slice(0, firstBlank)
 }
 
+export function getStartTime(time: string) {
+  const startTime = time.split('-')
+  console.log(startTime)
+
+  if (!startTime) return time
+
+  return startTime[0]
+}
+
+export function getEndTime(time: string) {
+  const endTime = time.split('-')
+
+  if (!endTime) return
+
+  return endTime[1]
+}
+
+export function getIntroString(description: string) {
+  const getIntro = description.slice(0, 18)
+  return `${getIntro}...`
+}
+
 export function getDate(date: string) {
-  return date.slice(8)
+  const fullDate = date.slice(0, 10)
+  return fullDate.slice(8)
 }
 
 export function getMonthInShortText(date: string) {

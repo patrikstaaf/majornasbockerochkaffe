@@ -23,13 +23,33 @@ export default {
     {
       title: 'Datum',
       name: 'calendarDate',
-      type: 'date',
+      type: 'datetime',
+      options: {
+        dateFormat: 'YYYY-MM-DD',
+        timeFormat: '',
+      },
+      description: 'Ange datum och starttid.',
     },
+    {
+      title: 'Klockslag',
+      name: 'eventTime',
+      type: 'string',
+      description:
+        'Ange starttid och sluttid i följande format: 17:00-19:30. Om eventet inte har något tidsintervall kan du tex skriva "stängt" vid ledighet eller dylikt.',
+    },
+    // {
+    //   title: 'Klockslag',
+    //   name: 'authorEventTime',
+    //   type: 'string',
+    //   description: 'Ange starttid och sluttid i följande format: 17:00-19:30',
+    //   hidden: ({ parent }) => parent?.event !== 'authorNight',
+    // },
     {
       title: 'Titel',
       name: 'authorEventTitle',
       type: 'string',
-      description: 'Skriv tex: Författarkväll med (namn på författare)',
+      description:
+        'Ange titel i följande format: Författarkväll med (namn på författare). Till exempel: Författarkväll med Marit Kapla',
       hidden: ({ parent }) => parent?.event !== 'authorNight',
       // validation: (Rule) => Rule.required(),
       // validation: (Rule) =>
@@ -46,13 +66,6 @@ export default {
     // },
 
     {
-      title: 'Klockslag',
-      name: 'authorEventTime',
-      type: 'string',
-      description: 'Skriv tex: 17:00-19:30',
-      hidden: ({ parent }) => parent?.event !== 'authorNight',
-    },
-    {
       title: 'Kort beskrivning',
       name: 'authorNightDescription',
       type: 'text',
@@ -65,7 +78,7 @@ export default {
       title: 'Titel',
       name: 'bookClubTitle',
       type: 'string',
-      description: 'Skriv tex: Pocketbokcirkel',
+      description: 'Ange typ av event som titel: Bokcirkel',
       hidden: ({ parent }) => parent?.event !== 'bookClub',
     },
     // {
@@ -75,13 +88,13 @@ export default {
     //   description: 'Skriv datum + förkortning av månad, tex: 20 okt, 11 apr',
     //   hidden: ({ parent }) => parent?.event !== 'bookClub',
     // },
-    {
-      title: 'Klockslag',
-      name: 'bookClubTime',
-      type: 'string',
-      description: 'Skriv tex: 17:00-19:30',
-      hidden: ({ parent }) => parent?.event !== 'bookClub',
-    },
+    // {
+    //   title: 'Klockslag',
+    //   name: 'bookClubTime',
+    //   type: 'string',
+    //   description: 'Skriv tex: 17:00-19:30',
+    //   hidden: ({ parent }) => parent?.event !== 'bookClub',
+    // },
     {
       title: 'Kort beskrivning',
       name: 'bookClubDescription',
@@ -95,7 +108,7 @@ export default {
       title: 'Titel',
       name: 'bookNightTitle',
       type: 'string',
-      description: 'Skriv tex: Snart är det jul',
+      description: 'Ange typ av event som titel: Bokhandelskväll',
       hidden: ({ parent }) => parent?.event !== 'bookNight',
     },
     // {
@@ -105,13 +118,13 @@ export default {
     //   description: 'Skriv datum + förkortning av månad, tex: 20 okt, 11 apr',
     //   hidden: ({ parent }) => parent?.event !== 'bookNight',
     // },
-    {
-      title: 'Klockslag',
-      name: 'bookNightTime',
-      type: 'string',
-      description: 'Skriv tex: 17:00-19:30',
-      hidden: ({ parent }) => parent?.event !== 'bookNight',
-    },
+    // {
+    //   title: 'Klockslag',
+    //   name: 'bookNightTime',
+    //   type: 'string',
+    //   description: 'Skriv tex: 17:00-19:30',
+    //   hidden: ({ parent }) => parent?.event !== 'bookNight',
+    // },
     {
       title: 'Kort beskrivning',
       name: 'bookNightDescription',
@@ -140,13 +153,13 @@ export default {
     //   description: 'Skriv datum + förkortning av månad, tex: 20 okt, 11 apr',
     //   hidden: ({ parent }) => parent?.event !== 'misc',
     // },
-    {
-      title: 'Klockslag',
-      name: 'miscEventTime',
-      type: 'string',
-      description: 'Skriv tex: 17:00-19:30, eller "stängt" om det är semester.',
-      hidden: ({ parent }) => parent?.event !== 'misc',
-    },
+    // {
+    //   title: 'Klockslag',
+    //   name: 'miscEventTime',
+    //   type: 'string',
+    //   description: 'Skriv tex: 17:00-19:30, eller "stängt" om det är semester.',
+    //   hidden: ({ parent }) => parent?.event !== 'misc',
+    // },
     {
       title: 'Kort beskrivning',
       name: 'miscEventDescription',
