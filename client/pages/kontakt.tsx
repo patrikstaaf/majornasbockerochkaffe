@@ -15,7 +15,6 @@ const ContactSection = styled.section`
     grid-template-columns: 40% 60%;
   }
 `
-
 const MapSection = styled.section`
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -31,12 +30,10 @@ const MapSection = styled.section`
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
   }
 `
-
 const ContactContainer = styled.div`
   display: flex;
   flex-direction: column;
 `
-
 const MapContainer = styled.div`
   height: 353px;
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
@@ -96,7 +93,7 @@ const HeadingFindUs = styled.div`
   }
 `
 const Content = styled.div`
-  padding: 0px 0px 0px 24px;
+  padding: 0px 0px 32px 24px;
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     padding: 0 0 0 32px;
   }
@@ -145,7 +142,6 @@ const DescriptionContainer = styled.div`
   padding: 0px 0px 56px 0px;
 `
 const Contact = styled.div`
-  height: 331px;
   background-color: ${({ theme }) => theme.colors.paper};
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -154,7 +150,6 @@ const Contact = styled.div`
   border-style: solid;
   border-color: ${({ theme }) => theme.colors.coffee};
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
-    height: 263px;
     border-width: 0px 3px 0px 3px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
@@ -167,8 +162,8 @@ const ContentOpeninghours = styled(Content)`
 `
 
 const Image = styled.div`
-  background-color: pink;
   height: 347px;
+  background-color: pink;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -177,16 +172,18 @@ const Image = styled.div`
   border-color: ${({ theme }) => theme.colors.coffee};
   border-bottom: none;
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
-    height: 438px;
     border-width: 0px 3px 3px 0px;
-  }
-  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
-    height: 619px;
+    height: 100%;
   }
 `
 const SocialMediaContainer = styled.div`
   display: flex;
   gap: 38px;
+  @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
+    padding-bottom: 32px;
+  }
+  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+  }
 `
 
 const SocialMediaLink = styled.div`
