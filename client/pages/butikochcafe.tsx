@@ -128,7 +128,7 @@ const AboutChildrenContainer = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 377px;
+    grid-template-rows: repeat(1, 1fr);
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     grid-template-columns: repeat(4, 1fr);
@@ -143,13 +143,13 @@ const AboutChildrenImageLarge = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     grid-column: 1;
     grid-row: 1;
-    border-width: 1px 0 2px 3px;
-    height: 100%;
+    border-width: 1px 0 1px 3px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     grid-column: 1/3;
     grid-row: 1/3;
     border-width: 1px 0px 0px 3px;
+    height: 100%;
   }
 `
 const AboutChildrenImageSmallContainer = styled.div`
