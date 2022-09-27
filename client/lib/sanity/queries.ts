@@ -40,7 +40,35 @@ descriptionHostingAuthorNights,
     "generalImageAuthorNights": generalImageAuthorNights.asset->url,
 "generalImageAuthorNightsAlt": generalImageAuthorNights.alt,
 },
-"calendar": *[_type == "calendar"] | order(calendarDate asc)[0..4]{
+"calendar": *[_type == "calendar" && dateTime(now()) < dateTime(calendarDate)] | order(calendarDate asc)[0..4]{
+...
+},
+}`
+
+export const eventPageQuery = `*[_type == "companyInfo"][0]{
+  "companyInfo": {
+  address,
+  email,
+  facebookUrl,
+  heroText,
+  instagramUrl,
+  openingHours,
+  phone
+  },
+"aboutTheEvents": *[_type == "aboutTheEvents"][0]{
+descriptionHostingAuthorNights,
+  descriptionAboutAttendingAuthorNights,
+  descriptionAboutAttendingBookClub,
+  descriptionAboutBookStoreNight,
+  imagesOfPreviousAuthorNights,
+  "generalImageAuthorBookClub": generalImageAuthorBookClub.asset->url,
+"generalImageAuthorBookClubAlt": generalImageAuthorBookClub.alt,
+    "generalImageAuthorNights": generalImageAuthorNights.asset->url,
+"generalImageAuthorNightsAlt": generalImageAuthorNights.alt,
+  "generalImageAuthorBookStoreNight": generalImageAuthorBookStoreNight.asset->url,
+    "generalImageAuthorBookStoreNight": generalImageAuthorBookStoreNight.alt,
+},
+"calendar": *[_type == "calendar" && dateTime(now()) < dateTime(calendarDate)] | order(calendarDate asc){
 ...
 },
 }`

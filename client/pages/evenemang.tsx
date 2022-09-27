@@ -6,8 +6,12 @@ import { H1, H2, Text, LinkText } from '../components/Text'
 import Layout from '../components/Layout'
 import EventPageCalendar from '../components/Calendar/EventPageCalendar/EventPageCalendar'
 import sanityClient from '../lib/sanity/client'
-import { StartPageSanityData } from '../lib/sanity/types'
-import { startPageQuery } from '../lib/sanity/queries'
+import { EventPageSanityData } from '../lib/sanity/types'
+import { eventPageQuery } from '../lib/sanity/queries'
+
+interface Props {
+  data: EventPageSanityData
+}
 
 const Author = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
@@ -225,7 +229,7 @@ const TextBox = styled(Text)`
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
   }
 `
-const Evenemang: NextPage = () => {
+const Evenemang: NextPage<Props> = ({ data }) => {
   return (
     <Layout
       title="Majornas Böcker och Kaffe"
@@ -314,7 +318,7 @@ const Evenemang: NextPage = () => {
         </BookEvening>
       </Book>
       <BetweenSections color={'#739598'} />
-      {/* <EventPageCalendar /> */}
+      <EventPageCalendar calendar={data.calendar} />
     </Layout>
   )
 }
@@ -322,7 +326,7 @@ const Evenemang: NextPage = () => {
 export default Evenemang
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const data = await sanityClient.fetch(startPageQuery)
+  const data = await sanityClient.fetch(eventPageQuery)
 
   return {
     props: {

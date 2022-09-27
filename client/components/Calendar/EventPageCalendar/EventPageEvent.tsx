@@ -16,7 +16,6 @@ import {
   EventDate,
   EventDateText,
   EventTitle,
-  NoEventText,
   LinkWrapper,
   EventDateBackground,
 } from '../SingleEvent/styles'
@@ -25,6 +24,8 @@ import {
   EventDescriptionContainer,
   EventDescriptionWrapper,
   EventDescriptionColor,
+  EventDescriptionText,
+  NoEventText,
 } from './styles'
 
 interface Props {
@@ -32,21 +33,53 @@ interface Props {
 }
 
 const EventPageEvent: NextPage<Props> = ({ calendar }) => {
+  //   const date = new Date()
+  //   let day = date.getDate()
+  //   let month = date.getMonth() + 1
+  //   let year = date.getFullYear()
+
+  //   let currentDate = `${year}-${month}-${day}`
+  //   console.log(currentDate)
+
+  function futureEventDateValidation(eventDate: string) {
+    const date = new Date()
+    let day = date.getDate()
+    let month = date.getMonth() + 1
+    let year = date.getFullYear()
+
+    let currentDate = `${year}-${month}-${day}`
+    console.log(currentDate)
+  }
+
   if (calendar.length === 0) {
     return (
       <HomePageCalendarSection>
         <SectionTitle>Kalendarium</SectionTitle>
         <EventDescriptionContainer>
           <EventDescriptionWrapper>
-            <EventDescriptionColor backgroundColor={theme.colors.hemingway}>
-              <Text Color>Författarkvällar</Text>
-            </EventDescriptionColor>
+            <EventDescriptionColor backgroundColor={theme.colors.hemingway} />
+            <EventDescriptionText>Författarkvällar</EventDescriptionText>
+          </EventDescriptionWrapper>
+          <EventDescriptionWrapper>
+            <EventDescriptionColor backgroundColor={theme.colors.picasso} />
+            <EventDescriptionText>Bokcirklar</EventDescriptionText>
+          </EventDescriptionWrapper>
+          <EventDescriptionWrapper>
+            <EventDescriptionColor backgroundColor={theme.colors.crust} />
+            <EventDescriptionText>Bokhandelskvällar</EventDescriptionText>
+          </EventDescriptionWrapper>
+          <EventDescriptionWrapper>
+            <EventDescriptionColor backgroundColor={theme.colors.cream} />
+            <EventDescriptionText>Övrigt</EventDescriptionText>
           </EventDescriptionWrapper>
         </EventDescriptionContainer>
         <NoEventText>Just nu har vi inga kommande evenemang.</NoEventText>
 
         <LinkWrapper>
-          <Link href="/evenemang">Se fullständigt kalendarium här</Link>
+          <Link href="/evenemang">
+            Följ oss på instagram för kontinuerlig uppdatering kring evenmang
+            och nyheter
+          </Link>
         </LinkWrapper>
       </HomePageCalendarSection>
     )
@@ -57,9 +90,20 @@ const EventPageEvent: NextPage<Props> = ({ calendar }) => {
       <SectionTitle>Kalendarium</SectionTitle>
       <EventDescriptionContainer>
         <EventDescriptionWrapper>
-          <EventDescriptionColor backgroundColor={theme.colors.hemingway}>
-            <Text Color>Författarkvällar</Text>
-          </EventDescriptionColor>
+          <EventDescriptionColor backgroundColor={theme.colors.hemingway} />
+          <EventDescriptionText>Författarkvällar</EventDescriptionText>
+        </EventDescriptionWrapper>
+        <EventDescriptionWrapper>
+          <EventDescriptionColor backgroundColor={theme.colors.picasso} />
+          <EventDescriptionText>Bokcirklar</EventDescriptionText>
+        </EventDescriptionWrapper>
+        <EventDescriptionWrapper>
+          <EventDescriptionColor backgroundColor={theme.colors.crust} />
+          <EventDescriptionText>Bokhandelskvällar</EventDescriptionText>
+        </EventDescriptionWrapper>
+        <EventDescriptionWrapper>
+          <EventDescriptionColor backgroundColor={theme.colors.cream} />
+          <EventDescriptionText>Övrigt</EventDescriptionText>
         </EventDescriptionWrapper>
       </EventDescriptionContainer>
       <HomePageCalendarWrapper>
@@ -138,7 +182,10 @@ const EventPageEvent: NextPage<Props> = ({ calendar }) => {
           ))}
       </HomePageCalendarWrapper>
       <LinkWrapper>
-        <Link href="/evenemang">Se fullständigt kalendarium här</Link>
+        <Link href="/evenemang">
+          Följ oss på instagram för kontinuerlig uppdatering kring evenmang och
+          nyheter
+        </Link>
       </LinkWrapper>
     </HomePageCalendarSection>
   )

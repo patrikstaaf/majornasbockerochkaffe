@@ -7,6 +7,8 @@ interface Props {
 }
 
 const EventPageCalendar: NextPage<Props> = ({ calendar }) => {
+  console.log(calendar)
+
   return <EventPageEvent calendar={calendar}></EventPageEvent>
 }
 
