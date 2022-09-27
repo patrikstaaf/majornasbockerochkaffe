@@ -4,14 +4,16 @@ import Button from '../components/Button'
 import Layout from '../components/Layout'
 import styled from 'styled-components'
 import sanityClient from '../lib/sanity/client'
-import { StartPageSanityData } from '../lib/sanity/types'
+import { StartPageSanityData, Images } from '../lib/sanity/types'
 import { startPageQuery } from '../lib/sanity/queries'
 import { H1, H2, Text, LinkText } from '../components/Text'
 import HomePageCalendar from '../components/Calendar/HomePageCalendar'
 import theme from '../lib/styles/theme'
+import NextImage from 'next/image'
 
 interface Props {
   data: StartPageSanityData
+  images: Array<Images>
 }
 
 const HeroContainer = styled.div`
@@ -189,8 +191,7 @@ const InstagramImageContainer = styled.div`
   }
 `
 const InstagramImageOne = styled.div`
-  background-color: lightgreen;
-  height: 320px;
+  position: relative;
   margin: 32px 0px 0px 0px;
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     height: 178px;
@@ -219,6 +220,7 @@ const InstagramImageThree = styled(InstagramImageOne)`
     display: block;
   }
 `
+
 const OfferContainer = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     display: grid;
@@ -421,7 +423,7 @@ const IllustrationBookImage = styled.img`
 const ButtonLink = styled.a`
   text-decoration: none;
 `
-const Home: NextPage<Props> = ({ data }) => {
+const Home: NextPage<Props> = ({ data, images }) => {
   return (
     <Layout
       title="Majornas Böcker och Kaffe"
@@ -491,12 +493,57 @@ const Home: NextPage<Props> = ({ data }) => {
             Besök bokhandelns instagram för de senaste nyheterna om vad som
             händer i butiken.
           </TextBox>
-          <LinkText Color>Följ @majornasbocker på Instagram</LinkText>
+          <LinkText Color>
+            Följ{' '}
+            <a href="https://instagram.com/majornasbocker" target="_blank">
+              @majornasbocker
+            </a>{' '}
+            på Instagram
+          </LinkText>
         </InstagramTextContainer>
         <InstagramImageContainer>
-          <InstagramImageOne></InstagramImageOne>
-          <InstagramImageTwo></InstagramImageTwo>
-          <InstagramImageThree></InstagramImageThree>
+          <InstagramImageOne>
+            <>
+              <a href={images[0].permalink} target="_blank" rel="noreferrer">
+                <NextImage
+                  src={images[0].media_url}
+                  alt={images[0].caption}
+                  width="100%"
+                  height="100%"
+                  layout="responsive"
+                  objectFit="cover"
+                />
+              </a>
+            </>
+          </InstagramImageOne>
+          <InstagramImageTwo>
+            <>
+              <a href={images[1].permalink} target="_blank" rel="noreferrer">
+                <NextImage
+                  src={images[1].media_url}
+                  alt={images[1].caption}
+                  width="100%"
+                  height="100%"
+                  layout="responsive"
+                  objectFit="cover"
+                />
+              </a>
+            </>
+          </InstagramImageTwo>
+          <InstagramImageThree>
+            <>
+              <a href={images[2].permalink} target="_blank" rel="noreferrer">
+                <NextImage
+                  src={images[2].media_url}
+                  alt={images[2].caption}
+                  width="100%"
+                  height="100%"
+                  layout="responsive"
+                  objectFit="cover"
+                />
+              </a>
+            </>
+          </InstagramImageThree>
         </InstagramImageContainer>
       </InstagramContainer>
       <BetweenSections color={theme.colors.cream} />
@@ -593,13 +640,26 @@ const Home: NextPage<Props> = ({ data }) => {
 
 export default Home
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async () => {
   const data = await sanityClient.fetch(startPageQuery)
+  const url = `https://graph.instagram.com/me/media?fields=id,username,media_url,caption,permalink&access_token=${process.env.INSTAGRAM_KEY}`
+  const instagramData = await fetch(url)
+  const feed = await instagramData.json()
+  const images = feed.data
+
+  console.log(images)
 
   return {
     props: {
       data,
+      images,
     },
     revalidate: 10, // add webhook later on
   }
 }
+
+// interface OneImage {
+//   id: number
+//   media_url: string
+//   caption: string
+// }
