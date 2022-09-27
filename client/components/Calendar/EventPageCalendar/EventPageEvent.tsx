@@ -19,13 +19,13 @@ import {
   NoEventText,
   LinkWrapper,
   EventDateBackground,
-} from './styles'
+} from '../SingleEvent/styles'
 
 interface Props {
   calendar: Calendar[]
 }
 
-const SingleEvent: NextPage<Props> = ({ calendar }) => {
+const EventPageEvent: NextPage<Props> = ({ calendar }) => {
   if (calendar.length === 0) {
     return (
       <HomePageCalendarSection>
@@ -123,4 +123,4 @@ const SingleEvent: NextPage<Props> = ({ calendar }) => {
   )
 }
 
-export default SingleEvent
+export default EventPageEvent
