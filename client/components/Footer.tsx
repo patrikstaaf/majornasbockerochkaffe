@@ -3,7 +3,6 @@ import { H4, H3 } from './Text'
 
 const Container = styled.footer`
   background-color: ${({ theme }) => theme.colors.crust};
-
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -53,6 +52,9 @@ const ContactWrapper = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     width: 328px;
     margin: 0;
+  }
+  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    width: 375px;
   }
 `
 const SocialMediaWrapper = styled.div`
@@ -149,16 +151,16 @@ const Footer = () => {
           <H3 Color={false}>Majornas böcker &amp; kaffe</H3>
           <UnorderedList>
             <List>
-              <Link href="#">Hem</Link>
+              <Link href="/">Hem</Link>
             </List>
             <List>
-              <Link href="#">Butik och Café</Link>
+              <Link href="/butikochcafe">Butik och Café</Link>
             </List>
             <List>
-              <Link href="#">Evenemang</Link>
+              <Link href="/evenemang">Evenemang</Link>
             </List>
             <List>
-              <Link href="#">Kontakt</Link>
+              <Link href="/kontakt">Kontakt</Link>
             </List>
           </UnorderedList>
         </LinkWrapper>

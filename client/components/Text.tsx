@@ -42,6 +42,7 @@ export const H1 = styled.h1<textColor>`
   }
 `
 export const H2 = styled.h2<textColor>`
+  margin: 16px 0px;
   font-family: ${({ theme }) => theme.fontFamily.sourceSerifPro};
   font-style: normal;
   font-weight: 700;
@@ -59,7 +60,6 @@ export const H2 = styled.h2<textColor>`
     line-height: 42px;
   }
 `
-
 export const H3 = styled.h3<textColor>`
   font-family: ${({ theme }) => theme.fontFamily.sourceSerifPro};
   font-style: normal;
@@ -69,9 +69,13 @@ export const H3 = styled.h3<textColor>`
   color: ${(props) =>
     props.Color ? props.theme.fontColor.coffee : props.theme.fontColor.paper};
   margin: 64px 0 16px 0;
-  @media screen and (min-width: 834px) {
+  @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     font-size: 24px;
     line-height: 31px;
+  }
+  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    font-size: 28px;
+    line-height: 33px;
   }
 `
 export const H4 = styled.h4<textColor>`
@@ -93,7 +97,6 @@ export const ButtonText = styled(Text)`
     line-height: 29px;
   }
 `
-
 export const LinkText = styled.a<textColor>`
   font-family: ${({ theme }) => theme.fontFamily.sourceSerifPro};
   font-style: normal;
@@ -103,6 +106,7 @@ export const LinkText = styled.a<textColor>`
   color: ${(props) =>
     props.Color ? props.theme.fontColor.coffee : props.theme.fontColor.paper};
   text-decoration: underline;
+  cursor: pointer;
   &:hover,
   :focus {
     font-style: italic;
