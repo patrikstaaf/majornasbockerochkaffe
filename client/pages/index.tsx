@@ -23,7 +23,6 @@ const HeroContainer = styled.div`
     grid-template-columns: repeat(2, 1fr);
   }
 `
-
 const Hero = styled.div`
   background-color: ${({ theme }) => theme.colors.paper};
   border-width: 0px 2px;
@@ -41,7 +40,7 @@ const IllustrationContainer = styled.div`
   border-width: 0px 2px;
   border-style: solid;
   border-color: ${({ theme }) => theme.colors.coffee};
-  padding: 0px 0px 8px 16px;
+  padding: 16px 0px 8px 16px;
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     border-width: 0px 3px 0px 0px;
     padding: 110px 16px 32px 0px;
@@ -64,7 +63,7 @@ const Container = styled.div`
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     grid-template-columns: 54fr 53fr 44fr;
-    grid-template-rows: 25fr 10fr 5fr 20fr;
+    grid-template-rows: 7fr 4fr 2fr 8fr;
     aspect-ratio: 4/3;
   }
 `
@@ -76,13 +75,15 @@ const Image = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     grid-column: 1/2;
     grid-row: 1/2;
+    border-width: 1px 1px 0px 3px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    border-width: 1px 1px 1px 3px;
   }
 `
 const ImageOne = styled.div`
   background-color: lightcoral;
-  border-width: 2px 2px 0px 2px;
+  border-width: 3px 2px 0px 3px;
   border-style: solid;
   border-color: ${({ theme }) => theme.colors.coffee};
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
@@ -96,6 +97,7 @@ const ImageTwo = styled(ImageOne)`
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     grid-column: 2/3;
     grid-row: 1/4;
+    border-width: 3px 2px 0px 1px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
   }
@@ -104,19 +106,21 @@ const ImageThree = styled(ImageOne)`
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     grid-column: 3/4;
     grid-row: 1/2;
+    border-width: 3px 3px 0px 1px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
   }
 `
 const AuthorEvening = styled.div`
   background-color: ${({ theme }) => theme.colors.hemingway};
-  padding: 35px 20px 32px 20px;
+  padding: 18px 20px 32px 20px;
   border-width: 0px 2px 0px 2px;
   border-style: solid;
   border-color: ${({ theme }) => theme.colors.coffee};
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     grid-column: 1/2;
     grid-row: 3/5;
+    border-width: 0px 2px 3px 3px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
   }
@@ -130,6 +134,7 @@ const BookCircle = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     grid-column: 2/3;
     grid-row: 4/5;
+    border-width: 0px 2px 3px 1px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
   }
@@ -143,6 +148,7 @@ const BookAndCafe = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     grid-column: 3/4;
     grid-row: 2/5;
+    border-width: 0px 3px 3px 1px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
   }
@@ -157,6 +163,7 @@ const InstagramContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     padding: 30px 32px 32px 32px;
+    border-width: 0px 3px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
   }
@@ -230,6 +237,7 @@ const OfferImageOne = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     grid-column: 2;
     grid-row: 1;
+    border-width: 1px 2px 3px 3px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     grid-column: 2/3;
@@ -243,7 +251,8 @@ const OfferImageTwo = styled(OfferImageOne)`
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     display: block;
     grid-column: 3/4;
-    grid-row: 1/3;
+    grid-row: 1/2;
+    border-width: 1px 3px 2px 1px;
   }
 `
 const Offer = styled.div`
@@ -255,6 +264,7 @@ const Offer = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     grid-column: 1/2;
     grid-row: 1;
+    border-width: 1px 0px 3px 3px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     grid-column: 1/2;
@@ -272,11 +282,11 @@ const Price = styled.p`
 `
 const OfferText = styled(Offer)`
   background-color: ${({ theme }) => theme.colors.paper};
-  padding: 25px 20px 32px 20px;
+  padding: 25px 20px 0 20px;
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     grid-column: 3/4;
     grid-row: 1;
-    border-width: 0px 3px 1px 1px;
+    border-width: 1px 3px 3px 1px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     grid-column: 3/4;
@@ -297,13 +307,18 @@ const AuthorContainer = styled.div`
 const AuthorWith = styled.div`
   background-color: ${({ theme }) => theme.colors.hemingway};
   padding: 35px 20px 32px 20px;
+  border-width: 0px 2px;
+  border-style: solid;
+  border-color: ${({ theme }) => theme.colors.coffee};
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     grid-column: 1/2;
     grid-row: 2/3;
+    border-width: 0px 1px 0px 3px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     grid-column: 2/3;
     grid-row: 1/2;
+    border-width: 0px 2px 0px 2px;
   }
 `
 const ImageAuthor = styled.div`
@@ -314,15 +329,19 @@ const ImageAuthor = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     grid-column: 1/2;
     grid-row: 1/2;
+    border-width: 0px 1px 0px 3px;
   }
 `
 const AuthorReading = styled.div`
   background-color: ${({ theme }) => theme.colors.paper};
   padding: 35px 20px 32px 20px;
-  border: 2px solid #1e1f22;
+  border-width: 2px 2px 1px 2px;
+  border-style: solid;
+  border-color: ${({ theme }) => theme.colors.coffee};
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     grid-column: 1/4;
     grid-row: 3/4;
+    border-width: 3px 3px 2px 3px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     grid-column: 1/3;
@@ -352,7 +371,6 @@ const BooktipsContainer = styled.div`
     grid-template-columns: 48fr 100fr;
   }
 `
-
 const BookTips = styled.div`
   background-color: ${({ theme }) => theme.colors.cream};
   padding: 35px 20px 32px 20px;
@@ -362,6 +380,7 @@ const BookTips = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     display: flex;
     flex-direction: row;
+    border-width: 2px 3px 1px 2px;
   }
 `
 const BooktipsTextContainer = styled.div``
@@ -380,9 +399,6 @@ const HeadingBookTips = styled(Text)`
 const TextBookTips = styled(Text)`
   margin: 0px;
 `
-const ButtonLink = styled.a`
-  text-decoration: none;
-`
 const ButtonBox = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     margin: 0px 0px 32px 0px;
@@ -391,9 +407,19 @@ const ButtonBox = styled.div`
 const TextBox = styled(Text)`
   margin: 0px 0px 40px 0px;
 `
+const TextBoxAuthor = styled(Text)`
+  margin: 0px 0px 81px 0px;
+`
 const IllustrationBookContainer = styled.div``
 const IllustrationBookImage = styled.img`
-  width: 380px;
+  display: none;
+  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    display: block;
+    width: 380px;
+  }
+`
+const ButtonLink = styled.a`
+  text-decoration: none;
 `
 const Home: NextPage<Props> = ({ data }) => {
   return (
@@ -410,7 +436,7 @@ const Home: NextPage<Props> = ({ data }) => {
             espresso och dagstidningen
           </Text>
           <ButtonBox>
-            <ButtonLink href="">
+            <ButtonLink href="/butikochcafe">
               <Button Color>Hitta till butiken</Button>
             </ButtonLink>
           </ButtonBox>
@@ -430,7 +456,9 @@ const Home: NextPage<Props> = ({ data }) => {
             Bokhandeln anordnar regelbundet författarkvällar. En rad
             uppmärksammade och intressanta författare har gästat bokhandeln.
           </TextBox>
-          <LinkText Color={false}>Läs mer om författarkvällar</LinkText>
+          <LinkText href="/evenemang" Color={false}>
+            Läs mer om författarkvällar
+          </LinkText>
         </AuthorEvening>
         <ImageTwo></ImageTwo>
         <BookCircle>
@@ -439,7 +467,9 @@ const Home: NextPage<Props> = ({ data }) => {
             Bokhandeln anordar bokcirklar av olika sorter – helt enkelt en
             mötesplats för läsare. Har du lust att vara med i en bokcirkel?
           </TextBox>
-          <LinkText Color={false}>Läs mer om författarkvällar</LinkText>
+          <LinkText href="/evenemang" Color={false}>
+            Läs mer om författarkvällar
+          </LinkText>
         </BookCircle>
         <ImageThree></ImageThree>
         <BookAndCafe>
@@ -449,7 +479,9 @@ const Home: NextPage<Props> = ({ data }) => {
             oberoende bokhandel och café sommaren 2019. Här hittar du allt från
             böcker till pussel och roliga presenter samt fika.
           </TextBox>
-          <LinkText Color>Läs mer om bokhandeln</LinkText>
+          <LinkText href="/butikochcafe" Color>
+            Läs mer om bokhandeln
+          </LinkText>
         </BookAndCafe>
       </Container>
       <InstagramContainer>
@@ -487,11 +519,15 @@ const Home: NextPage<Props> = ({ data }) => {
       <AuthorContainer>
         <AuthorWith>
           <H2 Color={false}>Författarkväll med Marit Kapla</H2>
-          <TextBox Color={false}>
+          <TextBoxAuthor Color={false}>
             2019 fick Marit Kapla Augustpriset för sin bok ”Osebol”. Den 5
             oktober besöker hon oss och berättar mer. Varmt välkommen!
-          </TextBox>
-          <Button>Föranmäl dig här</Button>
+          </TextBoxAuthor>
+          <ButtonBox>
+            <ButtonLink href="mailto:info@majornasbocker.se?subject=Föranmälan till författarkväll">
+              <Button>Föranmäl dig här</Button>
+            </ButtonLink>
+          </ButtonBox>
         </AuthorWith>
         <ImageAuthor></ImageAuthor>
         <AuthorReading>
@@ -502,13 +538,16 @@ const Home: NextPage<Props> = ({ data }) => {
             författarkväll i Majornas böcker &amp; kaffe? Skicka ett mail till
             bokhandeln för mer information och bokning.
           </TextBox>
-          <Button Color>Bokning och frågor</Button>
+          <ButtonBox>
+            <ButtonLink href="mailto:info@majornasbocker.se?subject=Jag vill hålla författarkväll hos dig">
+              <Button Color>Bokning och frågor</Button>
+            </ButtonLink>
+          </ButtonBox>
         </AuthorReading>
         <Calendar>
           <HomePageCalendar calendar={data.calendar} />
         </Calendar>
       </AuthorContainer>
-
       <BooktipsContainer>
         <Image></Image>
         <BookTips>
