@@ -134,3 +134,10 @@ export interface StartPageSanityData {
   permanentOffer: PermanentOffer
   calendar: Calendar[]
 }
+
+export interface EventPageSanityData {
+  companyInfo: CompanyInfo
+  aboutTheStore: AboutTheStore
+  aboutTheEvents: AboutTheEvents
+  calendar: Calendar[]
+}

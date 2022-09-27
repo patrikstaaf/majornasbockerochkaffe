@@ -21,6 +21,12 @@ import {
   EventDateBackground,
 } from '../SingleEvent/styles'
 
+import {
+  EventDescriptionContainer,
+  EventDescriptionWrapper,
+  EventDescriptionColor,
+} from './styles'
+
 interface Props {
   calendar: Calendar[]
 }
@@ -30,7 +36,15 @@ const EventPageEvent: NextPage<Props> = ({ calendar }) => {
     return (
       <HomePageCalendarSection>
         <SectionTitle>Kalendarium</SectionTitle>
+        <EventDescriptionContainer>
+          <EventDescriptionWrapper>
+            <EventDescriptionColor backgroundColor={theme.colors.hemingway}>
+              <Text Color>Författarkvällar</Text>
+            </EventDescriptionColor>
+          </EventDescriptionWrapper>
+        </EventDescriptionContainer>
         <NoEventText>Just nu har vi inga kommande evenemang.</NoEventText>
+
         <LinkWrapper>
           <Link href="/evenemang">Se fullständigt kalendarium här</Link>
         </LinkWrapper>
@@ -41,6 +55,13 @@ const EventPageEvent: NextPage<Props> = ({ calendar }) => {
   return (
     <HomePageCalendarSection>
       <SectionTitle>Kalendarium</SectionTitle>
+      <EventDescriptionContainer>
+        <EventDescriptionWrapper>
+          <EventDescriptionColor backgroundColor={theme.colors.hemingway}>
+            <Text Color>Författarkvällar</Text>
+          </EventDescriptionColor>
+        </EventDescriptionWrapper>
+      </EventDescriptionContainer>
       <HomePageCalendarWrapper>
         {calendar &&
           calendar.map((event, index) => (

@@ -1,7 +1,13 @@
 import { NextPage } from 'next'
+import EventPageEvent from './EventPageEvent'
+import { Calendar } from '../../../lib/sanity/types'
 
-const EventPageCalendar: NextPage = () => {
-  return <h1>hej</h1>
+interface Props {
+  calendar: Calendar[]
+}
+
+const EventPageCalendar: NextPage<Props> = ({ calendar }) => {
+  return <EventPageEvent calendar={calendar}></EventPageEvent>
 }
 
 export default EventPageCalendar

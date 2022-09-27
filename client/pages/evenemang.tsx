@@ -1,9 +1,13 @@
-import { NextPage } from 'next'
+import type { NextPage, GetStaticProps } from 'next'
 import styled from 'styled-components'
 import BetweenSections from '../components/BetweenSections'
 import Button from '../components/Button'
 import { H1, H2, Text, LinkText } from '../components/Text'
 import Layout from '../components/Layout'
+import EventPageCalendar from '../components/Calendar/EventPageCalendar/EventPageCalendar'
+import sanityClient from '../lib/sanity/client'
+import { StartPageSanityData } from '../lib/sanity/types'
+import { startPageQuery } from '../lib/sanity/queries'
 
 const Author = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
@@ -307,8 +311,20 @@ const Evenemang: NextPage = () => {
         </BookEvening>
       </Book>
       <BetweenSections color={'#739598'} />
+      {/* <EventPageCalendar /> */}
     </Layout>
   )
 }
 
 export default Evenemang
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const data = await sanityClient.fetch(startPageQuery)
+
+  return {
+    props: {
+      data,
+    },
+    revalidate: 10, // add webhook later on
+  }
+}
