@@ -1,31 +1,34 @@
 import { NextPage } from 'next'
 import Link from 'next/link'
-import { Calendar } from '../../../lib/sanity/types'
-import theme from '../../../lib/styles/theme'
 import {
   firstWord,
   getDate,
   getMonthInShortText,
+  getEndTime,
+  getStartTime,
 } from '../../../lib/helpers/calendar'
+import { Calendar } from '../../../lib/sanity/types'
+import theme from '../../../lib/styles/theme'
 import { Text } from '../../Text'
 import {
-  HomePageCalendarSection,
-  SectionTitle,
-  HomePageCalendarWrapper,
-  EventWrapper,
   EventDate,
+  EventDateBackground,
   EventDateText,
   EventTitle,
-  LinkWrapper,
-  EventDateBackground,
+  HomePageCalendarSection,
+  HomePageCalendarWrapper,
+  SectionTitle,
 } from '../SingleEvent/styles'
 
 import {
-  EventDescriptionContainer,
-  EventDescriptionWrapper,
   EventDescriptionColor,
+  EventDescriptionContainer,
   EventDescriptionText,
+  EventDescriptionWrapper,
   NoEventText,
+  LinkWrapper,
+  EventTime,
+  EventWrapper,
 } from './styles'
 
 interface Props {
@@ -33,24 +36,6 @@ interface Props {
 }
 
 const EventPageEvent: NextPage<Props> = ({ calendar }) => {
-  //   const date = new Date()
-  //   let day = date.getDate()
-  //   let month = date.getMonth() + 1
-  //   let year = date.getFullYear()
-
-  //   let currentDate = `${year}-${month}-${day}`
-  //   console.log(currentDate)
-
-  function futureEventDateValidation(eventDate: string) {
-    const date = new Date()
-    let day = date.getDate()
-    let month = date.getMonth() + 1
-    let year = date.getFullYear()
-
-    let currentDate = `${year}-${month}-${day}`
-    console.log(currentDate)
-  }
-
   if (calendar.length === 0) {
     return (
       <HomePageCalendarSection>
@@ -123,8 +108,22 @@ const EventPageEvent: NextPage<Props> = ({ calendar }) => {
                     </EventDate>
                   </EventDateBackground>
                   <EventTitle>
-                    <Text Color>{firstWord(event.authorEventTitle)}</Text>
+                    <Text Color>{event.authorEventTitle}</Text>
+                    <LinkWrapper>
+                      <Link href="mailto:eva@eva.com">Anmäl dig här</Link>
+                    </LinkWrapper>
                   </EventTitle>
+                  <EventTime>
+                    {event.eventTime.includes('-') ? (
+                      <>
+                        <div>{getStartTime(event.eventTime)}</div>
+                        <div>-</div>
+                        <div>{getEndTime(event.eventTime)}</div>
+                      </>
+                    ) : (
+                      <div>{event.eventTime}</div>
+                    )}
+                  </EventTime>
                 </EventWrapper>
               )}
               {event.event === 'bookClub' && (
@@ -142,6 +141,17 @@ const EventPageEvent: NextPage<Props> = ({ calendar }) => {
                   <EventTitle>
                     <Text Color>{event.bookClubTitle}</Text>
                   </EventTitle>
+                  <EventTime>
+                    {event.eventTime.includes('-') ? (
+                      <>
+                        <div>{getStartTime(event.eventTime)}</div>
+                        <div>-</div>
+                        <div>{getEndTime(event.eventTime)}</div>
+                      </>
+                    ) : (
+                      <div>{event.eventTime}</div>
+                    )}
+                  </EventTime>
                 </EventWrapper>
               )}
               {event.event === 'bookNight' && (
@@ -159,6 +169,17 @@ const EventPageEvent: NextPage<Props> = ({ calendar }) => {
                   <EventTitle>
                     <Text Color>{event.bookNightTitle}</Text>
                   </EventTitle>
+                  <EventTime>
+                    {event.eventTime.includes('-') ? (
+                      <>
+                        <div>{getStartTime(event.eventTime)}</div>
+                        <div>-</div>
+                        <div>{getEndTime(event.eventTime)}</div>
+                      </>
+                    ) : (
+                      <div>{event.eventTime}</div>
+                    )}
+                  </EventTime>
                 </EventWrapper>
               )}
               {event.event === 'misc' && (
@@ -176,6 +197,17 @@ const EventPageEvent: NextPage<Props> = ({ calendar }) => {
                   <EventTitle>
                     <Text Color>{event.miscEventTitle}</Text>
                   </EventTitle>
+                  <EventTime>
+                    {event.eventTime.includes('-') ? (
+                      <>
+                        <div>{getStartTime(event.eventTime)}</div>
+                        <div>-</div>
+                        <div>{getEndTime(event.eventTime)}</div>
+                      </>
+                    ) : (
+                      <div>{event.eventTime}</div>
+                    )}
+                  </EventTime>
                 </EventWrapper>
               )}
             </div>
