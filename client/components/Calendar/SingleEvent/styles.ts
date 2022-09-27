@@ -6,12 +6,12 @@ interface Props {
 
 export const HomePageCalendarSection = styled.section`
   background-color: ${({ theme }) => theme.colors.paper};
-  border-width: 1px 2px 2px 2px;
+  border-width: 2px;
   border-color: ${({ theme }) => theme.colors.coffee};
   border-style: solid;
   display: flex;
   flex-direction: column;
-  /* padding: 0px 20px 0px 20px; */
+  padding: 0px 20px 0px 20px;
   height: 100%;
 `
 
@@ -22,8 +22,9 @@ export const HomePagePaddingContainer = styled.div`
 export const HomePageCalendarWrapper = styled.div`
   width: 100%;
   border-color: ${({ theme }) => theme.colors.coffee};
-  border-top-style: solid;
-  /* border-bottom-style: solid; */
+  border-top: solid;
+  border-left: solid;
+  border-right: solid;
   border-width: 2px;
   margin-top: 40px;
   margin-bottom: 40px;
