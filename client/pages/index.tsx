@@ -495,7 +495,11 @@ const Home: NextPage<Props> = ({ data, images }) => {
           </TextBox>
           <LinkText Color>
             Följ{' '}
-            <a href="https://instagram.com/majornasbocker" target="_blank">
+            <a
+              href="https://instagram.com/majornasbocker"
+              target="_blank"
+              rel="noreferrer"
+            >
               @majornasbocker
             </a>{' '}
             på Instagram
