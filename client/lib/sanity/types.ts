@@ -126,6 +126,12 @@ interface PermanentOffer extends SanityDocument {
   title: string
 }
 
+export interface Images {
+  caption: string
+  media_url: string
+  id: number
+}
+
 export interface StartPageSanityData {
   companyInfo: CompanyInfo
   bookOfTheMonth: BookOfTheMonth

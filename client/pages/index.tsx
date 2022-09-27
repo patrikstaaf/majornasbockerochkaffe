@@ -4,14 +4,16 @@ import Button from '../components/Button'
 import Layout from '../components/Layout'
 import styled from 'styled-components'
 import sanityClient from '../lib/sanity/client'
-import { StartPageSanityData } from '../lib/sanity/types'
+import { StartPageSanityData, Images } from '../lib/sanity/types'
 import { startPageQuery } from '../lib/sanity/queries'
 import { H1, H2, Text, LinkText } from '../components/Text'
 import HomePageCalendar from '../components/Calendar/HomePageCalendar'
 import theme from '../lib/styles/theme'
+import NextImage from 'next/image'
 
 interface Props {
   data: StartPageSanityData
+  images: Array<Images>
 }
 
 const HeroContainer = styled.div`
@@ -182,7 +184,6 @@ const InstagramImageContainer = styled.div`
   }
 `
 const InstagramImageOne = styled.div`
-  background-color: lightgreen;
   height: 320px;
   margin: 32px 0px 0px 0px;
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
@@ -468,12 +469,30 @@ const Home: NextPage<Props> = ({ data, images }) => {
           </LinkText>
         </InstagramTextContainer>
         <InstagramImageContainer>
-          {/* {images.map(({ image }) => (
-             <InstagramImageOne key={image.id} src={image.media_url} alt={image.caption}></InstagramImageOne>
-             <InstagramImageTwo></InstagramImageTwo>
-             <InstagramImageThree></InstagramImageThree>
-         
-          ))} */}
+          <InstagramImageOne>
+            <NextImage
+              src={images[0].media_url}
+              alt={images[0].caption}
+              height={500}
+              width={500}
+            />
+          </InstagramImageOne>
+          <InstagramImageTwo>
+            <NextImage
+              src={images[1].media_url}
+              alt={images[1].caption}
+              height={500}
+              width={500}
+            />
+          </InstagramImageTwo>
+          <InstagramImageThree>
+            <NextImage
+              src={images[2].media_url}
+              alt={images[2].caption}
+              height={500}
+              width={500}
+            />
+          </InstagramImageThree>
         </InstagramImageContainer>
       </InstagramContainer>
       <BetweenSections color={theme.colors.cream} />
@@ -563,18 +582,19 @@ const Home: NextPage<Props> = ({ data, images }) => {
 
 export default Home
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async () => {
   const data = await sanityClient.fetch(startPageQuery)
   const url = `https://graph.instagram.com/me/media?fields=id,username,media_url,caption&access_token=${process.env.INSTAGRAM_KEY}`
   const instagramData = await fetch(url)
   const feed = await instagramData.json()
+  const images = feed.data
 
-  console.log(feed)
+  console.log(images)
 
   return {
     props: {
       data,
-      images: feed.data,
+      images,
     },
     revalidate: 10, // add webhook later on
   }
