@@ -10,15 +10,17 @@ const StripesContaier = styled.div<Props>`
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  border: 2px solid #1e1f22;
-  background-color: #fbf6ef;
+  border-width: 2px 2px 1px 2px;
+  border-style: solid;
+  border-color: ${({ theme }) => theme.colors.coffee};
+  background-color: ${({ theme }) => theme.colors.paper};
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 34px;
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     grid-template-columns: repeat(12, 1fr);
     height: 140px;
-    border: 3px solid #1e1f22;
+    border-width: 3px 3px 2px 3px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     grid-template-columns: repeat(20, 1fr);
