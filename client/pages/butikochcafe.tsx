@@ -16,8 +16,8 @@ const AboutContainer = styled.div`
   }
 `
 const AboutBookImage = styled.div`
-  background-color: yellow;
   height: 438px;
+  background-color: yellow;
   border-width: 0px 2px 0px 2px;
   border-style: solid;
   border-color: ${({ theme }) => theme.colors.coffee};
@@ -31,8 +31,8 @@ const AboutBookImage = styled.div`
   }
 `
 const AboutCafeImage = styled(AboutBookImage)`
-  background-color: blueviolet;
   height: 434px;
+  background-color: blueviolet;
   border-width: 2px 2px 0px 2px;
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     grid-column: 1;
@@ -71,16 +71,17 @@ const AboutCafe = styled(AboutBookShop)`
     grid-row: 3/4;
     border-width: 0px 3px 0px 3px;
   }
-  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
-  }
 `
 const OfferContainer = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 19fr 57fr;
     border-width: 3px 3px 0px 3px;
     border-style: solid;
     border-color: ${({ theme }) => theme.colors.coffee};
+  }
+  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    grid-template-columns: 19fr 50fr;
   }
 `
 const Offer = styled.div`
@@ -97,26 +98,21 @@ const Offer = styled.div`
     border-width: 0;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
-    height: 376px;
     padding: 72px 80px 0px 40px;
+    height: 338px;
   }
 `
 const OfferImage = styled.div`
-  background-color: lightblue;
   height: 161px;
+  background-color: lightblue;
   border-width: 0px 2px;
   border-style: solid;
   border-color: ${({ theme }) => theme.colors.coffee};
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     grid-column: 2;
     grid-row: 1;
-    width: 575px;
     height: 100%;
     border-width: 0;
-  }
-  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
-    height: 448px;
-    width: 963px;
   }
 `
 const Price = styled.p`
@@ -132,6 +128,7 @@ const AboutChildrenContainer = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 377px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     grid-template-columns: repeat(4, 1fr);
@@ -143,18 +140,16 @@ const AboutChildrenImageLarge = styled.div`
   border-width: 0px 2px;
   border-style: solid;
   border-color: ${({ theme }) => theme.colors.coffee};
-  background-color: #1e1f22;
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     grid-column: 1;
     grid-row: 1;
-    height: 377px;
-    border-width: 0 0 0 3px;
+    border-width: 1px 0 2px 3px;
+    height: 100%;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     grid-column: 1/3;
     grid-row: 1/3;
-    height: 100%;
-    border-width: 0;
+    border-width: 1px 0px 0px 3px;
   }
 `
 const AboutChildrenImageSmallContainer = styled.div`
@@ -170,7 +165,7 @@ const AboutChildrenImageSmallContainer = styled.div`
     display: grid;
     grid-column: 3/5;
     grid-row: 2;
-    border-width: 0 3px 0 0;
+    border-width: 0 3px 1px 0;
   }
 `
 const AboutChildrenImageSmallOne = styled.div`
@@ -180,7 +175,7 @@ const AboutChildrenImageSmallOne = styled.div`
     display: none;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
-    display: inline;
+    display: block;
     height: 100%;
   }
 `
@@ -191,7 +186,7 @@ const AboutChildrenImageSmallTwo = styled.div`
     display: none;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
-    display: inline;
+    display: block;
     height: 100%;
   }
 `
@@ -201,8 +196,7 @@ const AboutChildren = styled.div`
   border-style: solid;
   border-color: ${({ theme }) => theme.colors.coffee};
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
-    height: 377px;
-    border-width: 0 3px 0 0;
+    border-width: 1px 3px 1px 0;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     grid-column: 3/5;
