@@ -1,6 +1,10 @@
 import { NextPage } from 'next'
-import EventPageEvent from './EventPageEvent'
+import dynamic from 'next/dynamic'
+// import EventPageEvent from './EventPageEvent'
 import { Calendar } from '../../../lib/sanity/types'
+const EventPageEvent = dynamic(() => import('./EventPageEvent'), {
+  ssr: false,
+})
 
 interface Props {
   calendar: Calendar[]
