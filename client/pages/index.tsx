@@ -1,15 +1,32 @@
 import type { NextPage, GetStaticProps } from 'next'
-import BetweenSections from '../components/BetweenSections'
-import Button from '../components/Button'
-import Layout from '../components/Layout'
+// import BetweenSections from '../components/BetweenSections'
+// import Button from '../components/Button'
+// import Layout from '../components/Layout'
 import styled from 'styled-components'
 import sanityClient from '../lib/sanity/client'
 import { StartPageSanityData, Images } from '../lib/sanity/types'
 import { startPageQuery } from '../lib/sanity/queries'
 import { H1, H2, Text, LinkText } from '../components/Text'
-import HomePageCalendar from '../components/Calendar/HomePageCalendar'
+// import HomePageCalendar from '../components/Calendar/HomePageCalendar'
 import theme from '../lib/styles/theme'
 import NextImage from 'next/image'
+
+import dynamic from 'next/dynamic'
+const HomePageCalendar = dynamic(
+  () => import('../components/Calendar/HomePageCalendar'),
+  {
+    ssr: false,
+  }
+)
+const Layout = dynamic(() => import('../components/Layout'), {
+  ssr: false,
+})
+const Button = dynamic(() => import('../components/Button'), {
+  ssr: false,
+})
+const BetweenSections = dynamic(() => import('../components/BetweenSections'), {
+  ssr: false,
+})
 
 interface Props {
   data: StartPageSanityData
