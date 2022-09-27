@@ -4,7 +4,8 @@ import { NextPage } from 'next'
 import styled from 'styled-components'
 import BetweenSections from '../components/BetweenSections'
 import Button from '../components/Button'
-import { H1, Text } from '../components/Text'
+import { H1, Text, LinkText, H2 } from '../components/Text'
+import Link from 'next/link'
 
 export const getStaticProps = async () => {
   const url = `https://graph.instagram.com/me/media?fields=id,username,media_url,caption&access_token=${process.env.INSTAGRAM_KEY}`
@@ -23,10 +24,15 @@ interface OneImage {
   media_url: string
   caption: string
 }
-
+const InfoSection = styled.div`
+  background: #ecdbc9;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+`
 const Container = styled.div`
   background: #ecdbc9;
-  height: 1003px;
+  height: 600px;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -46,10 +52,10 @@ const Container = styled.div`
   @media screen and (min-width: 1440px) {
     height: 581px;
     .InstaImage {
-      &:nth-child(2) {
+      &:nth-child(1) {
         display: none;
       }
-      &:nth-child(3) {
+      &:nth-child(2) {
         display: none;
       }
     }
@@ -63,15 +69,31 @@ export default function Gallery({ images }: { images: Array<OneImage> }) {
       <div>
         <div>
           {images &&
-            images.map((image) => {
+            images.slice(0, 2).map((image) => {
               return (
-                <div className="InstaImage" key={image.id}>
-                  <Image
-                    src={image.media_url}
-                    alt={image.caption}
-                    width={500}
-                    height={500}
-                  />
+                <div>
+                  <InfoSection>
+                    <H2 Color={true}>Bokhandeln finns såklart på Instagram!</H2>
+                    <Text Color={true}>
+                      Besök bokhandelns Instagram för de senaste nyheterna om
+                      vad som händer i butiken.
+                    </Text>
+                    <LinkText Color={true}>
+                      Följ{' '}
+                      <Link href="https://www.instagram.com/majornasbocker/">
+                        @majornasbocker
+                      </Link>
+                      på Instagram
+                    </LinkText>
+                  </InfoSection>
+                  <div className="InstaImage" key={image.id}>
+                    <img
+                      src={image.media_url}
+                      alt={image.caption}
+                      width={500}
+                      height={500}
+                    />
+                  </div>
                 </div>
               )
             })}

@@ -4,6 +4,7 @@ import Layout from '../components/Layout'
 import sanityClient from '../lib/sanity/client'
 import { StartPageSanityData } from '../lib/sanity/types'
 import { startPageQuery } from '../lib/sanity/queries'
+import Gallery from '../components/InstagramSection'
 
 interface Props {
   data: StartPageSanityData
@@ -17,6 +18,7 @@ const Home: NextPage<Props> = ({ data }) => {
     >
       {/* <h1>{data.companyInfo.address}</h1> */}
       <BetweenSections color={'#B17B54'} />
+      <Gallery images={[]}></Gallery>
       <BetweenSections color={'#B17B54'} />
     </Layout>
   )
