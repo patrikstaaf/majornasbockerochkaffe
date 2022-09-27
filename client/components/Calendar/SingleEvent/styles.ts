@@ -11,17 +11,27 @@ export const HomePageCalendarSection = styled.section`
   border-style: solid;
   display: flex;
   flex-direction: column;
-  padding: 0px 20px 0px 20px;
+  /* padding: 0px 20px 0px 20px; */
   height: 100%;
+`
+
+export const HomePagePaddingContainer = styled.div`
+  padding: 0px 20px 0px 20px;
 `
 
 export const HomePageCalendarWrapper = styled.div`
   width: 100%;
   border-color: ${({ theme }) => theme.colors.coffee};
-  border: solid;
-  border-width: 2px 2px 0px 2px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  border-top-style: solid;
+  /* border-bottom-style: solid; */
+  border-width: 2px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  background-color: ${({ theme }) => theme.colors.paper};
+
+  @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
+    /* margin: 40px 20px 40px 20px; */
+  }
 `
 
 export const EventWrapper = styled.div`
@@ -31,8 +41,8 @@ export const EventWrapper = styled.div`
   grid-template-columns: 100px 1fr;
   align-items: center;
   border-color: ${({ theme }) => theme.colors.coffee};
-  border-style: solid;
-  border-width: 0px 0px 2px 0px;
+  border-bottom: solid;
+  border-width: 2px;
 `
 
 export const EventDateBackground = styled.div<Props>`

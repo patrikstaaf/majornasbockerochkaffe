@@ -5,6 +5,50 @@ interface Props {
   backgroundColor: string
 }
 
+export const HomePageCalendarSection = styled.section`
+  background-color: ${({ theme }) => theme.colors.paper};
+  border-width: 1px 2px 2px 2px;
+  border-color: ${({ theme }) => theme.colors.coffee};
+  border-style: solid;
+  /* display: flex;
+  flex-direction: column; */
+  /* padding: 0px 20px 0px 20px; */
+  height: 100%;
+`
+
+export const HomePagePaddingContainer = styled.div`
+  padding: 0px 20px 0px 20px;
+`
+
+export const HomePageCalendarWrapper = styled.div`
+  max-width: 100vw;
+  border-color: ${({ theme }) => theme.colors.coffee};
+  border-top-style: solid;
+  /* border-bottom-style: solid; */
+  border-width: 2px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  background-color: ${({ theme }) => theme.colors.paper};
+
+  @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
+    margin-right: 20px;
+    margin-left: 20px;
+    border-left-style: solid;
+    border-right-style: solid;
+  }
+`
+
+// export const EventWrapper = styled.div`
+//   width: 100%;
+//   height: 100%;
+//   display: grid;
+//   grid-template-columns: 100px 1fr;
+//   align-items: center;
+//   border-color: ${({ theme }) => theme.colors.coffee};
+//   border-bottom: solid;
+//   border-width: 2px;
+// `
+
 export const EventDescriptionContainer = styled.div`
   display: grid;
   grid-auto-flow: row;
@@ -87,6 +131,10 @@ export const EventTime = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
+    flex-direction: row;
+  }
 `
 
 export const ColumnTime = styled.div`
