@@ -108,7 +108,7 @@ const ContentContainer = styled.div`
   border-color: ${({ theme }) => theme.colors.coffee};
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     border-width: 0px 3px 3px 0px;
-    padding: 8px 24px 32px;
+    padding: 20px 22px 10px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     height: 624px;
@@ -123,7 +123,7 @@ const AuthorEveningContainer = styled(ContentContainer)`
     grid-row: 2;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
-    height: 624px;
+    height: 625px;
     padding: 51px 0px 0px 40px;
   }
 `
@@ -133,7 +133,6 @@ const BookImage = styled.div`
   border-style: solid;
   border-color: ${({ theme }) => theme.colors.coffee};
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
-    width: 380.43px;
     height: 266.35px;
     grid-column: 1;
     grid-row: 2;
@@ -143,6 +142,7 @@ const BookImage = styled.div`
     height: 530px;
     grid-column: 2;
     grid-row: 1;
+    border-width: 1px 3px 3px 0px;
   }
 `
 const BookEveningImage = styled.div`
@@ -161,6 +161,7 @@ const BookEveningImage = styled.div`
     height: 443px;
     grid-column: 1;
     grid-row: 2;
+    border-width: 0px 0px 0px 3px;
   }
 `
 const BookCirkleContainer = styled.div`
@@ -176,6 +177,7 @@ const BookCirkleContainer = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     grid-column: 1;
     grid-row: 1;
+    border-width: 1px 0px 3px 3px;
   }
 `
 const Book = styled.div`
@@ -200,6 +202,7 @@ const BookEvening = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     grid-column: 2;
     grid-row: 2;
+    border-width: 0px 3px 0px 0px;
   }
 `
 const ButtonLink = styled.a`
