@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 interface Props {
-  borderColor: string
+  backgroundColor: string
 }
 
 export const HomePageCalendarSection = styled.section`
@@ -26,22 +26,36 @@ export const HomePageCalendarWrapper = styled.div`
 
 export const EventWrapper = styled.div`
   width: 100%;
-  display: flex;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 100px 1fr;
   align-items: center;
   border-color: ${({ theme }) => theme.colors.coffee};
   border-style: solid;
   border-width: 0px 0px 2px 0px;
 `
 
-export const EventDate = styled.div<Props>`
-  border-color: ${(props) => props.borderColor};
-  border-style: solid;
-  border-width: 13px;
-  padding: 6px 12px 6px 12px;
-  width: 30px;
+export const EventDateBackground = styled.div<Props>`
+  background-color: ${(props) => props.backgroundColor};
+  width: 100px;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+export const EventDate = styled.div`
+  background-color: ${({ theme }) => theme.colors.paper};
+  width: 70%;
+  height: 70%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 `
 
 export const EventDateText = styled.p`
@@ -65,6 +79,7 @@ export const EventDateText = styled.p`
 
 export const EventTitle = styled.div`
   padding-left: 20px;
+  width: 80%;
 `
 
 export const NoEventText = styled.p`

@@ -23,6 +23,8 @@ const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;
+        height: 100%;
+        width: 100%;
     }
 `
 
