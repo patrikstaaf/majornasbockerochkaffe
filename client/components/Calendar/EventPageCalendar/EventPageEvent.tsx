@@ -6,6 +6,7 @@ import {
   getMonthInShortText,
   getEndTime,
   getStartTime,
+  getIntroString,
 } from '../../../lib/helpers/calendar'
 import { Calendar } from '../../../lib/sanity/types'
 import theme from '../../../lib/styles/theme'
@@ -14,7 +15,6 @@ import {
   EventDate,
   EventDateBackground,
   EventDateText,
-  EventTitle,
   HomePageCalendarSection,
   HomePageCalendarWrapper,
   SectionTitle,
@@ -29,6 +29,12 @@ import {
   LinkWrapper,
   EventTime,
   EventWrapper,
+  EventTimeText,
+  ExpandText,
+  DetailsElement,
+  EventTitleWrapper,
+  RegisterText,
+  EventTimeTitle,
 } from './styles'
 
 interface Props {
@@ -107,21 +113,25 @@ const EventPageEvent: NextPage<Props> = ({ calendar }) => {
                       </EventDateText>
                     </EventDate>
                   </EventDateBackground>
-                  <EventTitle>
-                    <Text Color>{event.authorEventTitle}</Text>
-                    <LinkWrapper>
+                  <EventTitleWrapper>
+                    <EventTimeTitle>{event.authorEventTitle}</EventTimeTitle>
+                    <RegisterText>
                       <Link href="mailto:eva@eva.com">Anmäl dig här</Link>
-                    </LinkWrapper>
-                  </EventTitle>
+                    </RegisterText>
+                  </EventTitleWrapper>
                   <EventTime>
                     {event.eventTime.includes('-') ? (
                       <>
-                        <div>{getStartTime(event.eventTime)}</div>
-                        <div>-</div>
-                        <div>{getEndTime(event.eventTime)}</div>
+                        <EventTimeTitle>
+                          {getStartTime(event.eventTime)}
+                        </EventTimeTitle>
+                        <EventTimeTitle>-</EventTimeTitle>
+                        <EventTimeTitle>
+                          {getEndTime(event.eventTime)}
+                        </EventTimeTitle>
                       </>
                     ) : (
-                      <div>{event.eventTime}</div>
+                      <EventTimeTitle>{event.eventTime}</EventTimeTitle>
                     )}
                   </EventTime>
                 </EventWrapper>
@@ -138,18 +148,41 @@ const EventPageEvent: NextPage<Props> = ({ calendar }) => {
                       </EventDateText>
                     </EventDate>
                   </EventDateBackground>
-                  <EventTitle>
-                    <Text Color>{event.bookClubTitle}</Text>
-                  </EventTitle>
+                  <EventTitleWrapper>
+                    <EventTimeTitle>{event.bookClubTitle}</EventTimeTitle>
+                    <EventTimeText>
+                      {event.bookClubDescription.length < 18 ? (
+                        <EventTimeText>
+                          {event.bookClubDescription}
+                        </EventTimeText>
+                      ) : (
+                        <>
+                          <EventTimeText>
+                            {getIntroString(event.bookClubDescription)}
+                          </EventTimeText>
+                          <EventTimeText>
+                            <DetailsElement>
+                              <ExpandText>Läs mer</ExpandText>
+                              {event.bookClubDescription}
+                            </DetailsElement>
+                          </EventTimeText>
+                        </>
+                      )}
+                    </EventTimeText>
+                  </EventTitleWrapper>
                   <EventTime>
                     {event.eventTime.includes('-') ? (
                       <>
-                        <div>{getStartTime(event.eventTime)}</div>
-                        <div>-</div>
-                        <div>{getEndTime(event.eventTime)}</div>
+                        <EventTimeTitle>
+                          {getStartTime(event.eventTime)}
+                        </EventTimeTitle>
+                        <EventTimeTitle>-</EventTimeTitle>
+                        <EventTimeTitle>
+                          {getEndTime(event.eventTime)}
+                        </EventTimeTitle>
                       </>
                     ) : (
-                      <div>{event.eventTime}</div>
+                      <EventTimeTitle>{event.eventTime}</EventTimeTitle>
                     )}
                   </EventTime>
                 </EventWrapper>
@@ -166,18 +199,41 @@ const EventPageEvent: NextPage<Props> = ({ calendar }) => {
                       </EventDateText>
                     </EventDate>
                   </EventDateBackground>
-                  <EventTitle>
-                    <Text Color>{event.bookNightTitle}</Text>
-                  </EventTitle>
+                  <EventTitleWrapper>
+                    <EventTimeTitle>{event.bookNightTitle}</EventTimeTitle>
+                    <EventTimeText>
+                      {event.bookNightDescription.length < 18 ? (
+                        <EventTimeText>
+                          {event.bookNightDescription}
+                        </EventTimeText>
+                      ) : (
+                        <>
+                          <EventTimeText>
+                            {getIntroString(event.bookNightDescription)}
+                          </EventTimeText>
+                          <EventTimeText>
+                            <DetailsElement>
+                              <ExpandText>Läs mer</ExpandText>
+                              {event.bookNightDescription}
+                            </DetailsElement>
+                          </EventTimeText>
+                        </>
+                      )}
+                    </EventTimeText>
+                  </EventTitleWrapper>
                   <EventTime>
                     {event.eventTime.includes('-') ? (
                       <>
-                        <div>{getStartTime(event.eventTime)}</div>
-                        <div>-</div>
-                        <div>{getEndTime(event.eventTime)}</div>
+                        <EventTimeText>
+                          {getStartTime(event.eventTime)}
+                        </EventTimeText>
+                        <EventTimeText>-</EventTimeText>
+                        <EventTimeText>
+                          {getEndTime(event.eventTime)}
+                        </EventTimeText>
                       </>
                     ) : (
-                      <div>{event.eventTime}</div>
+                      <EventTimeText>{event.eventTime}</EventTimeText>
                     )}
                   </EventTime>
                 </EventWrapper>
@@ -194,18 +250,41 @@ const EventPageEvent: NextPage<Props> = ({ calendar }) => {
                       </EventDateText>
                     </EventDate>
                   </EventDateBackground>
-                  <EventTitle>
-                    <Text Color>{event.miscEventTitle}</Text>
-                  </EventTitle>
+                  <EventTitleWrapper>
+                    <EventTimeTitle>{event.miscEventTitle}</EventTimeTitle>
+                    <EventTimeText>
+                      {event.miscEventDescription.length < 18 ? (
+                        <EventTimeText>
+                          {event.miscEventDescription}
+                        </EventTimeText>
+                      ) : (
+                        <>
+                          <EventTimeText>
+                            {getIntroString(event.miscEventDescription)}
+                          </EventTimeText>
+                          <EventTimeText>
+                            <DetailsElement>
+                              <ExpandText>Läs mer</ExpandText>
+                              {event.miscEventDescription}
+                            </DetailsElement>
+                          </EventTimeText>
+                        </>
+                      )}
+                    </EventTimeText>
+                  </EventTitleWrapper>
                   <EventTime>
                     {event.eventTime.includes('-') ? (
                       <>
-                        <div>{getStartTime(event.eventTime)}</div>
-                        <div>-</div>
-                        <div>{getEndTime(event.eventTime)}</div>
+                        <EventTimeTitle>
+                          {getStartTime(event.eventTime)}
+                        </EventTimeTitle>
+                        <EventTimeTitle>-</EventTimeTitle>
+                        <EventTimeTitle>
+                          {getEndTime(event.eventTime)}
+                        </EventTimeTitle>
                       </>
                     ) : (
-                      <div>{event.eventTime}</div>
+                      <EventTimeTitle>{event.eventTime}</EventTimeTitle>
                     )}
                   </EventTime>
                 </EventWrapper>

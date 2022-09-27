@@ -24,6 +24,11 @@ export function getEndTime(time: string) {
   return endTime[1]
 }
 
+export function getIntroString(description: string) {
+  const getIntro = description.slice(0, 18)
+  return `${getIntro}...`
+}
+
 export function getDate(date: string) {
   const fullDate = date.slice(0, 10)
   return fullDate.slice(8)

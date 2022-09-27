@@ -10,11 +10,11 @@ export interface Calendar extends SanityDocument {
   authorEventTitle: string
   authorNightDescription?: string
   bookClubTitle: string
-  bookClubDescription?: string
+  bookClubDescription: string
   bookNightTitle: string
-  bookNightDescription?: string
+  bookNightDescription: string
   miscEventTitle: string
-  miscEventDescription?: string
+  miscEventDescription: string
   calendarDate: string
   eventTime: string
   event: string

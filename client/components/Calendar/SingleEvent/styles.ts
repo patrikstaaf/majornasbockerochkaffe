@@ -80,6 +80,10 @@ export const EventDateText = styled.p`
 export const EventTitle = styled.div`
   padding-left: 20px;
   width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `
 
 export const NoEventText = styled.p`

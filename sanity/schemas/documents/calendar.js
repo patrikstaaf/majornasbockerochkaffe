@@ -78,7 +78,7 @@ export default {
       title: 'Titel',
       name: 'bookClubTitle',
       type: 'string',
-      description: 'Skriv tex: Pocketbokcirkel',
+      description: 'Ange typ av event som titel: Bokcirkel',
       hidden: ({ parent }) => parent?.event !== 'bookClub',
     },
     // {
@@ -108,7 +108,7 @@ export default {
       title: 'Titel',
       name: 'bookNightTitle',
       type: 'string',
-      description: 'Skriv tex: Snart är det jul',
+      description: 'Ange typ av event som titel: Bokhandelskväll',
       hidden: ({ parent }) => parent?.event !== 'bookNight',
     },
     // {
