@@ -395,7 +395,7 @@ const IllustrationBookContainer = styled.div``
 const IllustrationBookImage = styled.img`
   width: 380px;
 `
-const Home: NextPage<Props> = ({ data }) => {
+const Home: NextPage<Props> = ({ data, images }) => {
   return (
     <Layout
       title="Majornas Böcker och Kaffe"
@@ -459,12 +459,21 @@ const Home: NextPage<Props> = ({ data }) => {
             Besök bokhandelns instagram för de senaste nyheterna om vad som
             händer i butiken.
           </TextBox>
-          <LinkText Color>Följ @majornasbocker på Instagram</LinkText>
+          <LinkText Color>
+            Följ{' '}
+            <a href="https://instagram.com/majornasbocker" target="_blank">
+              @majornasbocker
+            </a>{' '}
+            på Instagram
+          </LinkText>
         </InstagramTextContainer>
         <InstagramImageContainer>
-          <InstagramImageOne></InstagramImageOne>
-          <InstagramImageTwo></InstagramImageTwo>
-          <InstagramImageThree></InstagramImageThree>
+          {/* {images.map(({ image }) => (
+             <InstagramImageOne key={image.id} src={image.media_url} alt={image.caption}></InstagramImageOne>
+             <InstagramImageTwo></InstagramImageTwo>
+             <InstagramImageThree></InstagramImageThree>
+         
+          ))} */}
         </InstagramImageContainer>
       </InstagramContainer>
       <BetweenSections color={theme.colors.cream} />
@@ -556,11 +565,23 @@ export default Home
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const data = await sanityClient.fetch(startPageQuery)
+  const url = `https://graph.instagram.com/me/media?fields=id,username,media_url,caption&access_token=${process.env.INSTAGRAM_KEY}`
+  const instagramData = await fetch(url)
+  const feed = await instagramData.json()
+
+  console.log(feed)
 
   return {
     props: {
       data,
+      images: feed.data,
     },
     revalidate: 10, // add webhook later on
   }
 }
+
+// interface OneImage {
+//   id: number
+//   media_url: string
+//   caption: string
+// }
