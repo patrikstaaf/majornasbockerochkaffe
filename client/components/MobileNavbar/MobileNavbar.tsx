@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 import { useState } from 'react'
+import { MobileNavbarProps } from './types'
+import { NextPage } from 'next'
 
 const Nav = styled.nav`
   background-color: ${({ theme }) => theme.colors.paper};
@@ -140,7 +142,11 @@ const CloseNavBox = styled.div`
   justify-content: flex-end;
 `
 
-const MobileNavbar = () => {
+interface Props {
+  companyInfo: MobileNavbarProps
+}
+
+const MobileNavbar: NextPage<Props> = ({ companyInfo }) => {
   const [openMenu, setOpenMenu] = useState(false)
   return (
     <Nav>
@@ -203,17 +209,22 @@ const MobileNavbar = () => {
             </LineBox>
             <OpeningAndSocialMedia>
               <OpeningBox>
-                <OpeningText>Öppettider: </OpeningText>
-                <OpeningText>Hämta data</OpeningText>
+                <OpeningText>
+                  Öppettider: {companyInfo.openingHours}
+                </OpeningText>
               </OpeningBox>
               <SocialMediaBox>
                 <SocialMediaLink>
                   <img src="/assets/icons/instagram.svg" />
-                  <LinkToSocialMedia href="#">Instagram</LinkToSocialMedia>
+                  <LinkToSocialMedia href={companyInfo.instagramUrl}>
+                    Instagram
+                  </LinkToSocialMedia>
                 </SocialMediaLink>
                 <SocialMediaLink>
                   <img src="/assets/icons/facebook.svg" />
-                  <LinkToSocialMedia href="#">Facebook</LinkToSocialMedia>
+                  <LinkToSocialMedia href={companyInfo.facebookUrl}>
+                    Facebook
+                  </LinkToSocialMedia>
                 </SocialMediaLink>
               </SocialMediaBox>
             </OpeningAndSocialMedia>

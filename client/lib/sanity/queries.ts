@@ -35,6 +35,8 @@ price,
 descriptionHostingAuthorNights,
  shortGeneralDescriptionAboutBookClub,
   shortGeneralDescriptionAboutTheStore,
+  shortGeneralDescriptionAboutTheEvents,
+  descriptionHostingAuthorNights,
   "generalImageAuthorBookClub": generalImageAuthorBookClub.asset->url,
 "generalImageAuthorBookClubAlt": generalImageAuthorBookClub.alt,
     "generalImageAuthorNights": generalImageAuthorNights.asset->url,
@@ -71,4 +73,16 @@ descriptionHostingAuthorNights,
 "calendar": *[_type == "calendar" && dateTime(now()) < dateTime(calendarDate)] | order(calendarDate asc){
 ...
 },
+}`
+
+export const NotFoundPageQuery = `*[_type == "companyInfo"][0]{
+  "companyInfo": {
+  address,
+  email,
+  facebookUrl,
+  heroText,
+  instagramUrl,
+  openingHours,
+  phone
+  },
 }`

@@ -1,9 +1,11 @@
-import { NextPage } from 'next'
-import Layout from '../components/Layout'
+import type { NextPage, GetStaticProps } from 'next'
+import Layout from '../components/Layout/Layout'
 import styled from 'styled-components'
 import BetweenSections from '../components/BetweenSections'
 import Button from '../components/Button'
 import { H1, H2, Text } from '../components/Text'
+import sanityClient from '../lib/sanity/client'
+import { NotFoundPageQuery } from '../lib/sanity/queries'
 
 const AboutContainer = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
@@ -206,12 +208,23 @@ const AboutChildren = styled.div`
     border-color: ${({ theme }) => theme.colors.coffee};
   }
 `
+interface Props {
+  companyInfo: {
+    openingHours: string
+    facebookUrl: string
+    instagramUrl: string
+    email: string
+    phone: string
+    address: string
+  }
+}
 
-const Butik: NextPage = () => {
+const Butik: NextPage<Props> = ({ companyInfo }) => {
   return (
     <Layout
       title="Majornas Böcker och Kaffe"
       description="Här finner man info om Majornas Böcker och Kaffe butik och kaffe."
+      companyInfo={companyInfo}
     >
       <AboutContainer>
         <AboutBookShop>
@@ -276,3 +289,14 @@ const Butik: NextPage = () => {
 }
 
 export default Butik
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const companyInfo = await sanityClient.fetch(NotFoundPageQuery)
+
+  return {
+    props: {
+      companyInfo,
+    },
+    revalidate: 10, // add webhook later on
+  }
+}

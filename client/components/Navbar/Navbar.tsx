@@ -1,5 +1,7 @@
+import { NextPage } from 'next'
 import styled from 'styled-components'
-import { Text, H1, LinkText } from './Text'
+import { Text, H1, LinkText } from '../Text'
+import { NavbarProps } from './types'
 
 interface textColor {
   Color: boolean
@@ -215,11 +217,17 @@ const TextFont = styled.p`
   color: ${({ theme }) => theme.colors.paper};
 `
 
-const Navbar = () => {
+interface Props {
+  companyInfo: NavbarProps
+}
+
+const Navbar: NextPage<Props> = ({ companyInfo }) => {
   return (
     <div>
       <TopBar>
-        <TextFont className="openingHours">Öppettider: HÄMTA DATA</TextFont>
+        <TextFont className="openingHours">
+          Öppettider: {companyInfo.openingHours}
+        </TextFont>
 
         <div className="linkContainer">
           <div className="logoContainer">
@@ -227,7 +235,7 @@ const Navbar = () => {
             <SocialLink
               className="link"
               Color={false}
-              href="https://www.facebook.com/majornasbockerochkaffe/"
+              href={companyInfo.facebookUrl}
               target="_blank"
               rel="noreferrer"
             >
@@ -239,7 +247,7 @@ const Navbar = () => {
             <SocialLink
               className="link"
               Color={false}
-              href="https://www.instagram.com/majornasbocker/"
+              href={companyInfo.instagramUrl}
               target="_blank"
               rel="noreferrer"
             >

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import BetweenSections from '../components/BetweenSections'
 import Button from '../components/Button'
 import { H1, H2, Text, LinkText } from '../components/Text'
-import Layout from '../components/Layout'
+import Layout from '../components/Layout/Layout'
 import EventPageCalendar from '../components/Calendar/EventPageCalendar/EventPageCalendar'
 import sanityClient from '../lib/sanity/client'
 import { EventPageSanityData } from '../lib/sanity/types'
@@ -236,6 +236,7 @@ const Evenemang: NextPage<Props> = ({ data }) => {
     <Layout
       title="Majornas Böcker och Kaffe"
       description="Här finner man info om Majornas Böcker och Kaffe evenemang."
+      companyInfo={data.companyInfo}
     >
       <Author>
         <Image></Image>
