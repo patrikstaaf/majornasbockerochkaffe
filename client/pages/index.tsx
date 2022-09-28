@@ -510,16 +510,13 @@ const Home: NextPage<Props> = ({ data, images }) => {
             Besök bokhandelns instagram för de senaste nyheterna om vad som
             händer i butiken.
           </TextBox>
-          <LinkText Color>
-            Följ{' '}
-            <a
-              href="https://instagram.com/majornasbocker"
-              target="_blank"
-              rel="noreferrer"
-            >
-              @majornasbocker
-            </a>{' '}
-            på Instagram
+          <LinkText
+            href="https://instagram.com/majornasbocker"
+            target="_blank"
+            rel="noreferrer"
+            Color
+          >
+            Följ @majornasbocker på Instagram
           </LinkText>
         </InstagramTextContainer>
         <InstagramImageContainer>
