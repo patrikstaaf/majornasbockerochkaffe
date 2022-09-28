@@ -45,7 +45,7 @@ const AboutCafeImage = styled(AboutBookImage)`
 `
 const AboutBookShop = styled.div`
   background-color: ${({ theme }) => theme.colors.paper};
-  border-width: 0px 2px;
+  border-width: 2px 2px 0px 2px;
   border-style: solid;
   border-color: ${({ theme }) => theme.colors.coffee};
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
