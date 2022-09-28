@@ -33,6 +33,8 @@ const Nav = styled.nav`
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+    border-color: ${({ theme }) => theme.colors.coffee};
+    border-style: solid;
     display: block;
     width: 100%;
     height: 15vh;
@@ -47,8 +49,6 @@ const Nav = styled.nav`
     background-color: ${({ theme }) => theme.colors.paper};
     padding-top: 8vh;
     padding-bottom: 18vh;
-    border-color: ${({ theme }) => theme.colors.coffee};
-    border-style: solid;
   }
 
   .navBarLogo {
@@ -95,22 +95,72 @@ const TopBar = styled.div`
   display: none;
 
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border-color: ${({ theme }) => theme.colors.coffee};
+    border-style: solid;
     display: block;
     width: 100%;
     height: 7vh;
     background-color: ${({ theme }) => theme.colors.crust};
-    justify-content: center;
+    /* justify-content: center; */
 
     display: grid;
     grid-template-columns: 1fr repeat(3, fit-content(50px));
     grid-gap: 20px;
-    justify-items: end;
-    justify-content: center;
+    /* justify-items: end; */
+    /* &:nth-child(1) {
+      align-items: flex-start;
+    } */
+
+    .logoContainer {
+      display: grid;
+      grid-auto-flow: column;
+      gap: 1vh;
+      place-items: center;
+      &:nth-child(1) {
+        margin-right: 40px;
+      }
+      &:nth-child(3) {
+        margin-right: 50px;
+      }
+    }
+
+    .linkContainer {
+      display: grid;
+      grid-auto-columns: minmax(min-content, 50px);
+      grid-auto-flow: column;
+      grid-gap: 15px;
+      place-items: center;
+      background-color: ${({ theme }) => theme.colors.crust};
+      align-items: space-between;
+      &:last-child {
+        padding-left: 10px;
+      }
+      margin-bottom: 5px;
+    }
+    .openingHours {
+      flex: 0 0 100px;
+      margin-right: 10px;
+      text-align: left;
+      display: inline;
+      font-style: italic;
+      font-size: 20px;
+      justify-self: left;
+      margin-left: 5rem;
+    }
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border-color: ${({ theme }) => theme.colors.coffee};
+    border-style: solid;
+    border-bottom: none;
     display: block;
     width: 100%;
-    height: 7vh;
+    height: 8vh;
     background-color: ${({ theme }) => theme.colors.crust};
     align-content: space-evenly;
     display: grid;
@@ -147,8 +197,9 @@ const TopBar = styled.div`
       margin-right: 10px;
       text-align: left;
       display: inline;
-      align-self: flex-start;
       font-style: italic;
+      justify-self: left;
+      margin-left: 5rem;
     }
   }
 `
@@ -168,9 +219,7 @@ const Navbar = () => {
   return (
     <div>
       <TopBar>
-        <TextFont className="openingHours">
-          Öppettider: tisdag–fredag 11–18, lördag 11–15
-        </TextFont>
+        <TextFont className="openingHours">Öppettider: HÄMTA DATA</TextFont>
 
         <div className="linkContainer">
           <div className="logoContainer">
