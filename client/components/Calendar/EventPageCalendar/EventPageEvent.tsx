@@ -40,9 +40,10 @@ import {
 
 interface Props {
   calendar: Calendar[]
+  instagramUrl: string
 }
 
-const EventPageEvent: NextPage<Props> = ({ calendar }) => {
+const EventPageEvent: NextPage<Props> = ({ calendar, instagramUrl }) => {
   if (calendar.length === 0) {
     return (
       <HomePageCalendarSection id="kalender">
@@ -68,7 +69,7 @@ const EventPageEvent: NextPage<Props> = ({ calendar }) => {
         <NoEventText>Just nu har vi inga kommande evenemang.</NoEventText>
 
         <LinkWrapper>
-          <Link href="/evenemang">
+          <Link href={instagramUrl}>
             Följ oss på instagram för kontinuerlig uppdatering kring evenmang
             och nyheter
           </Link>
@@ -300,7 +301,7 @@ const EventPageEvent: NextPage<Props> = ({ calendar }) => {
         </HomePageCalendarWrapper>
         <HomePagePaddingContainer>
           <LinkWrapper>
-            <Link href="/evenemang">
+            <Link href={instagramUrl}>
               Följ oss på instagram för kontinuerlig uppdatering kring evenmang
               och nyheter
             </Link>

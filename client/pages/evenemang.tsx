@@ -230,6 +230,8 @@ const TextBox = styled(Text)`
   }
 `
 const Evenemang: NextPage<Props> = ({ data }) => {
+  console.log(data.companyInfo.instagramUrl)
+
   return (
     <Layout
       title="Majornas Böcker och Kaffe"
@@ -318,7 +320,10 @@ const Evenemang: NextPage<Props> = ({ data }) => {
         </BookEvening>
       </Book>
       <BetweenSections color={'#739598'} />
-      <EventPageCalendar calendar={data.calendar} />
+      <EventPageCalendar
+        calendar={data.calendar}
+        instagramUrl={data.companyInfo.instagramUrl}
+      />
     </Layout>
   )
 }
