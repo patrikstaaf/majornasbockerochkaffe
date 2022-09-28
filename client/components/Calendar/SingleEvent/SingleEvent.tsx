@@ -32,7 +32,9 @@ const SingleEvent: NextPage<Props> = ({ calendar }) => {
         <SectionTitle>Kalendarium</SectionTitle>
         <NoEventText>Just nu har vi inga kommande evenemang.</NoEventText>
         <LinkWrapper>
-          <Link href="/evenemang">Se fullständigt kalendarium här</Link>
+          <Link href="/evenemang/#kalender" scroll={false}>
+            Se fullständigt kalendarium här
+          </Link>
         </LinkWrapper>
       </HomePageCalendarSection>
     )
@@ -117,7 +119,9 @@ const SingleEvent: NextPage<Props> = ({ calendar }) => {
           ))}
       </HomePageCalendarWrapper>
       <LinkWrapper>
-        <Link href="/evenemang">Se fullständigt kalendarium här</Link>
+        <Link href="/evenemang/#kalender" scroll={false}>
+          Se fullständigt kalendarium här
+        </Link>
       </LinkWrapper>
     </HomePageCalendarSection>
   )

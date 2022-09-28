@@ -45,7 +45,7 @@ interface Props {
 const EventPageEvent: NextPage<Props> = ({ calendar }) => {
   if (calendar.length === 0) {
     return (
-      <HomePageCalendarSection>
+      <HomePageCalendarSection id="kalender">
         <SectionTitle>Kalendarium</SectionTitle>
         <EventDescriptionContainer>
           <EventDescriptionWrapper>
@@ -79,7 +79,7 @@ const EventPageEvent: NextPage<Props> = ({ calendar }) => {
 
   return (
     <>
-      <HomePageCalendarSection>
+      <HomePageCalendarSection id="kalender">
         <HomePagePaddingContainer>
           <SectionTitle>Kalendarium</SectionTitle>
           <EventDescriptionContainer>
