@@ -437,10 +437,14 @@ const IllustrationBookImage = styled.img`
   }
 `
 const IllustrationBookText = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: none;
+  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 `
 const TextBookTipsOnBookTitle = styled.p`
   font-family: ${({ theme }) => theme.fontFamily.sourceSerifPro};
