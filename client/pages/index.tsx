@@ -40,7 +40,7 @@ const HeroContainer = styled.div`
 `
 const Hero = styled.div`
   background-color: ${({ theme }) => theme.colors.paper};
-  border-width: 0px 2px;
+  border-width: 2px 2px 0 2px;
   border-style: solid;
   border-color: ${({ theme }) => theme.colors.coffee};
   padding: 35px 20px 36px 20px;
@@ -425,7 +425,10 @@ const TextBox = styled(Text)`
 const TextBoxAuthor = styled(Text)`
   margin: 0px 0px 81px 0px;
 `
-const IllustrationBookContainer = styled.div``
+const IllustrationBookContainer = styled.div`
+  position: relative;
+  text-align: center;
+`
 const IllustrationBookImage = styled.img`
   display: none;
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
@@ -433,6 +436,26 @@ const IllustrationBookImage = styled.img`
     width: 380px;
   }
 `
+const IllustrationBookText = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`
+const TextBookTipsOnBookTitle = styled.p`
+  font-family: ${({ theme }) => theme.fontFamily.sourceSerifPro};
+  font-size: 40px;
+  color: ${({ theme }) => theme.colors.paper};
+  font-weight: 700;
+  line-height: 48px;
+  margin: 54px 0 8px 0;
+`
+const TextBookTipsOnBook = styled(Text)`
+  font-size: 24px;
+  line-height: 29px;
+  margin: 0;
+`
+
 const ButtonLink = styled.a`
   text-decoration: none;
 `
@@ -649,6 +672,17 @@ const Home: NextPage<Props> = ({ data, images }) => {
               src="/assets/illustration/book.svg/"
               alt="En stående bok. Lite öppnad med grön pärm och texten veckans bok på."
             />
+            <IllustrationBookText>
+              <TextBookTipsOnBookTitle>
+                {data.bookOfTheMonth.title}
+              </TextBookTipsOnBookTitle>
+              <TextBookTipsOnBook Color={false}>
+                {data.bookOfTheMonth.author}
+              </TextBookTipsOnBook>
+              <TextBookTipsOnBook Color={false}>
+                {data.bookOfTheMonth.releaseYear}
+              </TextBookTipsOnBook>
+            </IllustrationBookText>
           </IllustrationBookContainer>
         </BookTips>
       </BooktipsContainer>
