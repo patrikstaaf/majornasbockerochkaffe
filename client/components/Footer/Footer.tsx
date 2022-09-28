@@ -180,13 +180,18 @@ const Footer: NextPage<Props> = ({ companyInfo }) => {
           </H4>
           <H4 Color={false}>
             Kontakt:{' '}
-            <ContactLink href={`tel:${companyInfo.email}`}>
+            <ContactLink href={`mailto:${companyInfo.email}`}>
               {companyInfo.email}
             </ContactLink>
           </H4>
           <H4 Color={false}>
             Adress:{' '}
-            <ContactLink href="/kontakt">{companyInfo.address}</ContactLink>
+            <ContactLink
+              href="https://goo.gl/maps/EFWiCvsFyh6mZZqF8"
+              target="_blank"
+            >
+              {companyInfo.address}
+            </ContactLink>
           </H4>
           <H4 Color={false}>Öppettider:</H4>
           <Text>{companyInfo.openingHours}</Text>
