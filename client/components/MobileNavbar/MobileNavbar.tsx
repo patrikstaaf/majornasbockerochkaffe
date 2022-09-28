@@ -81,6 +81,7 @@ const LinkText = styled.p`
   font-size: 32px;
   line-height: 38px;
   color: ${({ theme }) => theme.colors.paper};
+  margin: 16px 0px;
 `
 const List = styled.li`
   margin-left: 20px;
@@ -97,7 +98,6 @@ const OpeningAndSocialMedia = styled.div`
   border-width: 1px 0px 0px 0px;
   width: 100%;
 `
-
 const OpeningText = styled.p`
   font-family: ${({ theme }) => theme.fontFamily.calibri};
   font-style: italic;
@@ -107,14 +107,12 @@ const OpeningText = styled.p`
   color: ${({ theme }) => theme.colors.paper};
   margin: 0;
 `
-
 const OpeningBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 66px 0px 0px 0px;
+  margin: 40px 0px 0px 0px;
 `
-
 const SocialMediaBox = styled.div`
   display: flex;
   flex-direction: row;
@@ -137,7 +135,7 @@ const SocialMediaLink = styled.div`
   margin: 16px 11px 0 11px;
 `
 const CloseNavBox = styled.div`
-  margin: 24px 16px 8px 0px;
+  margin: 24px 16px 0px 0px;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
