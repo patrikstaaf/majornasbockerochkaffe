@@ -23,7 +23,6 @@ export interface Calendar extends SanityDocument {
 interface CompanyInfo extends SanityDocument {
   address: string
   closestPublicTransportStop: string
-  companyName: string
   directions: string
   email: string
   facebookUrl: string
@@ -31,6 +30,8 @@ interface CompanyInfo extends SanityDocument {
   instagramUrl: string
   openingHours: string
   phone: string
+  outsideImageOfShop: string
+  outsideImageOfShopAlt: string
 }
 
 interface BookOfTheMonth extends SanityDocument {
@@ -121,6 +122,10 @@ export interface ShopPageSanityData {
   companyInfo: CompanyInfo
   permanentOffer: PermanentOffer
   aboutTheStore: AboutTheStore
+}
+
+export interface ContactPageSanityData {
+  companyInfo: CompanyInfo
 }
 
 export interface NotFoundPageSanityData {

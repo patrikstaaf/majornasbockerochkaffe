@@ -114,12 +114,26 @@ price,
 },
 }`
 
+export const contactPageQuery = `*[_type == "companyInfo"][0]{
+  "companyInfo": {
+  address,
+  closestPublicTransportStop,
+  directions,
+  email,
+  facebookUrl,
+  instagramUrl,
+  openingHours,
+  phone,
+  "outsideImageOfShop": outsideImageOfShop.asset->url,
+  "outsideImageOfShopAlt": outsideImageOfShop.alt,
+  },
+}`
+
 export const notFoundPageQuery = `*[_type == "companyInfo"][0]{
   "companyInfo": {
   address,
   email,
   facebookUrl,
-  heroText,
   instagramUrl,
   openingHours,
   phone

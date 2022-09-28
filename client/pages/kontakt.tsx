@@ -4,7 +4,8 @@ import Map from '../components/Map'
 import Layout from '../components/Layout/Layout'
 import type { NextPage, GetStaticProps } from 'next'
 import sanityClient from '../lib/sanity/client'
-import { notFoundPageQuery } from '../lib/sanity/queries'
+import { contactPageQuery } from '../lib/sanity/queries'
+import { ContactPageSanityData } from '../lib/sanity/types'
 
 const ContactSection = styled.section`
   display: flex;
@@ -239,22 +240,15 @@ const OpeninghoursBox = styled.div`
   gap: 4px;
 `
 interface Props {
-  companyInfo: {
-    openingHours: string
-    facebookUrl: string
-    instagramUrl: string
-    email: string
-    phone: string
-    address: string
-  }
+  data: ContactPageSanityData
 }
 
-const Kontakt: NextPage<Props> = ({ companyInfo }) => {
+const Kontakt: NextPage<Props> = ({ data }) => {
   return (
     <Layout
       title="Majornas Böcker och Kaffe"
       description="Här finner man info om Majornas Böcker och Kaffe kontaktuppgifter."
-      companyInfo={companyInfo}
+      companyInfo={data.companyInfo}
     >
       <ContactSection>
         <ContactContainer>
@@ -264,13 +258,13 @@ const Kontakt: NextPage<Props> = ({ companyInfo }) => {
             </Heading>
             <ContentOpeninghours>
               <OpeninghoursBox>
-                <TextBox Color>Tisdag-Fredag:</TextBox>
-                <Fetchdata>Hämta data</Fetchdata>
+                {/* <TextBox Color></TextBox> */}
+                <Fetchdata>{data.companyInfo.openingHours}</Fetchdata>
               </OpeninghoursBox>
-              <OpeninghoursBox>
+              {/* <OpeninghoursBox>
                 <TextBox Color>Lördag:</TextBox>
                 <Fetchdata>Hämta data</Fetchdata>
-              </OpeninghoursBox>
+              </OpeninghoursBox> */}
             </ContentOpeninghours>
           </Openinghours>
           <Contact>
@@ -280,28 +274,36 @@ const Kontakt: NextPage<Props> = ({ companyInfo }) => {
             <Content>
               <ContactContent>
                 <TextBox Color>
-                  Telefon: <Link href="tel:0763 414 000">Hämta data</Link>
+                  Telefon:{' '}
+                  <Link href={`tel:${data.companyInfo.phone}`}>
+                    {data.companyInfo.phone}
+                  </Link>
                 </TextBox>
                 <TextBox Color>
                   Mail:{' '}
-                  <Link href="mailto:info@majornasbocker.se">Hämta data</Link>{' '}
+                  <Link href={`mailto:${data.companyInfo.email}`}>
+                    {data.companyInfo.email}
+                  </Link>
                 </TextBox>
               </ContactContent>
               <TextBox Color>Sociala medier: </TextBox>
               <SocialMediaContainer>
                 <SocialMediaLink>
                   <img src="/assets/icons/instagramBlack.svg" />
-                  <Link href="#">Instagram</Link>
+                  <Link href={data.companyInfo.instagramUrl}>Instagram</Link>
                 </SocialMediaLink>
                 <SocialMediaLink>
                   <img src="/assets/icons/facebookBlack.svg" />
-                  <Link href="#">Facebook</Link>
+                  <Link href={data.companyInfo.instagramUrl}>Facebook</Link>
                 </SocialMediaLink>
               </SocialMediaContainer>
             </Content>
           </Contact>
         </ContactContainer>
-        <Image></Image>
+        <Image>
+          {data.companyInfo.outsideImageOfShop}
+          {data.companyInfo.outsideImageOfShopAlt}
+        </Image>
       </ContactSection>
       <MapSection>
         <MapContainer>
@@ -314,15 +316,17 @@ const Kontakt: NextPage<Props> = ({ companyInfo }) => {
           <TextContainer>
             <AdressContainer>
               <TextBox Color>Adress: </TextBox>
-              <Fetchdata>Hämta data</Fetchdata>
+              <Fetchdata>{data.companyInfo.address}</Fetchdata>
             </AdressContainer>
             <StopContainer>
               <TextBox Color>Närmaste hållplats: </TextBox>
-              <Fetchdata>Hämta data</Fetchdata>
+              <Fetchdata>
+                {data.companyInfo.closestPublicTransportStop}
+              </Fetchdata>
             </StopContainer>
             <DescriptionContainer>
               <TextBox Color>Beskrivning: </TextBox>
-              <Fetchdata>Hämta data</Fetchdata>
+              <Fetchdata>{data.companyInfo.directions}</Fetchdata>
             </DescriptionContainer>
           </TextContainer>
         </FindUs>
@@ -334,11 +338,11 @@ const Kontakt: NextPage<Props> = ({ companyInfo }) => {
 export default Kontakt
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const companyInfo = await sanityClient.fetch(notFoundPageQuery)
+  const data = await sanityClient.fetch(contactPageQuery)
 
   return {
     props: {
-      companyInfo,
+      data,
     },
     revalidate: 10, // add webhook later on
   }

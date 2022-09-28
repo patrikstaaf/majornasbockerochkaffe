@@ -79,6 +79,29 @@ export default {
         'Denna text renderas ut i första stycket på startsidan, alltså under menyn.',
       validation: (Rule) => Rule.required(),
     },
+    {
+      title: 'Bild utsidan av bokhandeln',
+      name: 'outsideImageOfShop',
+      type: 'image',
+      description:
+        'Bild utsidan av bokhandeln som renderas ut på kontaktsidan.',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          type: 'string',
+          name: 'alt',
+          title: 'Alternativ text för bilden',
+          description: 'Detta är för tillgänglighet och sökmotorn',
+          options: {
+            isHighlighted: true,
+          },
+          validation: (Rule) =>
+            Rule.required().warning('Lägg till en alt text'),
+        },
+      ],
+    },
     // {
     //   title: 'Om oss',
     //   name: 'about',
