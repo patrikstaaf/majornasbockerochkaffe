@@ -46,19 +46,19 @@ interface BookOfTheMonth extends SanityDocument {
 interface AboutTheStore extends SanityDocument {
   cafeImage: string
   cafeImageAlt: string
+  bookStoreImage: string
+  bookStoreImageAlt: string
   descriptionAboutTheBookStore: string
   descriptionAboutTheCafe: string
   descriptionAboutTheChildSection: string
   generalImage: string
   generalImageAlt: string
-  imagesOfChildSection: {
-    _key: string
-    _type: string
-    asset: {
-      _ref: string
-      _type: string
-    }
-  }[]
+  kidSectionImage1: string
+  kidSectionImage2: string
+  kidSectionImage3: string
+  kidSectionImage1Alt: string
+  kidSectionImage2Alt: string
+  kidSectionImage3Alt: string
   shortDescriptionAboutTheCafe: string
   shortGeneralDescriptionAboutTheStore: string
 }
@@ -89,15 +89,16 @@ interface PermanentOffer extends SanityDocument {
   title: string
 }
 
+interface NextAuthorNight {
+  authorEventTitle: string
+  authorNightDescription: string
+}
+
 export interface Images {
   caption: string
   media_url: string
   id: number
   permalink: string
-}
-export interface NextAuthorNightProp {
-  authorEventTitle: string
-  authorNightDescription: string
 }
 
 export interface StartPageSanityData {
@@ -106,14 +107,20 @@ export interface StartPageSanityData {
   aboutTheStore: AboutTheStore
   aboutTheEvents: AboutTheEvents
   permanentOffer: PermanentOffer
+  nextAuthorNight: NextAuthorNight
   calendar: Calendar[]
-  nextAuthorNight: NextAuthorNightProp
 }
 
 export interface EventPageSanityData {
   companyInfo: CompanyInfo
   aboutTheEvents: AboutTheEvents
   calendar: Calendar[]
+}
+
+export interface ShopPageSanityData {
+  companyInfo: CompanyInfo
+  permanentOffer: PermanentOffer
+  aboutTheStore: AboutTheStore
 }
 
 export interface NotFoundPageSanityData {

@@ -6,7 +6,6 @@ import { startPageQuery } from '../lib/sanity/queries'
 import { H1, H2, Text, LinkText } from '../components/Text'
 import theme from '../lib/styles/theme'
 import NextImage from 'next/image'
-
 import dynamic from 'next/dynamic'
 const HomePageCalendar = dynamic(
   () => import('../components/Calendar/HomePageCalendar'),
@@ -437,7 +436,6 @@ const ButtonLink = styled.a`
   text-decoration: none;
 `
 const Home: NextPage<Props> = ({ data, images }) => {
-  console.log(data)
   return (
     <Layout
       title="Majornas Böcker och Kaffe"
@@ -482,8 +480,7 @@ const Home: NextPage<Props> = ({ data, images }) => {
         <BookCircle>
           <H2 Color={false}>Bokcirklar</H2>
           <TextBox Color={false}>
-            Bokhandeln anordar bokcirklar av olika sorter – helt enkelt en
-            mötesplats för läsare. Har du lust att vara med i en bokcirkel?
+            {data.aboutTheEvents.shortGeneralDescriptionAboutBookClub}
           </TextBox>
           <LinkText href="/evenemang" Color={false}>
             Läs mer om författarkvällar
@@ -617,7 +614,9 @@ const Home: NextPage<Props> = ({ data, images }) => {
             {data.aboutTheEvents.descriptionHostingAuthorNights}
           </TextBox>
           <ButtonBox>
-            <ButtonLink href="mailto:info@majornasbocker.se?subject=Jag vill hålla författarkväll hos dig">
+            <ButtonLink
+              href={`mailto:${data.companyInfo.email}?subject=Jag vill hålla författarkväll hos dig`}
+            >
               <Button Color>Bokning och frågor</Button>
             </ButtonLink>
           </ButtonBox>

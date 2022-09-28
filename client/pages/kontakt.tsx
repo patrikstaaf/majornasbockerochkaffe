@@ -4,7 +4,7 @@ import Map from '../components/Map'
 import Layout from '../components/Layout/Layout'
 import type { NextPage, GetStaticProps } from 'next'
 import sanityClient from '../lib/sanity/client'
-import { NotFoundPageQuery } from '../lib/sanity/queries'
+import { notFoundPageQuery } from '../lib/sanity/queries'
 
 const ContactSection = styled.section`
   display: flex;
@@ -334,7 +334,7 @@ const Kontakt: NextPage<Props> = ({ companyInfo }) => {
 export default Kontakt
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const companyInfo = await sanityClient.fetch(NotFoundPageQuery)
+  const companyInfo = await sanityClient.fetch(notFoundPageQuery)
 
   return {
     props: {

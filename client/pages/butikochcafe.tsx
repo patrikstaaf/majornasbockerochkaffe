@@ -5,7 +5,8 @@ import BetweenSections from '../components/BetweenSections'
 import Button from '../components/Button'
 import { H1, H2, Text } from '../components/Text'
 import sanityClient from '../lib/sanity/client'
-import { NotFoundPageQuery } from '../lib/sanity/queries'
+import { shopPageQuery } from '../lib/sanity/queries'
+import { ShopPageSanityData } from '../lib/sanity/types'
 
 const AboutContainer = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
@@ -209,46 +210,38 @@ const AboutChildren = styled.div`
   }
 `
 interface Props {
-  companyInfo: {
-    openingHours: string
-    facebookUrl: string
-    instagramUrl: string
-    email: string
-    phone: string
-    address: string
-  }
+  data: ShopPageSanityData
 }
 
-const Butik: NextPage<Props> = ({ companyInfo }) => {
+const Butik: NextPage<Props> = ({ data }) => {
   return (
     <Layout
       title="Majornas Böcker och Kaffe"
       description="Här finner man info om Majornas Böcker och Kaffe butik och kaffe."
-      companyInfo={companyInfo}
+      companyInfo={data.companyInfo}
     >
       <AboutContainer>
         <AboutBookShop>
           <Content>
             <H1 Color={true}>Om bokhandeln</H1>
             <Text Color={true}>
-              Majornas böcker &amp; kaffe är en oberoende bokhandel som öppnade
-              sommaren 2019. Här finner du aktuell skönlitteratur, barnböcker,
-              serieböcker och intressanta fackböcker. Förutom böcker säljs också
-              kort, pussel och spel samt en del pappersvaror och presenter.
+              {data.aboutTheStore.descriptionAboutTheBookStore}
             </Text>
           </Content>
         </AboutBookShop>
-        <AboutBookImage></AboutBookImage>
-        <AboutCafeImage></AboutCafeImage>
+        <AboutBookImage>
+          {data.aboutTheStore.bookStoreImage}
+          {data.aboutTheStore.bookStoreImageAlt}
+        </AboutBookImage>
+        <AboutCafeImage>
+          {data.aboutTheStore.cafeImage}
+          {data.aboutTheStore.cafeImageAlt}
+        </AboutCafeImage>
         <AboutCafe>
           <Content>
             <H2 Color={true}>Om café</H2>
             <Text Color={true}>
-              Cafét erbjuder både kaffe &amp; te samt nybakade frallor &amp;
-              kakor. Det är en trivsam miljö där ni kan botanisera bland böcker
-              men också komma in i värmen på en fika. Det är ett litet café med
-              mycket hjärta, omgivet av böcker. Både vegetariska och veganska
-              alternativ finns.
+              {data.aboutTheStore.descriptionAboutTheCafe}
             </Text>
           </Content>
         </AboutCafe>
@@ -256,30 +249,35 @@ const Butik: NextPage<Props> = ({ companyInfo }) => {
       <OfferContainer>
         <Offer>
           <H2 Color={false}>Stående erbjudande</H2>
-          <Text Color={false}>Valfri pocket &amp; valfri kaffe</Text>
-          <Price>100:- </Price>
+          <Text Color={false}>{data.permanentOffer.title}</Text>
+          <Price>{data.permanentOffer.price}:- </Price>
         </Offer>
-        <OfferImage></OfferImage>
+        <OfferImage>
+          {data.permanentOffer.image}
+          {data.permanentOffer.imageAlt}
+        </OfferImage>
       </OfferContainer>
       <BetweenSections color={'#b17b54;'} />
       <AboutChildrenContainer>
-        <AboutChildrenImageLarge></AboutChildrenImageLarge>
+        <AboutChildrenImageLarge>
+          {data.aboutTheStore.kidSectionImage1}
+          {data.aboutTheStore.kidSectionImage1Alt}
+        </AboutChildrenImageLarge>
         <AboutChildrenImageSmallContainer>
-          <AboutChildrenImageSmallOne></AboutChildrenImageSmallOne>
-          <AboutChildrenImageSmallTwo></AboutChildrenImageSmallTwo>
+          <AboutChildrenImageSmallOne>
+            {data.aboutTheStore.kidSectionImage2}
+            {data.aboutTheStore.kidSectionImage2Alt}
+          </AboutChildrenImageSmallOne>
+          <AboutChildrenImageSmallTwo>
+            {data.aboutTheStore.kidSectionImage3}
+            {data.aboutTheStore.kidSectionImage3Alt}
+          </AboutChildrenImageSmallTwo>
         </AboutChildrenImageSmallContainer>
         <AboutChildren>
           <Content>
             <H2 Color={true}>Om barnavdelning</H2>
             <Text Color={true}>
-              På barnavdelningen hittar man förutom böcker även leksaker och
-              roliga presenter till kalaset. Om ni har tur så hamnar ni mitt i
-              en sagostund om tex Bröderna Lejonhjärta, Rasmus på luffen eller
-              kanske Pippi Långstrump.
-            </Text>
-            <Text Color={true}>
-              Bokhandeln erbjuder en rad olika barnboksförfattare och värnar om
-              att barn ska få tillgång till litteraturens spännande värld.
+              {data.aboutTheStore.descriptionAboutTheChildSection}
             </Text>
           </Content>
         </AboutChildren>
@@ -291,11 +289,11 @@ const Butik: NextPage<Props> = ({ companyInfo }) => {
 export default Butik
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const companyInfo = await sanityClient.fetch(NotFoundPageQuery)
+  const data = await sanityClient.fetch(shopPageQuery)
 
   return {
     props: {
-      companyInfo,
+      data,
     },
     revalidate: 10, // add webhook later on
   }
