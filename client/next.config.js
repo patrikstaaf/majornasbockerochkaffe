@@ -11,6 +11,13 @@ const nextConfig = {
       'scontent-ham3-1.cdninstagram.com',
       'scontent-cph2-1.cdninstagram.com',
     ],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '.cdninstagram.com',
+        pathname: '/v/',
+      },
+    ],
   },
 }
 
