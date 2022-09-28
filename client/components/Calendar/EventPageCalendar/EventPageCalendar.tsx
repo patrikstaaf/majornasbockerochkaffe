@@ -8,10 +8,16 @@ const EventPageEvent = dynamic(() => import('./EventPageEvent'), {
 
 interface Props {
   calendar: Calendar[]
+  instagramUrl: string
 }
 
-const EventPageCalendar: NextPage<Props> = ({ calendar }) => {
-  return <EventPageEvent calendar={calendar}></EventPageEvent>
+const EventPageCalendar: NextPage<Props> = ({ calendar, instagramUrl }) => {
+  return (
+    <EventPageEvent
+      calendar={calendar}
+      instagramUrl={instagramUrl}
+    ></EventPageEvent>
+  )
 }
 
 export default EventPageCalendar
