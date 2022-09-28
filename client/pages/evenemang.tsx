@@ -8,6 +8,7 @@ import EventPageCalendar from '../components/Calendar/EventPageCalendar/EventPag
 import sanityClient from '../lib/sanity/client'
 import { EventPageSanityData } from '../lib/sanity/types'
 import { eventPageQuery } from '../lib/sanity/queries'
+import theme from '../lib/styles/theme'
 
 interface Props {
   data: EventPageSanityData
@@ -287,7 +288,7 @@ const Evenemang: NextPage<Props> = ({ data }) => {
           </ButtonBox>
         </AuthorEveningContainer>
       </Author>
-      <BetweenSections color={'#739598'} />
+      <BetweenSections color={theme.colors.hemingway} />
       <Book>
         <BookImage></BookImage>
         <BookCirkleContainer>
@@ -320,7 +321,7 @@ const Evenemang: NextPage<Props> = ({ data }) => {
           <LinkText Color={false}>Läs i kalendarium</LinkText>
         </BookEvening>
       </Book>
-      <BetweenSections color={'#739598'} />
+      <BetweenSections color={theme.colors.hemingway} />
       <EventPageCalendar
         calendar={data.calendar}
         instagramUrl={data.companyInfo.instagramUrl}
