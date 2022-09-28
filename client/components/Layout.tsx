@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 
 import Head from 'next/head'
 import Navbar from './Navbar'
+import MobileNavbar from './MobileNavbar'
 import Footer from './Footer'
 
 interface Props {
@@ -41,6 +42,7 @@ const Layout: React.FC<Props> = ({ children, title, description }) => {
         {/* <meta property='twitter:image' content='/SkyltfonsterTEST.webp' /> */}
       </Head>
       <Navbar />
+      <MobileNavbar />
       <main>{children}</main>
       <Footer />
     </>
