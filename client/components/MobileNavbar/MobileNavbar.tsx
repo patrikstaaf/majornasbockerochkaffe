@@ -70,7 +70,7 @@ const StyledList = styled.ul`
   width: 100vw;
   height: 173vh;
   margin: 0;
-  z-index: 1;
+  z-index: 10;
 `
 const LinkToPage = styled.a`
   text-decoration: none;
@@ -210,9 +210,8 @@ const MobileNavbar: NextPage<Props> = ({ companyInfo }) => {
             </LineBox>
             <OpeningAndSocialMedia>
               <OpeningBox>
-                <OpeningText>
-                  Öppettider: {companyInfo.openingHours}
-                </OpeningText>
+                <OpeningText>Öppettider: </OpeningText>
+                <OpeningText>{companyInfo.openingHours}</OpeningText>
               </OpeningBox>
               <SocialMediaBox>
                 <SocialMediaLink>
