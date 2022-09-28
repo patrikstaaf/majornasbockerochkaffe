@@ -69,18 +69,23 @@ interface AboutTheEvents extends SanityDocument {
   generalImageAuthorBookClubAlt: string
   generalImageAuthorNights: string
   generalImageAuthorNightsAlt: string
-  imagesOfPreviousAuthorNights: {
-    _key: string
-    _type: string
-    asset: {
-      _ref: string
-      _type: string
-    }
-  }[]
+  generalImageAuthorBookStoreNight: string
+  generalImageAuthorBookStoreNightAlt: string
   descriptionHostingAuthorNights: string
+  descriptionAboutBookStoreNight: string
+  descriptionAboutAttendingBookClub: string
+  descriptionAboutAttendingAuthorNights: string
   shortGeneralDescriptionAboutTheEvents: string
   shortGeneralDescriptionAboutBookClub: string
   shortGeneralDescriptionAboutTheStore: string
+  imagesOfPreviousAuthorNights1: string
+  imagesOfPreviousAuthorNights1Alt: string
+  imagesOfPreviousAuthorNights2: string
+  imagesOfPreviousAuthorNights2Alt: string
+  imagesOfPreviousAuthorNights3: string
+  imagesOfPreviousAuthorNights3Alt: string
+  imagesOfPreviousAuthorNights4: string
+  imagesOfPreviousAuthorNights4Alt: string
 }
 
 interface PermanentOffer extends SanityDocument {
