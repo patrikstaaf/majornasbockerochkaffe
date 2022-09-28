@@ -95,6 +95,10 @@ export interface Images {
   id: number
   permalink: string
 }
+export interface NextAuthorNightProp {
+  authorEventTitle: string
+  authorNightDescription: string
+}
 
 export interface StartPageSanityData {
   companyInfo: CompanyInfo
@@ -103,6 +107,7 @@ export interface StartPageSanityData {
   aboutTheEvents: AboutTheEvents
   permanentOffer: PermanentOffer
   calendar: Calendar[]
+  nextAuthorNight: NextAuthorNightProp
 }
 
 export interface EventPageSanityData {

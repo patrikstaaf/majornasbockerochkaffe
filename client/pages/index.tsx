@@ -437,6 +437,7 @@ const ButtonLink = styled.a`
   text-decoration: none;
 `
 const Home: NextPage<Props> = ({ data, images }) => {
+  console.log(data)
   return (
     <Layout
       title="Majornas Böcker och Kaffe"
@@ -586,19 +587,30 @@ const Home: NextPage<Props> = ({ data, images }) => {
         </OfferText>
       </OfferContainer>
       <AuthorContainer>
-        <AuthorWith>
-          <H2 Color={false}>Författarkväll med Marit Kapla</H2>
-          <TextBoxAuthor Color={false}>
-            2019 fick Marit Kapla Augustpriset för sin bok ”Osebol”. Den 5
-            oktober besöker hon oss och berättar mer. Varmt välkommen!
-          </TextBoxAuthor>
-          <ButtonBox>
-            <ButtonLink href="mailto:info@majornasbocker.se?subject=Föranmälan till författarkväll">
-              <Button>Föranmäl dig här</Button>
-            </ButtonLink>
-          </ButtonBox>
-        </AuthorWith>
-        <ImageAuthor></ImageAuthor>
+        {data.nextAuthorNight ? (
+          <AuthorWith>
+            <H2 Color={false}>{data.nextAuthorNight.authorEventTitle}</H2>
+            <TextBoxAuthor Color={false}>
+              {data.nextAuthorNight.authorNightDescription}
+            </TextBoxAuthor>
+            <ButtonBox>
+              <ButtonLink href="mailto:info@majornasbocker.se?subject=Föranmälan till författarkväll">
+                <Button>Föranmäl dig här</Button>
+              </ButtonLink>
+            </ButtonBox>
+          </AuthorWith>
+        ) : (
+          <AuthorWith>
+            <H2 Color={false}>Författarkvällar</H2>
+            <TextBoxAuthor Color={false}>
+              Just nu har vi inga inbokade författare.
+            </TextBoxAuthor>
+          </AuthorWith>
+        )}
+        <ImageAuthor>
+          {data.aboutTheEvents.generalImageAuthorNights}
+          {data.aboutTheEvents.generalImageAuthorNightsAlt}
+        </ImageAuthor>
         <AuthorReading>
           <H2 Color>Vill du hålla i en författarkväll hos oss?</H2>
           <TextBox Color>
@@ -676,9 +688,3 @@ export const getStaticProps: GetStaticProps = async () => {
     revalidate: 10, // add webhook later on
   }
 }
-
-// interface OneImage {
-//   id: number
-//   media_url: string
-//   caption: string
-// }

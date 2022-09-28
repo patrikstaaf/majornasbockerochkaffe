@@ -45,6 +45,9 @@ descriptionHostingAuthorNights,
 "calendar": *[_type == "calendar" && dateTime(now()) < dateTime(calendarDate)] | order(calendarDate asc)[0..4]{
 ...
 },
+"nextAuthorNight": *[_type == "calendar" && event == 'authorNight' && dateTime(now()) < dateTime(calendarDate)] | order(calendarDate asc)[0]{
+...
+},
 }`
 
 export const eventPageQuery = `*[_type == "companyInfo"][0]{
