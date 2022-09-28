@@ -68,8 +68,9 @@ const StyledList = styled.ul`
   top: 0;
   right: 0;
   width: 100vw;
-  height: 100vh;
+  height: 173vh;
   margin: 0;
+  z-index: 1;
 `
 const LinkToPage = styled.a`
   text-decoration: none;
@@ -111,7 +112,7 @@ const OpeningBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 88px 0px 0px 0px;
+  margin: 66px 0px 0px 0px;
 `
 
 const SocialMediaBox = styled.div`
