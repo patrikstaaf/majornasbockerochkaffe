@@ -6,11 +6,7 @@ const nextConfig = {
     styledComponents: true,
   },
   images: {
-    domains: [
-      'cdn.sanity.io',
-      'scontent-ham3-1.cdninstagram.com',
-      'scontent-cph2-1.cdninstagram.com',
-    ],
+    domains: ['cdn.sanity.io'],
     remotePatterns: [
       {
         protocol: 'https',
