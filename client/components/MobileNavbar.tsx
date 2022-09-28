@@ -1,12 +1,11 @@
 import styled from 'styled-components'
-import { useState, useEffect, useRef } from 'react'
+import { useState } from 'react'
 
 const Nav = styled.nav`
   background-color: ${({ theme }) => theme.colors.paper};
   border-width: 2px 2px 0px 2px;
   border-style: solid;
   border-color: ${({ theme }) => theme.colors.coffee};
-  overflow: hidden;
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     display: none;
   }
@@ -63,11 +62,12 @@ const StyledList = styled.ul`
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  position: absolute;
-  top: -17px;
+  position: fixed;
+  top: 0;
   right: 0;
   width: 100vw;
-  height: 99vh;
+  height: 100vh;
+  margin: 0;
 `
 const LinkToPage = styled.a`
   text-decoration: none;
@@ -139,11 +139,9 @@ const CloseNavBox = styled.div`
   flex-direction: row;
   justify-content: flex-end;
 `
-const CloseNav = styled.div``
 
 const MobileNavbar = () => {
   const [openMenu, setOpenMenu] = useState(false)
-  const [CloseMenu, setCloseMenu] = useState(true)
   return (
     <Nav>
       <ContentContainer>
@@ -167,7 +165,7 @@ const MobileNavbar = () => {
           <StyledList>
             <LineBox>
               <CloseNavBox>
-                <Button onClick={() => setCloseMenu(CloseMenu)}>
+                <Button onClick={() => setOpenMenu(!openMenu)}>
                   <img
                     src="/assets/icons/closeX.svg"
                     alt="Ett vitt kryss för att stänga navbaren"
