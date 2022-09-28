@@ -1,13 +1,9 @@
 import type { NextPage, GetStaticProps } from 'next'
-// import BetweenSections from '../components/BetweenSections'
-// import Button from '../components/Button'
-// import Layout from '../components/Layout'
 import styled from 'styled-components'
 import sanityClient from '../lib/sanity/client'
 import { StartPageSanityData, Images } from '../lib/sanity/types'
 import { startPageQuery } from '../lib/sanity/queries'
 import { H1, H2, Text, LinkText } from '../components/Text'
-// import HomePageCalendar from '../components/Calendar/HomePageCalendar'
 import theme from '../lib/styles/theme'
 import NextImage from 'next/image'
 
@@ -18,7 +14,7 @@ const HomePageCalendar = dynamic(
     ssr: false,
   }
 )
-const Layout = dynamic(() => import('../components/Layout'), {
+const Layout = dynamic(() => import('../components/Layout/Layout'), {
   ssr: false,
 })
 const Button = dynamic(() => import('../components/Button'), {
@@ -445,15 +441,12 @@ const Home: NextPage<Props> = ({ data, images }) => {
     <Layout
       title="Majornas Böcker och Kaffe"
       description="Välkommen till startsidan för Majornas Böcker och Kaffe"
+      companyInfo={data.companyInfo}
     >
-      {/* <h1>{data.companyInfo.address}</h1> */}
       <HeroContainer>
         <Hero>
           <H1 Color>Varmt välkommen till Majornas böcker och kaffe!</H1>
-          <Text Color>
-            Här kan du botanisera dig bland böcker, eller slå dig ner med en
-            espresso och dagstidningen
-          </Text>
+          <Text Color>{data.companyInfo.heroText}</Text>
           <ButtonBox>
             <ButtonLink href="/butikochcafe">
               <Button Color>Hitta till butiken</Button>
@@ -468,18 +461,23 @@ const Home: NextPage<Props> = ({ data, images }) => {
         </IllustrationContainer>
       </HeroContainer>
       <Container>
-        <ImageOne></ImageOne>
+        <ImageOne>
+          {data.aboutTheEvents.generalImageAuthorNights}
+          {data.aboutTheEvents.generalImageAuthorNightsAlt}
+        </ImageOne>
         <AuthorEvening>
           <H2 Color={false}>Författarkvällar</H2>
           <TextBox Color={false}>
-            Bokhandeln anordnar regelbundet författarkvällar. En rad
-            uppmärksammade och intressanta författare har gästat bokhandeln.
+            {data.aboutTheEvents.shortGeneralDescriptionAboutTheEvents}
           </TextBox>
           <LinkText href="/evenemang" Color={false}>
             Läs mer om författarkvällar
           </LinkText>
         </AuthorEvening>
-        <ImageTwo></ImageTwo>
+        <ImageTwo>
+          {data.aboutTheEvents.generalImageAuthorBookClub}
+          {data.aboutTheEvents.generalImageAuthorBookClubAlt}
+        </ImageTwo>
         <BookCircle>
           <H2 Color={false}>Bokcirklar</H2>
           <TextBox Color={false}>
@@ -490,13 +488,14 @@ const Home: NextPage<Props> = ({ data, images }) => {
             Läs mer om författarkvällar
           </LinkText>
         </BookCircle>
-        <ImageThree></ImageThree>
+        <ImageThree>
+          {data.aboutTheStore.generalImage}
+          {data.aboutTheStore.generalImageAlt}
+        </ImageThree>
         <BookAndCafe>
           <H2 Color>Om Majornas böcker &amp; kaffe</H2>
           <TextBox Color>
-            I den mysiga stadsdelen Majorna i Göteborg öppnade Eva Wadman sin
-            oberoende bokhandel och café sommaren 2019. Här hittar du allt från
-            böcker till pussel och roliga presenter samt fika.
+            {data.aboutTheStore.shortGeneralDescriptionAboutTheStore}
           </TextBox>
           <LinkText href="/butikochcafe" Color>
             Läs mer om bokhandeln
@@ -511,7 +510,7 @@ const Home: NextPage<Props> = ({ data, images }) => {
             händer i butiken.
           </TextBox>
           <LinkText
-            href="https://instagram.com/majornasbocker"
+            href={data.companyInfo.instagramUrl}
             target="_blank"
             rel="noreferrer"
             Color
@@ -566,18 +565,23 @@ const Home: NextPage<Props> = ({ data, images }) => {
       </InstagramContainer>
       <BetweenSections color={theme.colors.cream} />
       <OfferContainer>
-        <OfferImageOne></OfferImageOne>
+        <OfferImageOne>
+          {data.permanentOffer.image}
+          {data.permanentOffer.imageAlt}
+        </OfferImageOne>
         <Offer>
           <H2 Color={false}>Stående erbjudande</H2>
-          <TextBox Color={false}>Valfri pocket &amp; valfri kaffe</TextBox>
-          <Price>100:- </Price>
+          <TextBox Color={false}>{data.permanentOffer.title}</TextBox>
+          <Price>{data.permanentOffer.price}:-</Price>
         </Offer>
-        <OfferImageTwo></OfferImageTwo>
+        <OfferImageTwo>
+          {data.aboutTheStore.cafeImage}
+          {data.aboutTheStore.cafeImageAlt}
+        </OfferImageTwo>
         <OfferText>
           <H2 Color>Bokhandeln med kaffehäng</H2>
           <TextBox Color>
-            Njut av en varm kopp kaffe och en knaprig skorpa tillsammans med en
-            bok.
+            {data.aboutTheStore.shortDescriptionAboutTheCafe}
           </TextBox>
         </OfferText>
       </OfferContainer>
@@ -596,12 +600,9 @@ const Home: NextPage<Props> = ({ data, images }) => {
         </AuthorWith>
         <ImageAuthor></ImageAuthor>
         <AuthorReading>
-          <H2 Color>Vill du hålla i en författarkväl hos oss?</H2>
+          <H2 Color>Vill du hålla i en författarkväll hos oss?</H2>
           <TextBox Color>
-            Bokhandeln uppskattar att du som författare vill komma in och
-            berätta om ditt författarskap. Vill du vara med och hålla en
-            författarkväll i Majornas böcker &amp; kaffe? Skicka ett mail till
-            bokhandeln för mer information och bokning.
+            {data.aboutTheEvents.descriptionHostingAuthorNights}
           </TextBox>
           <ButtonBox>
             <ButtonLink href="mailto:info@majornasbocker.se?subject=Jag vill hålla författarkväll hos dig">
@@ -614,34 +615,34 @@ const Home: NextPage<Props> = ({ data, images }) => {
         </Calendar>
       </AuthorContainer>
       <BooktipsContainer>
-        <Image></Image>
+        <Image>
+          {data.bookOfTheMonth.cover}
+          {data.bookOfTheMonth.coverAlt}
+        </Image>
         <BookTips>
           <BooktipsTextContainer>
             <H2 Color>Evas boktips!</H2>
             <ContainerBookTipsText>
               <BoxBookTipsText>
                 <HeadingBookTips Color>Title: </HeadingBookTips>
-                <TextBookTips Color>Hämta data</TextBookTips>
+                <TextBookTips Color>{data.bookOfTheMonth.title}</TextBookTips>
               </BoxBookTipsText>
               <BoxBookTipsText>
                 <HeadingBookTips Color>Författare: </HeadingBookTips>
-                <TextBookTips Color>Hämta data</TextBookTips>
+                <TextBookTips Color>{data.bookOfTheMonth.author}</TextBookTips>
               </BoxBookTipsText>
               <BoxBookTipsText>
                 <HeadingBookTips Color>Utgivningsår: </HeadingBookTips>
-                <TextBookTips Color>Hämta data</TextBookTips>
+                <TextBookTips Color>
+                  {data.bookOfTheMonth.releaseYear}
+                </TextBookTips>
               </BoxBookTipsText>
               <BoxBookTipsText>
                 <HeadingBookTips Color>Gener: </HeadingBookTips>
-                <TextBookTips Color>Hämta data</TextBookTips>
+                <TextBookTips Color>{data.bookOfTheMonth.genre}</TextBookTips>
               </BoxBookTipsText>
             </ContainerBookTipsText>
-            <Text Color>
-              ”Kärlek på svenska” är ett dokumentärt verk där olika röster
-              bildar en lyrisk helhet. I boken berättar en rad människor i olika
-              åldrar och med olika bakgrunder om kärleken i sina liv. Perfekt
-              bok framför brasan. Perfekt bok framför brasan.
-            </Text>
+            <Text Color>{data.bookOfTheMonth.description}</Text>
           </BooktipsTextContainer>
           <IllustrationBookContainer>
             <IllustrationBookImage

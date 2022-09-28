@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import Layout from '../components/Layout'
+import Layout from '../components/Layout/Layout'
 import styled from 'styled-components'
 import BetweenSections from '../components/BetweenSections'
 import Button from '../components/Button'
@@ -212,6 +212,7 @@ const Butik: NextPage = () => {
     <Layout
       title="Majornas Böcker och Kaffe"
       description="Här finner man info om Majornas Böcker och Kaffe butik och kaffe."
+      companyInfo={data.companyInfo}
     >
       <AboutContainer>
         <AboutBookShop>

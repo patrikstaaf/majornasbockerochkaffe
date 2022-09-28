@@ -1,18 +1,25 @@
-// import type { Props } from "react";
 import { useRouter } from 'next/router'
-
 import Head from 'next/head'
-import Navbar from './Navbar'
-import MobileNavbar from './MobileNavbar'
-import Footer from './Footer'
+import Navbar from '../Navbar/Navbar'
+import MobileNavbar from '../MobileNavbar/MobileNavbar'
+import Footer from '../Footer/Footer'
+import { NextPage } from 'next'
+import { LayoutCompanyProps } from './types'
+// import { PHASE_PRODUCTION_SERVER } from 'next/dist/shared/lib/constants'
 
 interface Props {
   children: React.ReactNode
   title: string
   description: string
+  companyInfo: LayoutCompanyProps
 }
 
-const Layout: React.FC<Props> = ({ children, title, description }) => {
+const Layout: NextPage<Props> = ({
+  children,
+  title,
+  description,
+  companyInfo,
+}) => {
   const router = useRouter()
   const canonicalUrl = (
     `https://majornasbockerochkaffe.vercel.app` +
@@ -41,10 +48,10 @@ const Layout: React.FC<Props> = ({ children, title, description }) => {
         <meta property="twitter:description" content={description} />
         {/* <meta property='twitter:image' content='/SkyltfonsterTEST.webp' /> */}
       </Head>
-      <Navbar />
-      <MobileNavbar />
+      <Navbar companyInfo={companyInfo} />
+      <MobileNavbar companyInfo={companyInfo} />
       <main>{children}</main>
-      <Footer />
+      <Footer companyInfo={companyInfo} />
     </>
   )
 }

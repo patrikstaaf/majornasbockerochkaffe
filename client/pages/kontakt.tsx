@@ -2,7 +2,7 @@ import { NextPage } from 'next'
 import styled from 'styled-components'
 import { H1, H2, Text } from '../components/Text'
 import Map from '../components/Map'
-import Layout from '../components/Layout'
+import Layout from '../components/Layout/Layout'
 
 const ContactSection = styled.section`
   display: flex;
@@ -241,6 +241,7 @@ const Kontakt: NextPage = () => {
     <Layout
       title="Majornas Böcker och Kaffe"
       description="Här finner man info om Majornas Böcker och Kaffe kontaktuppgifter."
+      companyInfo={data.companyInfo}
     >
       <ContactSection>
         <ContactContainer>

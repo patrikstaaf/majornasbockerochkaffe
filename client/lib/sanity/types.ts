@@ -39,36 +39,18 @@ interface BookOfTheMonth extends SanityDocument {
   genre: string
   releaseYear: string
   title: string
-  cover: {
-    _type: string
-    alt: string
-    asset: {
-      _ref: string
-      _type: string
-    }
-  }
+  cover: string
+  coverAlt: string
 }
 
 interface AboutTheStore extends SanityDocument {
-  cafeImage: {
-    _type: string
-    alt: string
-    asset: {
-      _ref: string
-      _type: string
-    }
-  }
+  cafeImage: string
+  cafeImageAlt: string
   descriptionAboutTheBookStore: string
   descriptionAboutTheCafe: string
   descriptionAboutTheChildSection: string
-  generalImage: {
-    _type: string
-    alt: string
-    asset: {
-      _ref: string
-      _type: string
-    }
-  }
+  generalImage: string
+  generalImageAlt: string
   imagesOfChildSection: {
     _key: string
     _type: string
@@ -82,22 +64,10 @@ interface AboutTheStore extends SanityDocument {
 }
 
 interface AboutTheEvents extends SanityDocument {
-  generalImageAuthorBookClub: {
-    _type: string
-    alt: string
-    asset: {
-      _ref: string
-      _type: string
-    }
-  }
-  generalImageAuthorNights: {
-    _type: string
-    alt: string
-    asset: {
-      _ref: string
-      _type: string
-    }
-  }
+  generalImageAuthorBookClub: string
+  generalImageAuthorBookClubAlt: string
+  generalImageAuthorNights: string
+  generalImageAuthorNightsAlt: string
   imagesOfPreviousAuthorNights: {
     _key: string
     _type: string
@@ -106,19 +76,15 @@ interface AboutTheEvents extends SanityDocument {
       _type: string
     }
   }[]
+  descriptionHostingAuthorNights: string
+  shortGeneralDescriptionAboutTheEvents: string
   shortGeneralDescriptionAboutBookClub: string
   shortGeneralDescriptionAboutTheStore: string
 }
 
 interface PermanentOffer extends SanityDocument {
-  image: {
-    _type: string
-    alt: string
-    asset: {
-      _ref: string
-      _type: string
-    }
-  }
+  image: string
+  imageAlt: string
   price: string
   title: string
 }

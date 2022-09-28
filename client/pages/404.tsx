@@ -1,8 +1,12 @@
 import { NextPage } from 'next'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import styled from 'styled-components'
-import Layout from '../components/Layout'
 import { Text, H1 } from '../components/Text'
+
+const Layout = dynamic(() => import('../components/Layout/Layout'), {
+  ssr: false,
+})
 
 const Section = styled.section`
   height: 100vh;
@@ -18,6 +22,7 @@ const NotFound: NextPage = () => {
     <Layout
       title="Majornas Böcker och Kaffe"
       description="Tyvärr finns ej sidan du försöker hitta"
+      companyInfo={data.companyInfo}
     >
       <Section>
         <H1 Color={true}>Oh no, sidan finns inte...</H1>

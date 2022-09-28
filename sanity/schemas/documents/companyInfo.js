@@ -3,17 +3,16 @@ export default {
   name: 'companyInfo',
   type: 'document',
   fields: [
-    {
-      title: 'Företagets namn',
-      name: 'companyName',
-      type: 'string',
-    },
+    // {
+    //   title: 'Företagets namn',
+    //   name: 'companyName',
+    //   type: 'string',
+    // },
     {
       title: 'Adress',
       name: 'address',
       type: 'string',
-      description:
-        'Skriv allt rakt upp ner, tex Allmänna vägen 22 414 60 Göteborg',
+      description: 'Skriv allt rakt upp ner: Allmänna vägen 22 414 60 Göteborg',
     },
     {
       title: 'Närmsta hållplats',
@@ -21,7 +20,7 @@ export default {
       type: 'text',
       rows: 5,
       description:
-        'En mening som informerar om både närmsta spårvagn- samt busshållplats.',
+        'Ange en mening som informerar om både närmsta spårvagn- samt busshållplats.',
       validation: (Rule) => Rule.required(),
       validation: (Rule) =>
         Rule.required().max(120).error('Håll det kort, max 120 tecken.'),
@@ -31,7 +30,7 @@ export default {
       name: 'directions',
       type: 'text',
       rows: 5,
-      description: 'En kort vägbeskrivning till butiken.',
+      description: 'Ange en kort vägbeskrivning till butiken.',
       validation: (Rule) => Rule.required(),
       validation: (Rule) =>
         Rule.required().max(200).error('Håll det kort, max 200 tecken.'),
@@ -40,24 +39,26 @@ export default {
       title: 'Telefon',
       name: 'phone',
       type: 'string',
+      description: 'Ange telefonnumret i ett: 0763414000.',
     },
     {
       title: 'Epost',
       name: 'email',
       type: 'string',
+      description: 'Ange telefonnumret i ett: info@majornasbocker.se.',
     },
     {
       title: 'Facebook-länk',
       name: 'facebookUrl',
       type: 'string',
-      description: 'Hela länken alltså inte bara facebook-sidans namn.',
+      description: 'Ange hela länken alltså inte bara Facebook-sidans namn.',
       validation: (Rule) => Rule.required(),
     },
     {
       title: 'Instagram-länk',
       name: 'instagramUrl',
       type: 'string',
-      description: 'Hela länken alltså inte bara instagram-sidans namn.',
+      description: 'Ange hela länken alltså inte bara Instagram-sidans namn.',
       validation: (Rule) => Rule.required(),
     },
     {
@@ -66,7 +67,7 @@ export default {
       type: 'text',
       rows: 2,
       description:
-        'Skriv vardagar och dess tider på en rad samt helger och dess tider på andra.',
+        'Ange vardagar och dess tider på en rad samt helger och dess tider på andra.',
       validation: (Rule) => Rule.required(),
     },
     {
@@ -75,7 +76,7 @@ export default {
       type: 'text',
       rows: 2,
       description:
-        'Visas på "hero-sektionen" på startsidan, alltså det första textstycket under navigation.',
+        'Denna text renderas ut i första stycket på startsidan, alltså under menyn.',
       validation: (Rule) => Rule.required(),
     },
     // {

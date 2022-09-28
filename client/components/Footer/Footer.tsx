@@ -1,5 +1,7 @@
+import { NextPage } from 'next'
 import styled from 'styled-components'
-import { H4, H3 } from './Text'
+import { H4, H3 } from '../Text'
+import { FooterProps } from './types'
 
 const Container = styled.footer`
   background-color: ${({ theme }) => theme.colors.crust};
@@ -140,7 +142,11 @@ const ContactLink = styled.a`
   }
 `
 
-const Footer = () => {
+interface Props {
+  companyInfo: FooterProps
+}
+
+const Footer: NextPage<Props> = ({ companyInfo }) => {
   return (
     <Container>
       <LogoWrapper>
@@ -168,30 +174,32 @@ const Footer = () => {
           <H3 Color={false}>Kontakt och öppetider</H3>
           <H4 Color={false}>
             Telefon:{' '}
-            <ContactLink href="tel:0763 414 000">Hämta data</ContactLink>
-          </H4>
-          <H4 Color={false}>
-            Kontakt:{' '}
-            <ContactLink href="mailto:info@majornasbocker.se">
-              Hämta data
+            <ContactLink href={`tel:${companyInfo.phone}`}>
+              {companyInfo.phone}
             </ContactLink>
           </H4>
           <H4 Color={false}>
-            Adress: <ContactLink href="#">Hämta data</ContactLink>
+            Kontakt:{' '}
+            <ContactLink href={`tel:${companyInfo.email}`}>
+              {companyInfo.email}
+            </ContactLink>
+          </H4>
+          <H4 Color={false}>
+            Adress:{' '}
+            <ContactLink href="/kontakt">{companyInfo.address}</ContactLink>
           </H4>
           <H4 Color={false}>Öppettider:</H4>
-          <Text>Hämta data</Text>
-          <Text>Hämta data</Text>
+          <Text>{companyInfo.openingHours}</Text>
         </ContactWrapper>
         <SocialMediaWrapper>
           <H3SocialMedia Color={false}>Sociala medier</H3SocialMedia>
           <SocialMediaLink>
             <img src="/assets/icons/instagram.svg" />
-            <Link href="#">Instagram</Link>
+            <Link href={companyInfo.instagramUrl}>Instagram</Link>
           </SocialMediaLink>
           <SocialMediaLink>
             <img src="/assets/icons/facebook.svg" />
-            <Link href="#">Facebook</Link>
+            <Link href={companyInfo.facebookUrl}>Facebook</Link>
           </SocialMediaLink>
         </SocialMediaWrapper>
       </ContentWrapper>
