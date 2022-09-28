@@ -6,7 +6,6 @@ import { startPageQuery } from '../lib/sanity/queries'
 import { H1, H2, Text, LinkText } from '../components/Text'
 import theme from '../lib/styles/theme'
 import NextImage from 'next/image'
-
 import dynamic from 'next/dynamic'
 const HomePageCalendar = dynamic(
   () => import('../components/Calendar/HomePageCalendar'),
@@ -508,8 +507,7 @@ const Home: NextPage<Props> = ({ data, images }) => {
         <BookCircle>
           <H2 Color={false}>Bokcirklar</H2>
           <TextBox Color={false}>
-            Bokhandeln anordar bokcirklar av olika sorter – helt enkelt en
-            mötesplats för läsare. Har du lust att vara med i en bokcirkel?
+            {data.aboutTheEvents.shortGeneralDescriptionAboutBookClub}
           </TextBox>
           <LinkText href="/evenemang" Color={false}>
             Läs mer om författarkvällar
@@ -613,26 +611,39 @@ const Home: NextPage<Props> = ({ data, images }) => {
         </OfferText>
       </OfferContainer>
       <AuthorContainer>
-        <AuthorWith>
-          <H2 Color={false}>Författarkväll med Marit Kapla</H2>
-          <TextBoxAuthor Color={false}>
-            2019 fick Marit Kapla Augustpriset för sin bok ”Osebol”. Den 5
-            oktober besöker hon oss och berättar mer. Varmt välkommen!
-          </TextBoxAuthor>
-          <ButtonBox>
-            <ButtonLink href="mailto:info@majornasbocker.se?subject=Föranmälan till författarkväll">
-              <Button>Föranmäl dig här</Button>
-            </ButtonLink>
-          </ButtonBox>
-        </AuthorWith>
-        <ImageAuthor></ImageAuthor>
+        {data.nextAuthorNight ? (
+          <AuthorWith>
+            <H2 Color={false}>{data.nextAuthorNight.authorEventTitle}</H2>
+            <TextBoxAuthor Color={false}>
+              {data.nextAuthorNight.authorNightDescription}
+            </TextBoxAuthor>
+            <ButtonBox>
+              <ButtonLink href="mailto:info@majornasbocker.se?subject=Föranmälan till författarkväll">
+                <Button>Föranmäl dig här</Button>
+              </ButtonLink>
+            </ButtonBox>
+          </AuthorWith>
+        ) : (
+          <AuthorWith>
+            <H2 Color={false}>Författarkvällar</H2>
+            <TextBoxAuthor Color={false}>
+              Just nu har vi inga inbokade författare.
+            </TextBoxAuthor>
+          </AuthorWith>
+        )}
+        <ImageAuthor>
+          {data.aboutTheEvents.generalImageAuthorNights}
+          {data.aboutTheEvents.generalImageAuthorNightsAlt}
+        </ImageAuthor>
         <AuthorReading>
           <H2 Color>Vill du hålla i en författarkväll hos oss?</H2>
           <TextBox Color>
             {data.aboutTheEvents.descriptionHostingAuthorNights}
           </TextBox>
           <ButtonBox>
-            <ButtonLink href="mailto:info@majornasbocker.se?subject=Jag vill hålla författarkväll hos dig">
+            <ButtonLink
+              href={`mailto:${data.companyInfo.email}?subject=Jag vill hålla författarkväll hos dig`}
+            >
               <Button Color>Bokning och frågor</Button>
             </ButtonLink>
           </ButtonBox>
@@ -714,9 +725,3 @@ export const getStaticProps: GetStaticProps = async () => {
     revalidate: 10, // add webhook later on
   }
 }
-
-// interface OneImage {
-//   id: number
-//   media_url: string
-//   caption: string
-// }

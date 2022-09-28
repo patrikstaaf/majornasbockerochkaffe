@@ -23,7 +23,6 @@ export interface Calendar extends SanityDocument {
 interface CompanyInfo extends SanityDocument {
   address: string
   closestPublicTransportStop: string
-  companyName: string
   directions: string
   email: string
   facebookUrl: string
@@ -31,6 +30,8 @@ interface CompanyInfo extends SanityDocument {
   instagramUrl: string
   openingHours: string
   phone: string
+  outsideImageOfShop: string
+  outsideImageOfShopAlt: string
 }
 
 interface BookOfTheMonth extends SanityDocument {
@@ -46,19 +47,19 @@ interface BookOfTheMonth extends SanityDocument {
 interface AboutTheStore extends SanityDocument {
   cafeImage: string
   cafeImageAlt: string
+  bookStoreImage: string
+  bookStoreImageAlt: string
   descriptionAboutTheBookStore: string
   descriptionAboutTheCafe: string
   descriptionAboutTheChildSection: string
   generalImage: string
   generalImageAlt: string
-  imagesOfChildSection: {
-    _key: string
-    _type: string
-    asset: {
-      _ref: string
-      _type: string
-    }
-  }[]
+  kidSectionImage1: string
+  kidSectionImage2: string
+  kidSectionImage3: string
+  kidSectionImage1Alt: string
+  kidSectionImage2Alt: string
+  kidSectionImage3Alt: string
   shortDescriptionAboutTheCafe: string
   shortGeneralDescriptionAboutTheStore: string
 }
@@ -68,18 +69,23 @@ interface AboutTheEvents extends SanityDocument {
   generalImageAuthorBookClubAlt: string
   generalImageAuthorNights: string
   generalImageAuthorNightsAlt: string
-  imagesOfPreviousAuthorNights: {
-    _key: string
-    _type: string
-    asset: {
-      _ref: string
-      _type: string
-    }
-  }[]
+  generalImageAuthorBookStoreNight: string
+  generalImageAuthorBookStoreNightAlt: string
   descriptionHostingAuthorNights: string
+  descriptionAboutBookStoreNight: string
+  descriptionAboutAttendingBookClub: string
+  descriptionAboutAttendingAuthorNights: string
   shortGeneralDescriptionAboutTheEvents: string
   shortGeneralDescriptionAboutBookClub: string
   shortGeneralDescriptionAboutTheStore: string
+  imagesOfPreviousAuthorNights1: string
+  imagesOfPreviousAuthorNights1Alt: string
+  imagesOfPreviousAuthorNights2: string
+  imagesOfPreviousAuthorNights2Alt: string
+  imagesOfPreviousAuthorNights3: string
+  imagesOfPreviousAuthorNights3Alt: string
+  imagesOfPreviousAuthorNights4: string
+  imagesOfPreviousAuthorNights4Alt: string
 }
 
 interface PermanentOffer extends SanityDocument {
@@ -87,6 +93,11 @@ interface PermanentOffer extends SanityDocument {
   imageAlt: string
   price: string
   title: string
+}
+
+interface NextAuthorNight {
+  authorEventTitle: string
+  authorNightDescription: string
 }
 
 export interface Images {
@@ -102,6 +113,7 @@ export interface StartPageSanityData {
   aboutTheStore: AboutTheStore
   aboutTheEvents: AboutTheEvents
   permanentOffer: PermanentOffer
+  nextAuthorNight: NextAuthorNight
   calendar: Calendar[]
 }
 
@@ -109,6 +121,16 @@ export interface EventPageSanityData {
   companyInfo: CompanyInfo
   aboutTheEvents: AboutTheEvents
   calendar: Calendar[]
+}
+
+export interface ShopPageSanityData {
+  companyInfo: CompanyInfo
+  permanentOffer: PermanentOffer
+  aboutTheStore: AboutTheStore
+}
+
+export interface ContactPageSanityData {
+  companyInfo: CompanyInfo
 }
 
 export interface NotFoundPageSanityData {

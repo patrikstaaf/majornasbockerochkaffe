@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { Text, H1 } from '../components/Text'
 import sanityClient from '../lib/sanity/client'
 // import { NotFoundPageSanityData } from '../lib/sanity/types'
-import { NotFoundPageQuery } from '../lib/sanity/queries'
+import { notFoundPageQuery } from '../lib/sanity/queries'
 
 const Layout = dynamic(() => import('../components/Layout/Layout'), {
   ssr: false,
@@ -51,7 +51,7 @@ const NotFound: NextPage<Props> = ({ companyInfo }) => {
 export default NotFound
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const companyInfo = await sanityClient.fetch(NotFoundPageQuery)
+  const companyInfo = await sanityClient.fetch(notFoundPageQuery)
 
   return {
     props: {

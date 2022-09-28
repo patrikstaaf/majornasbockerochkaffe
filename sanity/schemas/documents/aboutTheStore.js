@@ -44,7 +44,7 @@ export default {
       description: 'En beskrivning specifikt om bokhandeln.',
       validation: (Rule) => Rule.required(),
       validation: (Rule) =>
-        Rule.required().max(150).error('Håll det kort, max 150 tecken.'),
+        Rule.required().max(300).error('Håll det kort, max 300 tecken.'),
     },
     // {
     //   title: 'Kort om bokhandeln',
@@ -80,16 +80,6 @@ export default {
       ],
     },
     {
-      title: 'Om kaféet',
-      name: 'descriptionAboutTheCafe',
-      type: 'text',
-      rows: 5,
-      description: 'En beskrivning specifikt om kaféet.',
-      validation: (Rule) => Rule.required(),
-      validation: (Rule) =>
-        Rule.required().max(150).error('Håll det kort, max 150 tecken.'),
-    },
-    {
       title: 'Kort om kaféet',
       name: 'shortDescriptionAboutTheCafe',
       type: 'text',
@@ -100,6 +90,17 @@ export default {
       validation: (Rule) =>
         Rule.required().max(100).error('Håll det kort, max 100 tecken.'),
     },
+    {
+      title: 'Om kaféet',
+      name: 'descriptionAboutTheCafe',
+      type: 'text',
+      rows: 5,
+      description: 'En beskrivning specifikt om kaféet.',
+      validation: (Rule) => Rule.required(),
+      validation: (Rule) =>
+        Rule.required().max(300).error('Håll det kort, max 300 tecken.'),
+    },
+
     {
       title: 'Bild på kaféet',
       name: 'cafeImage',
@@ -130,12 +131,12 @@ export default {
       description: 'En beskrivning specifikt om barnavdelningen.',
       validation: (Rule) => Rule.required(),
       validation: (Rule) =>
-        Rule.required().max(200).error('Håll det kort, max 200 tecken.'),
+        Rule.required().max(350).error('Håll det kort, max 350 tecken.'),
     },
     {
       title: 'Bilder på barnavdelningen',
       name: 'imagesOfChildSection',
-      description: 'Två generella bilder om barnavdelningen.',
+      description: 'Tre generella bilder på barnavdelningen.',
       type: 'array',
       of: [
         {
@@ -145,7 +146,6 @@ export default {
           options: {
             hotspot: true,
           },
-
           fields: [
             // {
             //   type: 'string',
@@ -166,6 +166,7 @@ export default {
           ],
         },
       ],
+      validation: (Rule) => Rule.required().length(3),
     },
   ],
 };

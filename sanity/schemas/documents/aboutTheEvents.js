@@ -92,6 +92,7 @@ export default {
           ],
         },
       ],
+      validation: (Rule) => Rule.required().length(4),
     },
     {
       title: 'Kort om bokcirklar',

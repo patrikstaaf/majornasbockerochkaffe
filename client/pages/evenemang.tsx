@@ -240,16 +240,17 @@ const Evenemang: NextPage<Props> = ({ data }) => {
       companyInfo={data.companyInfo}
     >
       <Author>
-        <Image></Image>
+        <Image>
+          {data.aboutTheEvents.generalImageAuthorNights}
+          {data.aboutTheEvents.generalImageAuthorNightsAlt}
+        </Image>
         <ContentContainer>
           <TextContainer>
             <H1 Color={false}>Följ med på författarkväll!</H1>
             <Text Color={false}>
-              Vi bjuder in författare stora som små. Följ med på en helkväll av
-              inspiration. En rad uppmärksammade och intressanta författare har
-              gästat bokhandeln.
+              {data.aboutTheEvents.descriptionAboutAttendingAuthorNights}
             </Text>
-            <Text Color={false}>
+            {/* <Text Color={false}>
               Evenemangen är (med enstaka undantag) gratis, men både bokhandlare
               och författare uppskattar om man köper en bok. Om inte annat anges
               öppnas dörren 18.30 och så börjar det kl. 19.00. Fika finns att
@@ -258,31 +259,43 @@ const Evenemang: NextPage<Props> = ({ data }) => {
             <Text Color={false}>
               Föranmälan krävs, den mailar du tillsammans med ditt namn och
               mobilnummer.
-            </Text>
+            </Text> */}
           </TextContainer>
           <ButtonBox>
-            <ButtonLink href="mailto:info@majornasbocker.se?subject=Föranmälan till författarkväll">
+            <ButtonLink
+              href={`mailto:${data.companyInfo.email}?subject=Föranmälan till författarkväll`}
+            >
               <Button>Föranmäl dig här</Button>
             </ButtonLink>
           </ButtonBox>
         </ContentContainer>
         <ImageContainer>
-          <ImageOne></ImageOne>
-          <ImageTwo></ImageTwo>
-          <ImageThree></ImageThree>
-          <ImageFour></ImageFour>
+          <ImageOne>
+            {data.aboutTheEvents.imagesOfPreviousAuthorNights1}
+            {data.aboutTheEvents.imagesOfPreviousAuthorNights1Alt}
+          </ImageOne>
+          <ImageTwo>
+            {data.aboutTheEvents.imagesOfPreviousAuthorNights2}
+            {data.aboutTheEvents.imagesOfPreviousAuthorNights2Alt}
+          </ImageTwo>
+          <ImageThree>
+            {data.aboutTheEvents.imagesOfPreviousAuthorNights3}
+            {data.aboutTheEvents.imagesOfPreviousAuthorNights3Alt}
+          </ImageThree>
+          <ImageFour>
+            {data.aboutTheEvents.imagesOfPreviousAuthorNights4}
+            {data.aboutTheEvents.imagesOfPreviousAuthorNights4Alt}
+          </ImageFour>
         </ImageContainer>
         <AuthorEveningContainer>
           <H2 Color>Vill du hålla författarkväll hos oss?</H2>
           <TextBox Color>
-            Har du givit ut en bok? Både större och mindre författare har
-            möjlighet att hålla i författarkvällar i Bokhandeln. En
-            författarkväll kan innehålla högläsning, frågestund, berättelser
-            från yrkeslivet och försäljning &amp; signering. Skicka ett mail och
-            berätta om dig själv för mer information och bokning.
+            {data.aboutTheEvents.descriptionHostingAuthorNights}
           </TextBox>
           <ButtonBox>
-            <ButtonLink href="mailto:info@majornasbocker.se?subject=Jag vill hålla författarkväll hos dig">
+            <ButtonLink
+              href={`mailto:${data.companyInfo.email}?subject=Jag vill hålla författarkväll hos dig`}
+            >
               <Button Color>Bokning &amp; frågor</Button>
             </ButtonLink>
           </ButtonBox>
@@ -290,33 +303,35 @@ const Evenemang: NextPage<Props> = ({ data }) => {
       </Author>
       <BetweenSections color={theme.colors.hemingway} />
       <Book>
-        <BookImage></BookImage>
+        <BookImage>
+          {data.aboutTheEvents.generalImageAuthorBookClub}
+          {data.aboutTheEvents.generalImageAuthorBookClubAlt}
+        </BookImage>
         <BookCirkleContainer>
           <H2 Color={false}>Vill du vara med i en bokcirkel?</H2>
           <Text Color={false}>
-            För närvarande är en pocketbokcirkel och en novellbokcirkel igång,
-            båda grupperna träffas var fjärde vecka. Böckerna som läses väljer
-            vi gemensamt. Träffarna sker på tisdagskvällar vid 18.
+            {data.aboutTheEvents.descriptionAboutAttendingBookClub}
           </Text>
-          <TextBox Color={false}>
+          {/* <TextBox Color={false}>
             Det finns även en novellbokcirkel för föräldralediga som träffas
             dagtid var fjortonde dag. Lämpar sig bäst för mindre barn som inte
             börjat gå ännu. Om du är intresserad så maila eller kom förbi
             bokhandeln för anmälan eller frågor. Välkommen!
-          </TextBox>
-          <ButtonLink href="mailto:info@majornasbocker.se?subject=Mail från hemsidan">
+          </TextBox> */}
+          <ButtonLink
+            href={`mailto:${data.companyInfo.email}?subject=Mail från hemsidan`}
+          >
             <Button>Skicka mail</Button>
           </ButtonLink>
         </BookCirkleContainer>
-        <BookEveningImage></BookEveningImage>
+        <BookEveningImage>
+          {data.aboutTheEvents.generalImageAuthorBookStoreNight}
+          {data.aboutTheEvents.generalImageAuthorBookStoreNightAlt}
+        </BookEveningImage>
         <BookEvening>
           <H2 Color={false}>Välkommen in på bokhandelskväll!</H2>
           <TextBox Color={false}>
-            Oavsett om det är julrushen, påskpysslet eller mellandagsrean som
-            stundar så är Majornas böcker &amp; kaffe redo! Då och då arrangerar
-            vi bokhandelskvällar, ofta i samband med högtider eller reor. I
-            kalendariumet kan du se kommande bokhandelskvällar. Välkommen på en
-            mysig kväll.
+            {data.aboutTheEvents.descriptionAboutBookStoreNight}
           </TextBox>
           <LinkText Color={false}>Läs i kalendarium</LinkText>
         </BookEvening>
