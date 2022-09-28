@@ -1,8 +1,10 @@
-import { NextPage } from 'next'
 import styled from 'styled-components'
 import { H1, H2, Text } from '../components/Text'
 import Map from '../components/Map'
 import Layout from '../components/Layout/Layout'
+import type { NextPage, GetStaticProps } from 'next'
+import sanityClient from '../lib/sanity/client'
+import { NotFoundPageQuery } from '../lib/sanity/queries'
 
 const ContactSection = styled.section`
   display: flex;
@@ -236,12 +238,23 @@ const OpeninghoursBox = styled.div`
   display: flex;
   gap: 4px;
 `
-const Kontakt: NextPage = () => {
+interface Props {
+  companyInfo: {
+    openingHours: string
+    facebookUrl: string
+    instagramUrl: string
+    email: string
+    phone: string
+    address: string
+  }
+}
+
+const Kontakt: NextPage<Props> = ({ companyInfo }) => {
   return (
     <Layout
       title="Majornas Böcker och Kaffe"
       description="Här finner man info om Majornas Böcker och Kaffe kontaktuppgifter."
-      companyInfo={data.companyInfo}
+      companyInfo={companyInfo}
     >
       <ContactSection>
         <ContactContainer>
@@ -319,3 +332,14 @@ const Kontakt: NextPage = () => {
 }
 
 export default Kontakt
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const companyInfo = await sanityClient.fetch(NotFoundPageQuery)
+
+  return {
+    props: {
+      companyInfo,
+    },
+    revalidate: 10, // add webhook later on
+  }
+}

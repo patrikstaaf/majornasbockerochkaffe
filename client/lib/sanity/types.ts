@@ -110,3 +110,7 @@ export interface EventPageSanityData {
   aboutTheEvents: AboutTheEvents
   calendar: Calendar[]
 }
+
+export interface NotFoundPageSanityData {
+  companyInfo: CompanyInfo
+}

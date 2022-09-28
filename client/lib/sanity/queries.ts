@@ -74,3 +74,15 @@ descriptionHostingAuthorNights,
 ...
 },
 }`
+
+export const NotFoundPageQuery = `*[_type == "companyInfo"][0]{
+  "companyInfo": {
+  address,
+  email,
+  facebookUrl,
+  heroText,
+  instagramUrl,
+  openingHours,
+  phone
+  },
+}`
