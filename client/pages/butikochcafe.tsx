@@ -227,7 +227,11 @@ const Butik: NextPage<Props> = ({ data }) => {
             {data.aboutTheStore.descriptionAboutTheBookStore.includes('\n') ? (
               data.aboutTheStore.descriptionAboutTheBookStore
                 .split('\n')
-                .map((newText) => <Text Color={true}>{newText}</Text>)
+                .map((newText, index) => (
+                  <Text key={index} Color={true}>
+                    {newText}
+                  </Text>
+                ))
             ) : (
               <Text Color={true}>
                 {data.aboutTheStore.descriptionAboutTheBookStore}
@@ -249,7 +253,11 @@ const Butik: NextPage<Props> = ({ data }) => {
             {data.aboutTheStore.descriptionAboutTheCafe.includes('\n') ? (
               data.aboutTheStore.descriptionAboutTheCafe
                 .split('\n')
-                .map((newText) => <Text Color={true}>{newText}</Text>)
+                .map((newText, index) => (
+                  <Text key={index} Color={true}>
+                    {newText}
+                  </Text>
+                ))
             ) : (
               <Text Color={true}>
                 {data.aboutTheStore.descriptionAboutTheCafe}
@@ -293,7 +301,11 @@ const Butik: NextPage<Props> = ({ data }) => {
             ) ? (
               data.aboutTheStore.descriptionAboutTheChildSection
                 .split('\n')
-                .map((newText) => <Text Color={true}>{newText}</Text>)
+                .map((newText, index) => (
+                  <Text key={index} Color={true}>
+                    {newText}
+                  </Text>
+                ))
             ) : (
               <Text Color={true}>
                 {data.aboutTheStore.descriptionAboutTheChildSection}

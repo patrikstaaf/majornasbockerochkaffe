@@ -250,7 +250,11 @@ const Evenemang: NextPage<Props> = ({ data }) => {
             ) ? (
               data.aboutTheEvents.descriptionAboutAttendingAuthorNights
                 .split('\n')
-                .map((newText) => <Text Color={false}>{newText}</Text>)
+                .map((newText, index) => (
+                  <Text key={index} Color={false}>
+                    {newText}
+                  </Text>
+                ))
             ) : (
               <Text Color={false}>
                 {data.aboutTheEvents.descriptionAboutAttendingAuthorNights}
@@ -288,7 +292,11 @@ const Evenemang: NextPage<Props> = ({ data }) => {
           {data.aboutTheEvents.descriptionHostingAuthorNights.includes('\n') ? (
             data.aboutTheEvents.descriptionHostingAuthorNights
               .split('\n')
-              .map((newText) => <Text Color={true}>{newText}</Text>)
+              .map((newText, index) => (
+                <Text key={index} Color={true}>
+                  {newText}
+                </Text>
+              ))
           ) : (
             <Text Color={true}>
               {data.aboutTheEvents.descriptionHostingAuthorNights}
@@ -316,7 +324,11 @@ const Evenemang: NextPage<Props> = ({ data }) => {
           ) ? (
             data.aboutTheEvents.descriptionAboutAttendingBookClub
               .split('\n')
-              .map((newText) => <Text Color={false}>{newText}</Text>)
+              .map((newText, index) => (
+                <Text key={index} Color={false}>
+                  {newText}
+                </Text>
+              ))
           ) : (
             <Text Color={false}>
               {data.aboutTheEvents.descriptionAboutAttendingBookClub}
@@ -337,7 +349,11 @@ const Evenemang: NextPage<Props> = ({ data }) => {
           {data.aboutTheEvents.descriptionAboutBookStoreNight.includes('\n') ? (
             data.aboutTheEvents.descriptionAboutBookStoreNight
               .split('\n')
-              .map((newText) => <Text Color={false}>{newText}</Text>)
+              .map((newText, index) => (
+                <Text key={index} Color={false}>
+                  {newText}
+                </Text>
+              ))
           ) : (
             <Text Color={false}>
               {data.aboutTheEvents.descriptionAboutBookStoreNight}

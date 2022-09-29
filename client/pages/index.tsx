@@ -640,7 +640,11 @@ const Home: NextPage<Props> = ({ data, images }) => {
           {data.aboutTheEvents.descriptionHostingAuthorNights.includes('\n') ? (
             data.aboutTheEvents.descriptionHostingAuthorNights
               .split('\n')
-              .map((newText) => <TextBox Color={true}>{newText}</TextBox>)
+              .map((newText, index) => (
+                <TextBox key={index} Color={true}>
+                  {newText}
+                </TextBox>
+              ))
           ) : (
             <TextBox Color={true}>
               {data.aboutTheEvents.descriptionHostingAuthorNights}
