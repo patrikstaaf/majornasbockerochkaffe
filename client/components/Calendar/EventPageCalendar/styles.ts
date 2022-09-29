@@ -114,15 +114,17 @@ export const NoEventText = styled.p`
   }
 `
 
-export const LinkWrapper = styled.span`
+export const LinkWrapper = styled.div`
   font-family: ${({ theme }) => theme.fontFamily.sourceSerifPro};
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
   line-height: 25px;
   color: ${({ theme }) => theme.fontColor.coffee};
-  display: flex;
-  align-items: end;
+  /* padding-top: 30px; */
+  padding-bottom: 40px;
+  /* display: flex;
+  align-items: end; */
 `
 
 export const EventTime = styled.div`
@@ -248,4 +250,17 @@ export const RegisterText = styled.div`
     font-size: 24px;
     line-height: 29px;
   }
+`
+
+export const StyleLink = styled.a`
+  font-family: ${({ theme }) => theme.fontFamily.sourceSerifPro};
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 25px;
+  text-decoration: underline;
+  cursor: pointer;
+  color: ${({ theme }) => theme.fontColor.coffee};
+  /* padding-top: 30px; */
+  /* padding-bottom: 40px; */
 `
