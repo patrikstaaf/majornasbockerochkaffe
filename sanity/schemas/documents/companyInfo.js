@@ -3,22 +3,19 @@ export default {
   name: 'companyInfo',
   type: 'document',
   fields: [
-    // {
-    //   title: 'Företagets namn',
-    //   name: 'companyName',
-    //   type: 'string',
-    // },
     {
       title: 'Adress',
       name: 'address',
       type: 'string',
-      description: 'Skriv allt rakt upp ner: Allmänna vägen 22 414 60 Göteborg',
+      description: 'Ange allt på en rad: Allmänna vägen 22 414 60 Göteborg',
+      validation: (Rule) => Rule.required(),
+      validation: (Rule) => Rule.required().max(200).error('Max 200 tecken.'),
     },
     {
       title: 'Närmsta hållplats',
       name: 'closestPublicTransportStop',
       type: 'text',
-      rows: 5,
+      rows: 2,
       description:
         'Ange en mening som informerar om både närmsta spårvagn- samt busshållplats.',
       validation: (Rule) => Rule.required(),
@@ -29,7 +26,7 @@ export default {
       title: 'Vägbeskrivning',
       name: 'directions',
       type: 'text',
-      rows: 5,
+      rows: 4,
       description: 'Ange en kort vägbeskrivning till butiken.',
       validation: (Rule) => Rule.required(),
       validation: (Rule) =>
@@ -39,13 +36,23 @@ export default {
       title: 'Telefon',
       name: 'phone',
       type: 'string',
-      description: 'Ange telefonnumret i ett: 0763414000.',
+      description: 'Ange telefonnumret i ett följe: 0763414000.',
+      validation: (Rule) => Rule.required(),
+      validation: (Rule) =>
+        Rule.required()
+          .max(12)
+          .error('Borde inte vara så här långt... max 12 tecken.'),
     },
     {
       title: 'Epost',
       name: 'email',
       type: 'string',
-      description: 'Ange telefonnumret i ett: info@majornasbocker.se.',
+      description: 'Ange telefonnumret i ett följe: info@majornasbocker.se.',
+      validation: (Rule) => Rule.required(),
+      validation: (Rule) =>
+        Rule.required()
+          .max(50)
+          .error('Borde inte vara så här långt... max 50 tecken.'),
     },
     {
       title: 'Facebook-länk',
@@ -67,7 +74,7 @@ export default {
       type: 'text',
       rows: 2,
       description:
-        'Ange vardagar och dess tider på en rad samt helger och dess tider på andra.',
+        'Ange vardagar och dess tider på en rad samt helger och dess tider på andra. Separera raden med kommatecken.',
       validation: (Rule) => Rule.required(),
     },
     {
@@ -84,7 +91,7 @@ export default {
       name: 'outsideImageOfShop',
       type: 'image',
       description:
-        'Bild utsidan av bokhandeln som renderas ut på kontaktsidan.',
+        'Bild på utsidan av bokhandeln som renderas ut på kontaktsidan.',
       options: {
         hotspot: true,
       },
@@ -101,12 +108,7 @@ export default {
             Rule.required().warning('Lägg till en alt text'),
         },
       ],
+      validation: (Rule) => Rule.required(),
     },
-    // {
-    //   title: 'Om oss',
-    //   name: 'about',
-    //   type: 'blockContent',
-    //   description: 'Beskrivning om företaget',
-    // },
   ],
 };

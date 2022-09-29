@@ -125,9 +125,9 @@ const EventPageEvent: NextPage<Props> = ({ calendar, instagramUrl }) => {
                     </EventDateBackground>
                     <EventTitleWrapper>
                       <EventTimeTitle>{event.authorEventTitle}</EventTimeTitle>
-                      <RegisterText>
-                        <Link href="mailto:eva@eva.com">Anmäl dig här</Link>
-                      </RegisterText>
+                      <Link href="mailto:eva@eva.com">
+                        <RegisterText>Anmäl dig här</RegisterText>
+                      </Link>
                     </EventTitleWrapper>
                     <EventTime>
                       {event.eventTime.includes('-') ? (

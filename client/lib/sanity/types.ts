@@ -52,8 +52,6 @@ interface AboutTheStore extends SanityDocument {
   descriptionAboutTheBookStore: string
   descriptionAboutTheCafe: string
   descriptionAboutTheChildSection: string
-  generalImage: string
-  generalImageAlt: string
   kidSectionImage1: string
   kidSectionImage2: string
   kidSectionImage3: string
