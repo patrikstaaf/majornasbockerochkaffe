@@ -514,8 +514,8 @@ const Home: NextPage<Props> = ({ data, images }) => {
           </LinkText>
         </BookCircle>
         <ImageThree>
-          {data.aboutTheStore.generalImage}
-          {data.aboutTheStore.generalImageAlt}
+          {data.aboutTheStore.cafeImage}
+          {data.aboutTheStore.cafeImageAlt}
         </ImageThree>
         <BookAndCafe>
           <H2 Color>Om Majornas böcker &amp; kaffe</H2>

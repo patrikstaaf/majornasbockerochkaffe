@@ -4,64 +4,31 @@ export default {
   type: 'document',
   fields: [
     {
-      title: 'Kort om Majornas böcker & kaffe',
+      title: 'Kort om Majornas Böcker & Kaffe',
       name: 'shortGeneralDescriptionAboutTheStore',
       type: 'text',
-      rows: 5,
+      rows: 3,
       description:
-        'En kort beskrivning/summering om Majornas böcker & kaffe som renderas ut på startsidan.',
+        'Ange en kort beskrivning/summering om Majornas Böcker & Kaffe som renderas ut på startsidan.',
       validation: (Rule) => Rule.required(),
       validation: (Rule) =>
         Rule.required().max(200).error('Håll det kort, max 200 tecken.'),
-    },
-    {
-      title: 'Generell bild på lokalen',
-      name: 'generalImage',
-      type: 'image',
-      description: 'En generell bild på lokalen som renderas ut på startsidan.',
-      options: {
-        hotspot: true,
-      },
-      fields: [
-        {
-          type: 'string',
-          name: 'alt',
-          title: 'Alternativ text för bilden',
-          description: 'Detta är för tillgänglighet och sökmotorn',
-          options: {
-            isHighlighted: true,
-          },
-          validation: (Rule) =>
-            Rule.required().warning('Lägg till en alt text'),
-        },
-      ],
     },
     {
       title: 'Om bokhandeln',
       name: 'descriptionAboutTheBookStore',
       type: 'text',
       rows: 5,
-      description: 'En beskrivning specifikt om bokhandeln.',
+      description: 'Ange en beskrivning om bokhandeln.',
       validation: (Rule) => Rule.required(),
       validation: (Rule) =>
         Rule.required().max(300).error('Håll det kort, max 300 tecken.'),
     },
-    // {
-    //   title: 'Kort om bokhandeln',
-    //   name: 'shortDescriptionAboutTheBookStore',
-    //   type: 'text',
-    //   rows: 5,
-    //   description:
-    //     'En kort summering specifikt om bokhandeln som renderas ut på startsidan.',
-    //   validation: (Rule) => Rule.required(),
-    //   validation: (Rule) =>
-    //     Rule.required().max(150).error('Håll det kort, max 150 tecken.'),
-    // },
     {
       title: 'Bild på bokhandeln',
       name: 'bookStoreImage',
       type: 'image',
-      description: 'En bild specifikt på bokhandeln.',
+      description: 'En bild på bokhandeln.',
       options: {
         hotspot: true,
       },
@@ -78,24 +45,25 @@ export default {
             Rule.required().warning('Lägg till en alt text'),
         },
       ],
+      validation: (Rule) => Rule.required(),
     },
     {
       title: 'Kort om kaféet',
       name: 'shortDescriptionAboutTheCafe',
       type: 'text',
-      rows: 5,
+      rows: 3,
       description:
-        'En kort summering specifikt om kaféet som renderas ut på startsidan.',
+        'Ange en kort summering om kaféet som renderas ut på startsidan.',
       validation: (Rule) => Rule.required(),
       validation: (Rule) =>
-        Rule.required().max(100).error('Håll det kort, max 100 tecken.'),
+        Rule.required().max(200).error('Håll det kort, max 200 tecken.'),
     },
     {
       title: 'Om kaféet',
       name: 'descriptionAboutTheCafe',
       type: 'text',
       rows: 5,
-      description: 'En beskrivning specifikt om kaféet.',
+      description: 'Ange en beskrivning om kaféet.',
       validation: (Rule) => Rule.required(),
       validation: (Rule) =>
         Rule.required().max(300).error('Håll det kort, max 300 tecken.'),
@@ -122,13 +90,14 @@ export default {
             Rule.required().warning('Lägg till en alt text'),
         },
       ],
+      validation: (Rule) => Rule.required(),
     },
     {
       title: 'Om barnavdelningen',
       name: 'descriptionAboutTheChildSection',
       type: 'text',
       rows: 5,
-      description: 'En beskrivning specifikt om barnavdelningen.',
+      description: 'Ange en beskrivning specifikt om barnavdelningen.',
       validation: (Rule) => Rule.required(),
       validation: (Rule) =>
         Rule.required().max(350).error('Håll det kort, max 350 tecken.'),
@@ -136,22 +105,15 @@ export default {
     {
       title: 'Bilder på barnavdelningen',
       name: 'imagesOfChildSection',
-      description: 'Tre generella bilder på barnavdelningen.',
+      description: 'Tre bilder på barnavdelningen.',
       type: 'array',
       of: [
         {
           type: 'image',
-          //   title: 'Bild',
-          //   name: 'singleImageName',
           options: {
             hotspot: true,
           },
           fields: [
-            // {
-            //   type: 'string',
-            //   title: 'Bildtitel',
-            //   name: 'singleImageName',
-            // },
             {
               type: 'string',
               title: 'Alternativ text för bilden',

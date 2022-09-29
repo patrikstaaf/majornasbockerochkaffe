@@ -19,8 +19,6 @@ export const startPageQuery = `*[_type == "companyInfo"][0]{
   },
 "aboutTheStore": *[_type == "aboutTheStore"][0]{
   shortGeneralDescriptionAboutTheStore,
-  "generalImage": generalImage.asset->url,
-  "generalImageAlt": generalImage.alt,
 shortDescriptionAboutTheCafe,
   "cafeImage": cafeImage.asset->url,
   "cafeImageAlt": cafeImage.alt,
@@ -100,8 +98,6 @@ export const shopPageQuery = `*[_type == "companyInfo"][0]{
   descriptionAboutTheBookStore,
   descriptionAboutTheCafe,
   descriptionAboutTheChildSection,
-  "generalImage": generalImage.asset->url,
-  "generalImageAlt": generalImage.alt,
   "cafeImage": cafeImage.asset->url,
   "cafeImageAlt": cafeImage.alt,
   "bookStoreImage": bookStoreImage.asset->url,

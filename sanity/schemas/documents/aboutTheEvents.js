@@ -7,19 +7,19 @@ export default {
       title: 'Kort om författarkvällar',
       name: 'shortGeneralDescriptionAboutTheEvents',
       type: 'text',
-      rows: 5,
+      rows: 3,
       description:
-        'En kort beskrivning/summering om författarkvällar som renderas ut på startsidan.',
+        'Ange en kort beskrivning/summering om författarkvällar som renderas ut på startsidan.',
       validation: (Rule) => Rule.required(),
       validation: (Rule) =>
         Rule.required().max(200).error('Håll det kort, max 200 tecken.'),
     },
     {
-      title: 'Genrell bild tillhörande författarkvällar',
+      title: 'Bild tillhörande författarkvällar',
       name: 'generalImageAuthorNights',
       type: 'image',
       description:
-        'En generell bild om författarkvällar som renderas ut på startsidan.',
+        'En bild om författarkvällar som renderas ut på startsidan samt evenemangssidan.',
       options: {
         hotspot: true,
       },
@@ -36,48 +36,41 @@ export default {
             Rule.required().warning('Lägg till en alt text'),
         },
       ],
+      validation: (Rule) => Rule.required(),
     },
     {
       title: 'Följ med på författarkväll',
       name: 'descriptionAboutAttendingAuthorNights',
       type: 'text',
       rows: 10,
-      description: 'En beskrivning om att sitta med på författarkvällar.',
-      // validation: (Rule) => Rule.required(),
-      // validation: (Rule) =>
-      //   Rule.required().max(300).error('Håll det kort, max 300 tecken.'),
+      description: 'Ange en beskrivning om att sitta med på författarkvällar.',
+      validation: (Rule) => Rule.required(),
+      validation: (Rule) =>
+        Rule.required().max(500).error('Håll det kort, max 500 tecken.'),
     },
     {
       title: 'Vill du hålla författarkväll hos oss?',
       name: 'descriptionHostingAuthorNights',
       type: 'text',
-      rows: 10,
-      description: 'En beskrivning om att hålla i en författarkväll.',
-      // validation: (Rule) => Rule.required(),
-      // validation: (Rule) =>
-      //   Rule.required().max(300).error('Håll det kort, max 300 tecken.'),
+      rows: 7,
+      description: 'Ange en beskrivning om att hålla i en författarkväll.',
+      validation: (Rule) => Rule.required(),
+      validation: (Rule) =>
+        Rule.required().max(500).error('Håll det kort, max 500 tecken.'),
     },
     {
       title: 'Bilder på tidigare författarkvällar',
       name: 'imagesOfPreviousAuthorNights',
-      description:
-        'En generell bild om författarkvällar som renderas ut på startsidan.',
+      description: 'Fyra bilder från tidigare författarkvällar.',
       type: 'array',
       of: [
         {
           type: 'image',
-          //   title: 'Bild',
-          //   name: 'singleImageName',
           options: {
             hotspot: true,
           },
 
           fields: [
-            // {
-            //   type: 'string',
-            //   title: 'Bildtitel',
-            //   name: 'singleImageName',
-            // },
             {
               type: 'string',
               title: 'Alternativ text för bilden',
@@ -98,7 +91,7 @@ export default {
       title: 'Kort om bokcirklar',
       name: 'shortGeneralDescriptionAboutBookClub',
       type: 'text',
-      rows: 5,
+      rows: 3,
       description:
         'En kort beskrivning/summering om bokcirklar som renderas ut på startsidan.',
       validation: (Rule) => Rule.required(),
@@ -106,11 +99,11 @@ export default {
         Rule.required().max(200).error('Håll det kort, max 200 tecken.'),
     },
     {
-      title: 'Genrell bild tillhörande bokcirklar',
+      title: 'Bild tillhörande bokcirklar',
       name: 'generalImageAuthorBookClub',
       type: 'image',
       description:
-        'En generell bild om bokcirklar som renderas ut på startsidan.',
+        'En bild om bokcirklar som renderas ut på startsidan samt evenemangssidan.',
       options: {
         hotspot: true,
       },
@@ -127,6 +120,7 @@ export default {
             Rule.required().warning('Lägg till en alt text'),
         },
       ],
+      validation: (Rule) => Rule.required(),
     },
     {
       title: 'Vill du vara med i en bokcirkel?',
@@ -134,9 +128,9 @@ export default {
       type: 'text',
       rows: 10,
       description: 'En beskrivning om att delta i en bokcirkel.',
-      // validation: (Rule) => Rule.required(),
-      // validation: (Rule) =>
-      //   Rule.required().max(300).error('Håll det kort, max 300 tecken.'),
+      validation: (Rule) => Rule.required(),
+      validation: (Rule) =>
+        Rule.required().max(500).error('Håll det kort, max 500 tecken.'),
     },
     {
       title: 'Välkommen in på bokhandelskväll',
@@ -144,15 +138,15 @@ export default {
       type: 'text',
       rows: 10,
       description: 'En beskrivning om bokhandelskvällar.',
-      // validation: (Rule) => Rule.required(),
-      // validation: (Rule) =>
-      //   Rule.required().max(300).error('Håll det kort, max 300 tecken.'),
+      validation: (Rule) => Rule.required(),
+      validation: (Rule) =>
+        Rule.required().max(500).error('Håll det kort, max 500 tecken.'),
     },
     {
-      title: 'Genrell bild tillhörande bokhandelskvällar',
+      title: 'Bild tillhörande bokhandelskvällar',
       name: 'generalImageAuthorBookStoreNight',
       type: 'image',
-      description: 'En generell bild om bokhandelskvällar.',
+      description: 'En bild om bokhandelskvällar.',
       options: {
         hotspot: true,
       },
@@ -169,40 +163,7 @@ export default {
             Rule.required().warning('Lägg till en alt text'),
         },
       ],
+      validation: (Rule) => Rule.required(),
     },
-
-    // {
-    //   title: 'Kort om bokhandeln',
-    //   name: 'shortDescriptionAboutTheBookStore',
-    //   type: 'text',
-    //   rows: 5,
-    //   description:
-    //     'En kort summering specifikt om bokhandeln som renderas ut på startsidan.',
-    //   validation: (Rule) => Rule.required(),
-    //   validation: (Rule) =>
-    //     Rule.required().max(150).error('Håll det kort, max 150 tecken.'),
-    // },
-    // {
-    //   title: 'Bild på där författarkvällar hålls',
-    //   name: 'bookStoreImage',
-    //   type: 'image',
-    //   description: 'En bild specifikt på bokhandeln.',
-    //   options: {
-    //     hotspot: true,
-    //   },
-    //   fields: [
-    //     {
-    //       type: 'string',
-    //       name: 'alt',
-    //       title: 'Alternativ text för bilden',
-    //       description: 'Detta är för tillgänglighet och sökmotorn',
-    //       options: {
-    //         isHighlighted: true,
-    //       },
-    //       validation: (Rule) =>
-    //         Rule.required().warning('Lägg till en alt text'),
-    //     },
-    //   ],
-    // },
   ],
 };

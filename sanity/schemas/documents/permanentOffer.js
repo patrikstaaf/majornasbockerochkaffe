@@ -8,12 +8,17 @@ export default {
       name: 'title',
       type: 'string',
       description: 'Beskriv erbjudandet.',
+      validation: (Rule) => Rule.required(),
+      validation: (Rule) => Rule.required().max(200).error('Max 200 tecken.'),
     },
     {
       title: 'Pris',
       name: 'price',
       type: 'string',
       description: 'Ange priset i siffror.',
+      validation: (Rule) => Rule.required(),
+      validation: (Rule) =>
+        Rule.required().max(5).error('Nu blev det dyrt, max 5 tecken.'),
     },
     {
       title: 'Inbjudande bild',
@@ -36,6 +41,7 @@ export default {
             Rule.required().warning('Lägg till en alt text'),
         },
       ],
+      validation: (Rule) => Rule.required(),
     },
   ],
 };
