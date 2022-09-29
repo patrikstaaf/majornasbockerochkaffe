@@ -637,9 +637,15 @@ const Home: NextPage<Props> = ({ data, images }) => {
         </ImageAuthor>
         <AuthorReading>
           <H2 Color>Vill du hålla i en författarkväll hos oss?</H2>
-          <TextBox Color>
-            {data.aboutTheEvents.descriptionHostingAuthorNights}
-          </TextBox>
+          {data.aboutTheEvents.descriptionHostingAuthorNights.includes('\n') ? (
+            data.aboutTheEvents.descriptionHostingAuthorNights
+              .split('\n')
+              .map((newText) => <TextBox Color={true}>{newText}</TextBox>)
+          ) : (
+            <TextBox Color={true}>
+              {data.aboutTheEvents.descriptionHostingAuthorNights}
+            </TextBox>
+          )}
           <ButtonBox>
             <ButtonLink
               href={`mailto:${data.companyInfo.email}?subject=Jag vill hålla författarkväll hos dig`}

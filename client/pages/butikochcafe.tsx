@@ -224,9 +224,15 @@ const Butik: NextPage<Props> = ({ data }) => {
         <AboutBookShop>
           <Content>
             <H1 Color={true}>Om bokhandeln</H1>
-            <Text Color={true}>
-              {data.aboutTheStore.descriptionAboutTheBookStore}
-            </Text>
+            {data.aboutTheStore.descriptionAboutTheBookStore.includes('\n') ? (
+              data.aboutTheStore.descriptionAboutTheBookStore
+                .split('\n')
+                .map((newText) => <Text Color={true}>{newText}</Text>)
+            ) : (
+              <Text Color={true}>
+                {data.aboutTheStore.descriptionAboutTheBookStore}
+              </Text>
+            )}
           </Content>
         </AboutBookShop>
         <AboutBookImage>
@@ -240,9 +246,15 @@ const Butik: NextPage<Props> = ({ data }) => {
         <AboutCafe>
           <Content>
             <H2 Color={true}>Om café</H2>
-            <Text Color={true}>
-              {data.aboutTheStore.descriptionAboutTheCafe}
-            </Text>
+            {data.aboutTheStore.descriptionAboutTheCafe.includes('\n') ? (
+              data.aboutTheStore.descriptionAboutTheCafe
+                .split('\n')
+                .map((newText) => <Text Color={true}>{newText}</Text>)
+            ) : (
+              <Text Color={true}>
+                {data.aboutTheStore.descriptionAboutTheCafe}
+              </Text>
+            )}
           </Content>
         </AboutCafe>
       </AboutContainer>
@@ -276,9 +288,17 @@ const Butik: NextPage<Props> = ({ data }) => {
         <AboutChildren>
           <Content>
             <H2 Color={true}>Om barnavdelning</H2>
-            <Text Color={true}>
-              {data.aboutTheStore.descriptionAboutTheChildSection}
-            </Text>
+            {data.aboutTheStore.descriptionAboutTheChildSection.includes(
+              '\n'
+            ) ? (
+              data.aboutTheStore.descriptionAboutTheChildSection
+                .split('\n')
+                .map((newText) => <Text Color={true}>{newText}</Text>)
+            ) : (
+              <Text Color={true}>
+                {data.aboutTheStore.descriptionAboutTheChildSection}
+              </Text>
+            )}
           </Content>
         </AboutChildren>
       </AboutChildrenContainer>
