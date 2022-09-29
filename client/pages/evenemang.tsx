@@ -231,8 +231,6 @@ const TextBox = styled(Text)`
   }
 `
 const Evenemang: NextPage<Props> = ({ data }) => {
-  console.log(data.companyInfo.instagramUrl)
-
   return (
     <Layout
       title="Majornas Böcker och Kaffe"
@@ -247,19 +245,17 @@ const Evenemang: NextPage<Props> = ({ data }) => {
         <ContentContainer>
           <TextContainer>
             <H1 Color={false}>Följ med på författarkväll!</H1>
-            <Text Color={false}>
-              {data.aboutTheEvents.descriptionAboutAttendingAuthorNights}
-            </Text>
-            {/* <Text Color={false}>
-              Evenemangen är (med enstaka undantag) gratis, men både bokhandlare
-              och författare uppskattar om man köper en bok. Om inte annat anges
-              öppnas dörren 18.30 och så börjar det kl. 19.00. Fika finns att
-              köpa.
-            </Text>
-            <Text Color={false}>
-              Föranmälan krävs, den mailar du tillsammans med ditt namn och
-              mobilnummer.
-            </Text> */}
+            {data.aboutTheEvents.descriptionAboutAttendingAuthorNights.includes(
+              '\n'
+            ) ? (
+              data.aboutTheEvents.descriptionAboutAttendingAuthorNights
+                .split('\n')
+                .map((newText) => <Text Color={false}>{newText}</Text>)
+            ) : (
+              <Text Color={false}>
+                {data.aboutTheEvents.descriptionAboutAttendingAuthorNights}
+              </Text>
+            )}
           </TextContainer>
           <ButtonBox>
             <ButtonLink
@@ -289,9 +285,15 @@ const Evenemang: NextPage<Props> = ({ data }) => {
         </ImageContainer>
         <AuthorEveningContainer>
           <H2 Color>Vill du hålla författarkväll hos oss?</H2>
-          <TextBox Color>
-            {data.aboutTheEvents.descriptionHostingAuthorNights}
-          </TextBox>
+          {data.aboutTheEvents.descriptionHostingAuthorNights.includes('\n') ? (
+            data.aboutTheEvents.descriptionHostingAuthorNights
+              .split('\n')
+              .map((newText) => <Text Color={true}>{newText}</Text>)
+          ) : (
+            <Text Color={true}>
+              {data.aboutTheEvents.descriptionHostingAuthorNights}
+            </Text>
+          )}
           <ButtonBox>
             <ButtonLink
               href={`mailto:${data.companyInfo.email}?subject=Jag vill hålla författarkväll hos dig`}
@@ -309,15 +311,17 @@ const Evenemang: NextPage<Props> = ({ data }) => {
         </BookImage>
         <BookCirkleContainer>
           <H2 Color={false}>Vill du vara med i en bokcirkel?</H2>
-          <Text Color={false}>
-            {data.aboutTheEvents.descriptionAboutAttendingBookClub}
-          </Text>
-          {/* <TextBox Color={false}>
-            Det finns även en novellbokcirkel för föräldralediga som träffas
-            dagtid var fjortonde dag. Lämpar sig bäst för mindre barn som inte
-            börjat gå ännu. Om du är intresserad så maila eller kom förbi
-            bokhandeln för anmälan eller frågor. Välkommen!
-          </TextBox> */}
+          {data.aboutTheEvents.descriptionAboutAttendingBookClub.includes(
+            '\n'
+          ) ? (
+            data.aboutTheEvents.descriptionAboutAttendingBookClub
+              .split('\n')
+              .map((newText) => <Text Color={false}>{newText}</Text>)
+          ) : (
+            <Text Color={false}>
+              {data.aboutTheEvents.descriptionAboutAttendingBookClub}
+            </Text>
+          )}
           <ButtonLink
             href={`mailto:${data.companyInfo.email}?subject=Mail från hemsidan`}
           >
@@ -330,9 +334,15 @@ const Evenemang: NextPage<Props> = ({ data }) => {
         </BookEveningImage>
         <BookEvening>
           <H2 Color={false}>Välkommen in på bokhandelskväll!</H2>
-          <TextBox Color={false}>
-            {data.aboutTheEvents.descriptionAboutBookStoreNight}
-          </TextBox>
+          {data.aboutTheEvents.descriptionAboutBookStoreNight.includes('\n') ? (
+            data.aboutTheEvents.descriptionAboutBookStoreNight
+              .split('\n')
+              .map((newText) => <Text Color={false}>{newText}</Text>)
+          ) : (
+            <Text Color={false}>
+              {data.aboutTheEvents.descriptionAboutBookStoreNight}
+            </Text>
+          )}
           <LinkText Color={false}>Läs i kalendarium</LinkText>
         </BookEvening>
       </Book>
