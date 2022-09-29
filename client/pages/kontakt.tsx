@@ -258,9 +258,11 @@ const Kontakt: NextPage<Props> = ({ data }) => {
             </Heading>
             <ContentOpeninghours>
               <OpeninghoursBox>
-                {data.companyInfo.openingHours.split(',').map((newText) => (
-                  <Fetchdata>{newText}</Fetchdata>
-                ))}
+                {data.companyInfo.openingHours
+                  .split(',')
+                  .map((newText, index) => (
+                    <Fetchdata key={index}>{newText}</Fetchdata>
+                  ))}
               </OpeninghoursBox>
             </ContentOpeninghours>
           </Openinghours>
