@@ -194,7 +194,10 @@ const Footer: NextPage<Props> = ({ companyInfo }) => {
             </ContactLink>
           </H4>
           <H4 Color={false}>Öppettider:</H4>
-          <Text>{companyInfo.openingHours}</Text>
+
+          {companyInfo.openingHours.split(',').map((newText) => (
+            <Text>{newText}</Text>
+          ))}
         </ContactWrapper>
         <SocialMediaWrapper>
           <H3SocialMedia Color={false}>Sociala medier</H3SocialMedia>

@@ -226,7 +226,7 @@ const Navbar: NextPage<Props> = ({ companyInfo }) => {
     <div>
       <TopBar>
         <TextFont className="openingHours">
-          Öppettider: {companyInfo.openingHours}
+          Öppettider: {companyInfo.openingHours.toLowerCase()}
         </TextFont>
 
         <div className="linkContainer">

@@ -236,8 +236,8 @@ const Fetchdata = styled.p`
   }
 `
 const OpeninghoursBox = styled.div`
-  display: flex;
-  gap: 4px;
+  /* display: flex;
+  gap: 4px; */
 `
 interface Props {
   data: ContactPageSanityData
@@ -258,13 +258,10 @@ const Kontakt: NextPage<Props> = ({ data }) => {
             </Heading>
             <ContentOpeninghours>
               <OpeninghoursBox>
-                {/* <TextBox Color></TextBox> */}
-                <Fetchdata>{data.companyInfo.openingHours}</Fetchdata>
+                {data.companyInfo.openingHours.split(',').map((newText) => (
+                  <Fetchdata>{newText}</Fetchdata>
+                ))}
               </OpeninghoursBox>
-              {/* <OpeninghoursBox>
-                <TextBox Color>Lördag:</TextBox>
-                <Fetchdata>Hämta data</Fetchdata>
-              </OpeninghoursBox> */}
             </ContentOpeninghours>
           </Openinghours>
           <Contact>
