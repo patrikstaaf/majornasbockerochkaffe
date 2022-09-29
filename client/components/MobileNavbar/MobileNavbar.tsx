@@ -209,7 +209,9 @@ const MobileNavbar: NextPage<Props> = ({ companyInfo }) => {
             <OpeningAndSocialMedia>
               <OpeningBox>
                 <OpeningText>Öppettider: </OpeningText>
-                <OpeningText>{companyInfo.openingHours}</OpeningText>
+                <OpeningText>
+                  {companyInfo.openingHours.toLowerCase()}
+                </OpeningText>
               </OpeningBox>
               <SocialMediaBox>
                 <SocialMediaLink>

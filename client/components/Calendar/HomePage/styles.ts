@@ -157,3 +157,15 @@ export const SectionTitle = styled.h2`
     line-height: 42px;
   }
 `
+export const StyleLink = styled.a`
+  font-family: ${({ theme }) => theme.fontFamily.sourceSerifPro};
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 25px;
+  cursor: pointer;
+  text-decoration: underline;
+  color: ${({ theme }) => theme.fontColor.coffee};
+  /* padding-top: 30px; */
+  /* padding-bottom: 40px; */
+`

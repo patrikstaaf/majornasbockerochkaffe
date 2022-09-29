@@ -8,7 +8,7 @@ import theme from '../lib/styles/theme'
 import NextImage from 'next/image'
 import dynamic from 'next/dynamic'
 const HomePageCalendar = dynamic(
-  () => import('../components/Calendar/HomePageCalendar'),
+  () => import('../components/Calendar/HomePage/HomePageCalendar'),
   {
     ssr: false,
   }
