@@ -336,7 +336,7 @@ const Kontakt: NextPage<Props> = ({ data }) => {
 
 export default Kontakt
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async () => {
   const data = await sanityClient.fetch(contactPageQuery)
 
   return {

@@ -43,7 +43,7 @@ const NotFound: NextPage<Props> = ({ data }) => {
 
 export default NotFound
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async () => {
   const data = await sanityClient.fetch(notFoundPageQuery)
 
   return {

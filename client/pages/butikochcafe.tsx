@@ -320,7 +320,7 @@ const Butik: NextPage<Props> = ({ data }) => {
 
 export default Butik
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async () => {
   const data = await sanityClient.fetch(shopPageQuery)
 
   return {
