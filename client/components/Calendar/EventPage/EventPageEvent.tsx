@@ -107,8 +107,8 @@ const EventPageEvent: NextPage<Props> = ({ calendar, instagramUrl }) => {
         </HomePagePaddingContainer>
         <HomePageCalendarWrapper>
           {calendar &&
-            calendar.map((event, index) => (
-              <div key={index}>
+            calendar.map((event) => (
+              <div key={event._id}>
                 {event.event === 'authorNight' && (
                   <EventWrapper>
                     <EventDateBackground

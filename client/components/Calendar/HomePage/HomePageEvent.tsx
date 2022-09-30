@@ -46,8 +46,8 @@ const HomePageCalendar: NextPage<Props> = ({ calendar }) => {
       <SectionTitle>Kalendarium</SectionTitle>
       <HomePageCalendarWrapper>
         {calendar &&
-          calendar.map((event, index) => (
-            <div key={index}>
+          calendar.map((event) => (
+            <div key={event._id}>
               {event.event === 'authorNight' && (
                 <EventWrapper>
                   <EventDateBackground backgroundColor={theme.colors.hemingway}>

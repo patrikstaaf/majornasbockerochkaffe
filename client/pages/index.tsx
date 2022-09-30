@@ -725,8 +725,6 @@ export const getStaticProps: GetStaticProps = async () => {
   const feed = await instagramData.json()
   const images = feed.data
 
-  console.log(images)
-
   return {
     props: {
       data,

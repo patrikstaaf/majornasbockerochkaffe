@@ -373,7 +373,7 @@ const Evenemang: NextPage<Props> = ({ data }) => {
 
 export default Evenemang
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async () => {
   const data = await sanityClient.fetch(eventPageQuery)
 
   return {
