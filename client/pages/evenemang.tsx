@@ -380,6 +380,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
     props: {
       data,
     },
-    revalidate: 10, // add webhook later on
+    // revalidate: 10,
   }
 }

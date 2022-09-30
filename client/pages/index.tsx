@@ -732,6 +732,6 @@ export const getStaticProps: GetStaticProps = async () => {
       data,
       images,
     },
-    revalidate: 10, // add webhook later on
+    // revalidate: 10,
   }
 }
