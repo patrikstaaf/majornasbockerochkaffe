@@ -17,8 +17,7 @@ export default async function handler(
   }
 
   if (!isValidRequest(req, secret!)) {
-    res.status(401).json({ message: 'Invalid signature' })
-    return
+    return res.status(401).json({ message: 'Invalid signature' })
   }
 
   try {
