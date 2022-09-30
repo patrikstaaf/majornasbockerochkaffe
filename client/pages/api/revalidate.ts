@@ -21,13 +21,19 @@ export default async function handler(
   }
 
   try {
-    const pathToRevalidate = req.body.slug.current
+    const {
+      body: { type, slug },
+    } = req
 
-    console.log(`===== Revalidating: ${pathToRevalidate}`)
+    switch (type) {
+      case 'post':
+        await res.revalidate(`/${slug}`)
+        return res.json({
+          message: `Revalidated "${type}" with slug "${slug}"`,
+        })
+    }
 
-    await res.revalidate(pathToRevalidate)
-
-    return res.json({ message: 'Revalidated true' })
+    return res.json({ message: 'No managed type' })
   } catch (err) {
     return res.status(500).send({ message: 'Error while revalidating' })
   }
