@@ -1,5 +1,5 @@
 import { isValidRequest } from '@sanity/webhook'
-import type { NextApiRequest, NextApiResponse } from 'next'
+import type { NextApiRequest, NextApiResponse, NextApiHandler } from 'next'
 
 type Data = {
   message?: string
@@ -7,10 +7,10 @@ type Data = {
 
 const secret = process.env.SANITY_WEBHOOK
 
-export default async function handler(
+const handler: NextApiHandler = async (
   req: NextApiRequest,
   res: NextApiResponse<Data>
-) {
+) => {
   if (req.method !== 'POST') {
     console.error('Must be a POST request')
     return res.status(401).json({ message: 'Must be a POST request' })
@@ -38,3 +38,5 @@ export default async function handler(
     return res.status(500).send({ message: 'Error while revalidating' })
   }
 }
+
+export default handler
