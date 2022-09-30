@@ -1,12 +1,35 @@
-import { NextApiRequest, NextApiResponse } from 'next'
+import { isValidRequest } from '@sanity/webhook'
+import type { NextApiRequest, NextApiResponse } from 'next'
 
-interface Data {
-  name: string
+type Data = {
+  message?: string
 }
 
-export default function handler(
+const secret = process.env.SANITY_WEBHOOK
+
+export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  res.status(200).json({ name: 'Eva' })
+  if (req.method !== 'POST') {
+    console.error('Must be a POST request')
+    return res.status(401).json({ message: 'Must be a POST request' })
+  }
+
+  if (!isValidRequest(req, secret!)) {
+    res.status(401).json({ message: 'Invalid signature' })
+    return
+  }
+
+  try {
+    const pathToRevalidate = req.body.slug.current
+
+    console.log(`===== Revalidating: ${pathToRevalidate}`)
+
+    await res.revalidate(pathToRevalidate)
+
+    return res.json({ message: 'Revalidated true' })
+  } catch (err) {
+    return res.status(500).send({ message: 'Error while revalidating' })
+  }
 }

@@ -4,8 +4,8 @@ import Link from 'next/link'
 import styled from 'styled-components'
 import { Text, H1 } from '../components/Text'
 import sanityClient from '../lib/sanity/client'
-// import { NotFoundPageSanityData } from '../lib/sanity/types'
 import { notFoundPageQuery } from '../lib/sanity/queries'
+import { NotFoundPageSanityData } from '../lib/sanity/types'
 
 const Layout = dynamic(() => import('../components/Layout/Layout'), {
   ssr: false,
@@ -21,22 +21,15 @@ const Section = styled.section`
 `
 
 interface Props {
-  companyInfo: {
-    openingHours: string
-    facebookUrl: string
-    instagramUrl: string
-    email: string
-    phone: string
-    address: string
-  }
+  data: NotFoundPageSanityData
 }
 
-const NotFound: NextPage<Props> = ({ companyInfo }) => {
+const NotFound: NextPage<Props> = ({ data }) => {
   return (
     <Layout
       title="Majornas Böcker och Kaffe"
       description="Tyvärr finns ej sidan du försöker hitta"
-      companyInfo={companyInfo}
+      companyInfo={data.companyInfo}
     >
       <Section>
         <H1 Color={true}>Oh no, sidan finns inte...</H1>
@@ -51,11 +44,11 @@ const NotFound: NextPage<Props> = ({ companyInfo }) => {
 export default NotFound
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const companyInfo = await sanityClient.fetch(notFoundPageQuery)
+  const data = await sanityClient.fetch(notFoundPageQuery)
 
   return {
     props: {
-      companyInfo,
+      data,
     },
     revalidate: 10, // add webhook later on
   }
