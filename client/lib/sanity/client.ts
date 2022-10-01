@@ -2,15 +2,15 @@ import sanityClient from '@sanity/client'
 interface ClientConfig {
   projectId: string
   dataset: string
-  apiVersion?: string
-  useCdn?: boolean
+  apiVersion: string
+  useCdn: boolean
 }
 
 const sanityConfig: ClientConfig = {
   projectId: process.env.SANITY_PROJECT_ID!,
   dataset: process.env.SANITY_DATASET!,
-  useCdn: process.env.SANITY_CDN !== 'production',
-  apiVersion: process.env.SANITY_APIVERSION!,
+  useCdn: false,
+  apiVersion: '2022-09-04',
 }
 
 export default sanityClient(sanityConfig)
