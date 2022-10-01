@@ -10,19 +10,19 @@ export default async function handler(
   //   }
 
   try {
-    const signature = req.headers[SIGNATURE_HEADER_NAME]?.toString()
+    // const signature = req.headers[SIGNATURE_HEADER_NAME]?.toString()
 
-    if (
-      !isValidSignature(
-        JSON.stringify(req.body),
-        signature as string,
-        process.env.SANITY_REVALIDATE_SECRET as string
-      )
-    )
-      return res.status(401).json({ message: 'Invalid' })
+    // if (
+    //   !isValidSignature(
+    //     JSON.stringify(req.body),
+    //     signature as string,
+    //     process.env.SANITY_REVALIDATE_SECRET as string
+    //   )
+    // )
+    //   return res.status(401).json({ message: 'Invalid' })
 
     const type = req.body.type
-    console.log({ type: type })
+    // console.log({ type: type })
 
     if (type === 'calendar') {
       await res.revalidate('/')
