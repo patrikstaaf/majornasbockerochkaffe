@@ -5,9 +5,9 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  if (req.query.secret !== process.env.SANITY_REVALIDATE_SECRET) {
-    return res.status(401).json({ message: 'Invalid token' })
-  }
+  //   if (req.query.secret !== process.env.SANITY_REVALIDATE_SECRET) {
+  //     return res.status(401).json({ message: 'Invalid token' })
+  //   }
 
   try {
     const signature = req.headers[SIGNATURE_HEADER_NAME]?.toString()
