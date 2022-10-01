@@ -4,16 +4,12 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  //   console.log({ req: req })
-  //   if (req.query.secret !== process.env.SANITY_REVALIDATE_SECRET) {
-  //     return res.status(401).json({ message: 'Invalid token' })
-  //   }
+  if (req.query.secret !== process.env.SANITY_REVALIDATE_SECRET) {
+    return res.status(401).json({ message: 'Invalid token' })
+  }
 
   try {
-    // console.log(req.query.path)
-
     const type = req.body.type
-    console.log(type)
 
     if (type === 'calendar') {
       await res.revalidate('/')
@@ -35,7 +31,6 @@ export default async function handler(
       await res.revalidate('/evenemang')
     }
 
-    // await res.revalidate(req.query.path as string)
     return res.json({
       revalidated: true,
     })
