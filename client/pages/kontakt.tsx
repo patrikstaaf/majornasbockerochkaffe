@@ -167,7 +167,6 @@ const ContentOpeninghours = styled(Content)`
 
 const Image = styled.div`
   height: 347px;
-  background-color: pink;
   box-sizing: border-box;
   position: relative;
   -moz-box-sizing: border-box;
@@ -306,6 +305,7 @@ const Kontakt: NextPage<Props> = ({ data }) => {
             src={data.companyInfo.outsideImageOfShop}
             alt={data.companyInfo.outsideImageOfShopAlt}
             layout="fill"
+            objectFit="cover"
           />
         </Image>
       </ContactSection>
