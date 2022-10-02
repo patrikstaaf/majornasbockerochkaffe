@@ -30,6 +30,10 @@ const GlobalStyles = createGlobalStyle`
     summary::marker {
         content: ''
     }
+
+    ::-webkit-details-marker {   display:none; }
+
+
 `
 
 export default GlobalStyles

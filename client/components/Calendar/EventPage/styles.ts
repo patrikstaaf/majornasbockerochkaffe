@@ -10,9 +10,6 @@ export const HomePageCalendarSection = styled.section`
   border-width: 1px 2px 2px 2px;
   border-color: ${({ theme }) => theme.colors.coffee};
   border-style: solid;
-  /* display: flex;
-  flex-direction: column; */
-  /* padding: 0px 20px 0px 20px; */
   height: 100%;
 `
 
@@ -24,7 +21,6 @@ export const HomePageCalendarWrapper = styled.div`
   max-width: 100vw;
   border-color: ${({ theme }) => theme.colors.coffee};
   border-top-style: solid;
-  /* border-bottom-style: solid; */
   border-width: 2px;
   margin-top: 40px;
   margin-bottom: 40px;
@@ -38,16 +34,16 @@ export const HomePageCalendarWrapper = styled.div`
   }
 `
 
-// export const EventWrapper = styled.div`
-//   width: 100%;
-//   height: 100%;
-//   display: grid;
-//   grid-template-columns: 100px 1fr;
-//   align-items: center;
-//   border-color: ${({ theme }) => theme.colors.coffee};
-//   border-bottom: solid;
-//   border-width: 2px;
-// `
+export const EventDateBackground = styled.div<Props>`
+  background-color: ${(props) => props.backgroundColor};
+  width: 100px;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: date;
+`
 
 export const EventDescriptionContainer = styled.div`
   display: grid;
@@ -121,10 +117,8 @@ export const LinkWrapper = styled.div`
   font-size: 20px;
   line-height: 25px;
   color: ${({ theme }) => theme.fontColor.coffee};
-  /* padding-top: 30px; */
+
   padding-bottom: 40px;
-  /* display: flex;
-  align-items: end; */
 `
 
 export const EventTime = styled.div`
@@ -133,6 +127,7 @@ export const EventTime = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  grid-area: time;
 
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     flex-direction: row;
@@ -148,19 +143,49 @@ export const EventWrapper = styled.div`
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: 100px 1fr 20%;
+
+  grid-template:
+    'date title title time'
+    'date text text time' min-content / 100px 1fr 1fr 20%;
+
   align-items: center;
   border-color: ${({ theme }) => theme.colors.coffee};
   border-style: solid;
   border-width: 0px 0px 2px 0px;
+
+  @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
+    grid-template: 'date title text time' min-content / 100px 1fr 1fr 20%;
+  }
 `
 
-export const EventTimeTitle = styled.span`
+export const EventTimeTitle = styled.div`
   font-family: ${({ theme }) => theme.fontFamily.calibri};
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 24px;
+  padding-left: 20px;
+  color: ${({ theme }) => theme.fontColor.coffee};
+  grid-area: title;
+
+  @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    font-size: 24px;
+    line-height: 29px;
+  }
+`
+
+export const EventTimeText = styled.div`
+  font-family: ${({ theme }) => theme.fontFamily.calibri};
+  font-style: italic;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  grid-area: text;
+  padding-left: 10px;
   color: ${({ theme }) => theme.fontColor.coffee};
 
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
@@ -173,12 +198,13 @@ export const EventTimeTitle = styled.span`
   }
 `
 
-export const EventTimeText = styled.span`
+export const DateTimeText = styled.div`
   font-family: ${({ theme }) => theme.fontFamily.calibri};
-  font-style: italic;
+  font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 24px;
+  grid-area: text;
   color: ${({ theme }) => theme.fontColor.coffee};
 
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
@@ -193,11 +219,12 @@ export const EventTimeText = styled.span`
 
 export const ExpandText = styled.summary`
   font-family: ${({ theme }) => theme.fontFamily.calibri};
-  font-style: normal;
+  font-style: italic;
   font-weight: 400;
   font-size: 20px;
   line-height: 24px;
   text-decoration: underline;
+  -webkit-text-decoration: underline;
   cursor: pointer;
   color: ${({ theme }) => theme.fontColor.coffee};
   &:focus {
@@ -231,12 +258,14 @@ export const EventTitleWrapper = styled.div`
 
 export const RegisterText = styled.div`
   font-family: ${({ theme }) => theme.fontFamily.calibri};
-  font-style: normal;
+  font-style: italic;
   font-weight: 400;
   font-size: 20px;
   line-height: 24px;
   text-decoration: underline;
+  padding-left: 20px;
   cursor: pointer;
+  grid-area: text;
   color: ${({ theme }) => theme.fontColor.coffee};
   &:focus {
     font-weight: 700;
@@ -261,6 +290,4 @@ export const StyleLink = styled.a`
   text-decoration: underline;
   cursor: pointer;
   color: ${({ theme }) => theme.fontColor.coffee};
-  /* padding-top: 30px; */
-  /* padding-bottom: 40px; */
 `
