@@ -47,44 +47,42 @@ const ImageContainer = styled.div`
   }
 `
 const Image = styled.div`
+  height: 336px;
   border-width: 2px 2px 0px 2px;
   border-style: solid;
   position: relative;
   border-color: ${({ theme }) => theme.colors.coffee};
-  background-color: pink;
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
+    height: 500px;
     border-width: 0px 0px 3px 3px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
-    height: 624px;
-    padding: 51px 0px 0px 40px;
+    height: 675px;
   }
 `
 const ImageOne = styled.div`
   height: 168.75px;
-  width: 187.5px;
+  width: 50%;
   position: relative;
-  background-color: red;
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     height: 379.88px;
-    width: 417px;
+    width: 100%;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     display: grid;
-    width: 377px;
-    height: 337.5px;
+    width: 100%;
+    height: 338px;
   }
 `
 const ImageTwo = styled(ImageOne)`
   height: 168.75px;
-  width: 187.5px;
-  background-color: blue;
+  width: 50%;
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     display: none;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     display: grid;
-    width: 377px;
+    width: 100%;
     height: 337.5px;
   }
 `
@@ -95,9 +93,8 @@ const ImageThree = styled(ImageOne)`
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     display: grid;
-    width: 377px;
+    width: 100%;
     height: 337.5px;
-    background-color: pink;
   }
 `
 const ImageFour = styled(ImageOne)`
@@ -107,9 +104,8 @@ const ImageFour = styled(ImageOne)`
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     display: grid;
-    width: 377px;
+    width: 100%;
     height: 337.5px;
-    background-color: purple;
   }
 `
 const ContentContainer = styled.div`
@@ -164,7 +160,7 @@ const BookEveningImage = styled.div`
   border-style: solid;
   position: relative;
   border-color: ${({ theme }) => theme.colors.coffee};
-  background-color: pink;
+
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     height: 265.95px;
     grid-column: 2;
@@ -248,6 +244,7 @@ const Evenemang: NextPage<Props> = ({ data }) => {
             src={data.aboutTheEvents.generalImageAuthorNights}
             alt={data.aboutTheEvents.generalImageAuthorNightsAlt}
             layout="fill"
+            objectFit="cover"
           />
         </Image>
         <ContentContainer>
@@ -283,6 +280,7 @@ const Evenemang: NextPage<Props> = ({ data }) => {
               src={data.aboutTheEvents.imagesOfPreviousAuthorNights1}
               alt={data.aboutTheEvents.imagesOfPreviousAuthorNights1Alt}
               layout="fill"
+              objectFit="cover"
             />
           </ImageOne>
           <ImageTwo>
@@ -290,6 +288,7 @@ const Evenemang: NextPage<Props> = ({ data }) => {
               src={data.aboutTheEvents.imagesOfPreviousAuthorNights2}
               alt={data.aboutTheEvents.imagesOfPreviousAuthorNights2Alt}
               layout="fill"
+              objectFit="cover"
             />
           </ImageTwo>
           <ImageThree>
@@ -297,6 +296,7 @@ const Evenemang: NextPage<Props> = ({ data }) => {
               src={data.aboutTheEvents.imagesOfPreviousAuthorNights3}
               alt={data.aboutTheEvents.imagesOfPreviousAuthorNights3Alt}
               layout="fill"
+              objectFit="cover"
             />
           </ImageThree>
           <ImageFour>
@@ -304,6 +304,7 @@ const Evenemang: NextPage<Props> = ({ data }) => {
               src={data.aboutTheEvents.imagesOfPreviousAuthorNights4}
               alt={data.aboutTheEvents.imagesOfPreviousAuthorNights4Alt}
               layout="fill"
+              objectFit="cover"
             />
           </ImageFour>
         </ImageContainer>
@@ -338,6 +339,7 @@ const Evenemang: NextPage<Props> = ({ data }) => {
             src={data.aboutTheEvents.generalImageAuthorBookClub}
             alt={data.aboutTheEvents.generalImageAuthorBookClubAlt}
             layout="fill"
+            objectFit="cover"
           />
         </BookImage>
         <BookCirkleContainer>
@@ -368,6 +370,7 @@ const Evenemang: NextPage<Props> = ({ data }) => {
             src={data.aboutTheEvents.generalImageAuthorBookStoreNight}
             alt={data.aboutTheEvents.generalImageAuthorBookStoreNightAlt}
             layout="fill"
+            objectFit="cover"
           />
         </BookEveningImage>
         <BookEvening>

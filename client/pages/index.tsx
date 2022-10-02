@@ -74,58 +74,66 @@ const Container = styled.div`
     display: grid;
     grid-template-columns: 30fr 29fr 24fr;
     grid-template-rows: 25fr 10fr 5fr 45fr;
-    aspect-ratio: 4/3;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     grid-template-columns: 54fr 53fr 44fr;
-    grid-template-rows: 7fr 4fr 2fr 8fr;
-    aspect-ratio: 4/3;
+    grid-template-rows: 8fr 3fr 1fr 8fr;
   }
 `
 const Image = styled.div`
-  background-color: lightcoral;
+  height: 408.11px;
   border-width: 2px 2px 0px 2px;
   border-style: solid;
   position: relative;
   border-color: ${({ theme }) => theme.colors.coffee};
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
+    height: 357px;
     grid-column: 1/2;
     grid-row: 1/2;
     border-width: 1px 1px 0px 3px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    height: 543px;
     border-width: 1px 1px 1px 3px;
   }
 `
 const ImageOne = styled.div`
-  background-color: lightcoral;
-  border-width: 3px 2px 0px 3px;
+  height: 320px;
+  border-width: 2px 2px 0px 2px;
   border-style: solid;
   position: relative;
   border-color: ${({ theme }) => theme.colors.coffee};
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
+    height: 257px;
     grid-column: 1/2;
     grid-row: 1/3;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    height: 486px;
   }
 `
 const ImageTwo = styled(ImageOne)`
+  height: 367px;
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
+    height: 293px;
     grid-column: 2/3;
     grid-row: 1/4;
     border-width: 3px 2px 0px 1px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    height: 530px;
   }
 `
 const ImageThree = styled(ImageOne)`
+  height: 379px;
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
+    height: 182px;
     grid-column: 3/4;
     grid-row: 1/2;
     border-width: 3px 3px 0px 1px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    height: 351px;
   }
 `
 const AuthorEvening = styled.div`
@@ -209,13 +217,12 @@ const InstagramImageOne = styled.div`
   position: relative;
   margin: 32px 0px 0px 0px;
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
-    height: 178px;
     width: 178px;
     margin: 0px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     width: 260px;
-    height: 217px;
+
     margin: 32px 0px 0px 0px;
   }
 `
@@ -247,26 +254,31 @@ const OfferContainer = styled.div`
   }
 `
 const OfferImageOne = styled.div`
-  background-color: lightcoral;
+  height: 408.11px;
+  overflow: hidden;
   border-width: 0px 2px;
   border-style: solid;
   position: relative;
   border-color: ${({ theme }) => theme.colors.coffee};
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
+    height: 292px;
     grid-column: 2;
     grid-row: 1;
     border-width: 1px 2px 3px 3px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    height: 533px;
     grid-column: 2/3;
     grid-row: 1/3;
   }
 `
 const OfferImageTwo = styled(OfferImageOne)`
+  height: 169.17px;
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     display: none;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    height: 301px;
     display: block;
     grid-column: 3/4;
     grid-row: 1/2;
@@ -340,15 +352,20 @@ const AuthorWith = styled.div`
   }
 `
 const ImageAuthor = styled.div`
-  background-color: lightcoral;
+  overflow: hidden;
+  height: 375px;
   border-width: 0px 2px;
   border-style: solid;
   position: relative;
   border-color: ${({ theme }) => theme.colors.coffee};
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
+    height: 372px;
     grid-column: 1/2;
     grid-row: 1/2;
     border-width: 0px 1px 0px 3px;
+  }
+  @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
+    height: 440px;
   }
 `
 const AuthorReading = styled.div`
@@ -425,6 +442,9 @@ const ButtonBox = styled.div`
 `
 const TextBox = styled(Text)`
   margin: 0px 0px 40px 0px;
+  @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
+    margin: 0px 0px 16px 0px;
+  }
 `
 const TextBoxAuthor = styled(Text)`
   margin: 0px 0px 81px 0px;
@@ -497,6 +517,7 @@ const Home: NextPage<Props> = ({ data, images }) => {
             src={data.aboutTheEvents.generalImageAuthorNights}
             alt={data.aboutTheEvents.generalImageAuthorNightsAlt}
             layout="fill"
+            objectFit="cover"
           />
         </ImageOne>
         <AuthorEvening>
@@ -513,6 +534,7 @@ const Home: NextPage<Props> = ({ data, images }) => {
             src={data.aboutTheEvents.generalImageAuthorBookClub}
             alt={data.aboutTheEvents.generalImageAuthorBookClubAlt}
             layout="fill"
+            objectFit="cover"
           />
         </ImageTwo>
         <BookCircle>
@@ -529,6 +551,7 @@ const Home: NextPage<Props> = ({ data, images }) => {
             src={data.aboutTheStore.cafeImage}
             alt={data.aboutTheStore.cafeImageAlt}
             layout="fill"
+            objectFit="cover"
           />
         </ImageThree>
         <BookAndCafe>
@@ -609,6 +632,7 @@ const Home: NextPage<Props> = ({ data, images }) => {
             src={data.permanentOffer.image}
             alt={data.permanentOffer.imageAlt}
             layout="fill"
+            objectFit="cover"
           />
         </OfferImageOne>
         <Offer>
@@ -621,6 +645,7 @@ const Home: NextPage<Props> = ({ data, images }) => {
             src={data.aboutTheStore.cafeImage}
             alt={data.aboutTheStore.cafeImageAlt}
             layout="fill"
+            objectFit="cover"
           />
         </OfferImageTwo>
         <OfferText>
@@ -631,6 +656,14 @@ const Home: NextPage<Props> = ({ data, images }) => {
         </OfferText>
       </OfferContainer>
       <AuthorContainer>
+        <ImageAuthor>
+          <NextImage
+            src={data.aboutTheEvents.generalImageAuthorNights}
+            alt={data.aboutTheEvents.generalImageAuthorNightsAlt}
+            layout="fill"
+            objectFit="cover"
+          />
+        </ImageAuthor>
         {data.nextAuthorNight ? (
           <AuthorWith>
             <H2 Color={false}>{data.nextAuthorNight.authorEventTitle}</H2>
@@ -651,13 +684,7 @@ const Home: NextPage<Props> = ({ data, images }) => {
             </TextBoxAuthor>
           </AuthorWith>
         )}
-        <ImageAuthor>
-          <NextImage
-            src={data.aboutTheEvents.generalImageAuthorNights}
-            alt={data.aboutTheEvents.generalImageAuthorNightsAlt}
-            layout="fill"
-          />
-        </ImageAuthor>
+
         <AuthorReading>
           <H2 Color>Vill du hålla i en författarkväll hos oss?</H2>
           {data.aboutTheEvents.descriptionHostingAuthorNights.includes('\n') ? (
@@ -691,6 +718,7 @@ const Home: NextPage<Props> = ({ data, images }) => {
             src={data.bookOfTheMonth.cover}
             alt={data.bookOfTheMonth.coverAlt}
             layout="fill"
+            objectFit="cover"
           />
         </Image>
         <BookTips>
