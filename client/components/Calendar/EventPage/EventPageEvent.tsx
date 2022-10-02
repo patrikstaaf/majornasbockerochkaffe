@@ -10,13 +10,7 @@ import {
 } from '../../../lib/helpers/calendar'
 import { Calendar } from '../../../lib/sanity/types'
 import theme from '../../../lib/styles/theme'
-import { Text } from '../../Text'
-import {
-  EventDate,
-  EventDateBackground,
-  EventDateText,
-  SectionTitle,
-} from '../HomePage/styles'
+import { EventDate, EventDateText, SectionTitle } from '../HomePage/styles'
 
 import {
   EventDescriptionColor,
@@ -37,6 +31,8 @@ import {
   HomePageCalendarWrapper,
   HomePagePaddingContainer,
   StyleLink,
+  EventDateBackground,
+  DateTimeText,
 } from './styles'
 
 interface Props {
@@ -123,25 +119,25 @@ const EventPageEvent: NextPage<Props> = ({ calendar, instagramUrl }) => {
                         </EventDateText>
                       </EventDate>
                     </EventDateBackground>
-                    <EventTitleWrapper>
-                      <EventTimeTitle>{event.authorEventTitle}</EventTimeTitle>
-                      <Link href="mailto:eva@eva.com">
-                        <RegisterText>Anmäl dig här</RegisterText>
-                      </Link>
-                    </EventTitleWrapper>
+
+                    <EventTimeTitle>{event.authorEventTitle}</EventTimeTitle>
+                    <Link href="mailto:eva@eva.com">
+                      <RegisterText>Anmäl dig här</RegisterText>
+                    </Link>
+
                     <EventTime>
                       {event.eventTime.includes('-') ? (
                         <>
-                          <EventTimeTitle>
+                          <DateTimeText>
                             {getStartTime(event.eventTime)}
-                          </EventTimeTitle>
-                          <EventTimeTitle>-</EventTimeTitle>
-                          <EventTimeTitle>
+                          </DateTimeText>
+                          <DateTimeText>-</DateTimeText>
+                          <DateTimeText>
                             {getEndTime(event.eventTime)}
-                          </EventTimeTitle>
+                          </DateTimeText>
                         </>
                       ) : (
-                        <EventTimeTitle>{event.eventTime}</EventTimeTitle>
+                        <DateTimeText>{event.eventTime}</DateTimeText>
                       )}
                     </EventTime>
                   </EventWrapper>
@@ -158,41 +154,41 @@ const EventPageEvent: NextPage<Props> = ({ calendar, instagramUrl }) => {
                         </EventDateText>
                       </EventDate>
                     </EventDateBackground>
-                    <EventTitleWrapper>
-                      <EventTimeTitle>{event.bookClubTitle}</EventTimeTitle>
-                      <EventTimeText>
-                        {event.bookClubDescription.length < 18 ? (
+
+                    <EventTimeTitle>{event.bookClubTitle}</EventTimeTitle>
+                    <EventTimeText>
+                      {event.bookClubDescription.length < 18 ? (
+                        <EventTimeText>
+                          {event.bookClubDescription}
+                        </EventTimeText>
+                      ) : (
+                        <>
                           <EventTimeText>
-                            {event.bookClubDescription}
+                            {getIntroString(event.bookClubDescription)}
                           </EventTimeText>
-                        ) : (
-                          <>
-                            <EventTimeText>
-                              {getIntroString(event.bookClubDescription)}
-                            </EventTimeText>
-                            <EventTimeText>
-                              <DetailsElement>
-                                <ExpandText>Läs mer</ExpandText>
-                                {event.bookClubDescription}
-                              </DetailsElement>
-                            </EventTimeText>
-                          </>
-                        )}
-                      </EventTimeText>
-                    </EventTitleWrapper>
+                          <EventTimeText>
+                            <DetailsElement>
+                              <ExpandText>Läs mer</ExpandText>
+                              {event.bookClubDescription}
+                            </DetailsElement>
+                          </EventTimeText>
+                        </>
+                      )}
+                    </EventTimeText>
+
                     <EventTime>
                       {event.eventTime.includes('-') ? (
                         <>
-                          <EventTimeTitle>
+                          <DateTimeText>
                             {getStartTime(event.eventTime)}
-                          </EventTimeTitle>
-                          <EventTimeTitle>-</EventTimeTitle>
-                          <EventTimeTitle>
+                          </DateTimeText>
+                          <DateTimeText>-</DateTimeText>
+                          <DateTimeText>
                             {getEndTime(event.eventTime)}
-                          </EventTimeTitle>
+                          </DateTimeText>
                         </>
                       ) : (
-                        <EventTimeTitle>{event.eventTime}</EventTimeTitle>
+                        <DateTimeText>{event.eventTime}</DateTimeText>
                       )}
                     </EventTime>
                   </EventWrapper>
@@ -209,41 +205,41 @@ const EventPageEvent: NextPage<Props> = ({ calendar, instagramUrl }) => {
                         </EventDateText>
                       </EventDate>
                     </EventDateBackground>
-                    <EventTitleWrapper>
-                      <EventTimeTitle>{event.bookNightTitle}</EventTimeTitle>
-                      <EventTimeText>
-                        {event.bookNightDescription.length < 18 ? (
+
+                    <EventTimeTitle>{event.bookNightTitle}</EventTimeTitle>
+                    <EventTimeText>
+                      {event.bookNightDescription.length < 18 ? (
+                        <EventTimeText>
+                          {event.bookNightDescription}
+                        </EventTimeText>
+                      ) : (
+                        <>
                           <EventTimeText>
-                            {event.bookNightDescription}
+                            {getIntroString(event.bookNightDescription)}
                           </EventTimeText>
-                        ) : (
-                          <>
-                            <EventTimeText>
-                              {getIntroString(event.bookNightDescription)}
-                            </EventTimeText>
-                            <EventTimeText>
-                              <DetailsElement>
-                                <ExpandText>Läs mer</ExpandText>
-                                {event.bookNightDescription}
-                              </DetailsElement>
-                            </EventTimeText>
-                          </>
-                        )}
-                      </EventTimeText>
-                    </EventTitleWrapper>
+                          <EventTimeText>
+                            <DetailsElement>
+                              <ExpandText>Läs mer</ExpandText>
+                              {event.bookNightDescription}
+                            </DetailsElement>
+                          </EventTimeText>
+                        </>
+                      )}
+                    </EventTimeText>
+
                     <EventTime>
                       {event.eventTime.includes('-') ? (
                         <>
-                          <EventTimeTitle>
+                          <DateTimeText>
                             {getStartTime(event.eventTime)}
-                          </EventTimeTitle>
-                          <EventTimeTitle>-</EventTimeTitle>
-                          <EventTimeTitle>
+                          </DateTimeText>
+                          <DateTimeText>-</DateTimeText>
+                          <DateTimeText>
                             {getEndTime(event.eventTime)}
-                          </EventTimeTitle>
+                          </DateTimeText>
                         </>
                       ) : (
-                        <EventTimeTitle>{event.eventTime}</EventTimeTitle>
+                        <DateTimeText>{event.eventTime}</DateTimeText>
                       )}
                     </EventTime>
                   </EventWrapper>
@@ -260,41 +256,41 @@ const EventPageEvent: NextPage<Props> = ({ calendar, instagramUrl }) => {
                         </EventDateText>
                       </EventDate>
                     </EventDateBackground>
-                    <EventTitleWrapper>
-                      <EventTimeTitle>{event.miscEventTitle}</EventTimeTitle>
-                      <EventTimeText>
-                        {event.miscEventDescription.length < 18 ? (
+
+                    <EventTimeTitle>{event.miscEventTitle}</EventTimeTitle>
+                    <EventTimeText>
+                      {event.miscEventDescription.length < 18 ? (
+                        <EventTimeText>
+                          {event.miscEventDescription}
+                        </EventTimeText>
+                      ) : (
+                        <>
                           <EventTimeText>
-                            {event.miscEventDescription}
+                            {getIntroString(event.miscEventDescription)}
                           </EventTimeText>
-                        ) : (
-                          <>
-                            <EventTimeText>
-                              {getIntroString(event.miscEventDescription)}
-                            </EventTimeText>
-                            <EventTimeText>
-                              <DetailsElement>
-                                <ExpandText>Läs mer</ExpandText>
-                                {event.miscEventDescription}
-                              </DetailsElement>
-                            </EventTimeText>
-                          </>
-                        )}
-                      </EventTimeText>
-                    </EventTitleWrapper>
+                          <EventTimeText>
+                            <DetailsElement>
+                              <ExpandText>Läs mer</ExpandText>
+                              {event.miscEventDescription}
+                            </DetailsElement>
+                          </EventTimeText>
+                        </>
+                      )}
+                    </EventTimeText>
+
                     <EventTime>
                       {event.eventTime.includes('-') ? (
                         <>
-                          <EventTimeTitle>
+                          <DateTimeText>
                             {getStartTime(event.eventTime)}
-                          </EventTimeTitle>
-                          <EventTimeTitle>-</EventTimeTitle>
-                          <EventTimeTitle>
+                          </DateTimeText>
+                          <DateTimeText>-</DateTimeText>
+                          <DateTimeText>
                             {getEndTime(event.eventTime)}
-                          </EventTimeTitle>
+                          </DateTimeText>
                         </>
                       ) : (
-                        <EventTimeTitle>{event.eventTime}</EventTimeTitle>
+                        <DateTimeText>{event.eventTime}</DateTimeText>
                       )}
                     </EventTime>
                   </EventWrapper>
