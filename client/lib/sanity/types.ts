@@ -96,6 +96,8 @@ interface PermanentOffer extends SanityDocument {
 interface NextAuthorNight {
   authorEventTitle: string
   authorNightDescription: string
+  authorNightImage: string
+  authorNightImageAlt: string
 }
 
 export interface Images {

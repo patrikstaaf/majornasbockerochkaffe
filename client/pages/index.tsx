@@ -656,33 +656,69 @@ const Home: NextPage<Props> = ({ data, images }) => {
         </OfferText>
       </OfferContainer>
       <AuthorContainer>
-        <ImageAuthor>
-          <NextImage
-            src={data.aboutTheEvents.generalImageAuthorNights}
-            alt={data.aboutTheEvents.generalImageAuthorNightsAlt}
-            layout="fill"
-            objectFit="cover"
-          />
-        </ImageAuthor>
+        {/* {data.nextAuthorNight &&
+          data.nextAuthorNight.authorNightImage === null && (
+            <>
+              <ImageAuthor>
+                <NextImage
+                  src={data.aboutTheEvents.generalImageAuthorNights}
+                  alt={data.aboutTheEvents.generalImageAuthorNightsAlt}
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </ImageAuthor>
+              <AuthorWith>
+                <H2 Color={false}>{data.nextAuthorNight.authorEventTitle}</H2>
+                <TextBoxAuthor Color={false}>
+                  {data.nextAuthorNight.authorNightDescription}
+                </TextBoxAuthor>
+                <ButtonBox>
+                  <ButtonLink href="mailto:info@majornasbocker.se?subject=Föranmälan till författarkväll">
+                    <Button>Föranmäl dig här</Button>
+                  </ButtonLink>
+                </ButtonBox>
+              </AuthorWith>
+            </>
+          )} */}
         {data.nextAuthorNight ? (
-          <AuthorWith>
-            <H2 Color={false}>{data.nextAuthorNight.authorEventTitle}</H2>
-            <TextBoxAuthor Color={false}>
-              {data.nextAuthorNight.authorNightDescription}
-            </TextBoxAuthor>
-            <ButtonBox>
-              <ButtonLink href="mailto:info@majornasbocker.se?subject=Föranmälan till författarkväll">
-                <Button>Föranmäl dig här</Button>
-              </ButtonLink>
-            </ButtonBox>
-          </AuthorWith>
+          <>
+            <ImageAuthor>
+              <NextImage
+                src={data.nextAuthorNight.authorNightImage}
+                alt={data.nextAuthorNight.authorNightImageAlt}
+                layout="fill"
+                objectFit="cover"
+              />
+            </ImageAuthor>
+            <AuthorWith>
+              <H2 Color={false}>{data.nextAuthorNight.authorEventTitle}</H2>
+              <TextBoxAuthor Color={false}>
+                {data.nextAuthorNight.authorNightDescription}
+              </TextBoxAuthor>
+              <ButtonBox>
+                <ButtonLink href="mailto:info@majornasbocker.se?subject=Föranmälan till författarkväll">
+                  <Button>Föranmäl dig här</Button>
+                </ButtonLink>
+              </ButtonBox>
+            </AuthorWith>
+          </>
         ) : (
-          <AuthorWith>
-            <H2 Color={false}>Författarkvällar</H2>
-            <TextBoxAuthor Color={false}>
-              Just nu har vi inga inbokade författare.
-            </TextBoxAuthor>
-          </AuthorWith>
+          <>
+            <ImageAuthor>
+              <NextImage
+                src={data.aboutTheEvents.generalImageAuthorNights}
+                alt={data.aboutTheEvents.generalImageAuthorNightsAlt}
+                layout="fill"
+                objectFit="cover"
+              />
+            </ImageAuthor>
+            <AuthorWith>
+              <H2 Color={false}>Författarkvällar</H2>
+              <TextBoxAuthor Color={false}>
+                Just nu har vi inga inbokade författare.
+              </TextBoxAuthor>
+            </AuthorWith>
+          </>
         )}
 
         <AuthorReading>
