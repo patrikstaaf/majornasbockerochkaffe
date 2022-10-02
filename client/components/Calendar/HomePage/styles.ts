@@ -26,12 +26,12 @@ export const HomePageCalendarWrapper = styled.div`
   border-left: solid;
   border-right: solid;
   border-width: 2px;
-  margin-top: 40px;
   /* margin-bottom: 40px; */
   background-color: ${({ theme }) => theme.colors.paper};
 
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     /* margin: 40px 20px 40px 20px; */
+    margin-top: 40px;
   }
 `
 
