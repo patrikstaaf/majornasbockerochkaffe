@@ -2,12 +2,12 @@ import type { NextPage, GetStaticProps } from 'next'
 import Layout from '../components/Layout/Layout'
 import styled from 'styled-components'
 import BetweenSections from '../components/BetweenSections'
-import Button from '../components/Button'
 import { H1, H2, Text } from '../components/Text'
 import sanityClient from '../lib/sanity/client'
 import { shopPageQuery } from '../lib/sanity/queries'
 import { ShopPageSanityData } from '../lib/sanity/types'
 import NextImage from 'next/image'
+import theme from '../lib/styles/theme'
 
 const AboutContainer = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
@@ -21,7 +21,6 @@ const AboutContainer = styled.div`
 `
 const AboutBookImage = styled.div`
   height: 438px;
-  background-color: yellow;
   position: relative;
   border-width: 0px 2px 0px 2px;
   border-style: solid;
@@ -37,7 +36,6 @@ const AboutBookImage = styled.div`
 `
 const AboutCafeImage = styled(AboutBookImage)`
   height: 434px;
-  background-color: blueviolet;
   border-width: 2px 2px 0px 2px;
   position: relative;
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
@@ -110,7 +108,6 @@ const Offer = styled.div`
 `
 const OfferImage = styled.div`
   height: 161px;
-  background-color: lightblue;
   border-width: 0px 2px;
   position: relative;
   border-style: solid;
@@ -152,6 +149,7 @@ const AboutChildrenImageLarge = styled.div`
     grid-column: 1;
     grid-row: 1;
     border-width: 1px 0 1px 3px;
+    height: 377px;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     grid-column: 1/3;
@@ -178,26 +176,26 @@ const AboutChildrenImageSmallContainer = styled.div`
 `
 const AboutChildrenImageSmallOne = styled.div`
   height: 167px;
-  background-color: blue;
+  width: 100%;
   position: relative;
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     display: none;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     display: block;
-    height: 100%;
+    height: 337px;
   }
 `
 const AboutChildrenImageSmallTwo = styled.div`
   height: 167px;
-  background-color: red;
+  width: 100%;
   position: relative;
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     display: none;
   }
   @media screen and (min-width: ${({ theme }) => theme.device.desktop}) {
     display: block;
-    height: 100%;
+    height: 337px;
   }
 `
 const AboutChildren = styled.div`
@@ -251,6 +249,7 @@ const Butik: NextPage<Props> = ({ data }) => {
             src={data.aboutTheStore.bookStoreImage}
             alt={data.aboutTheStore.bookStoreImageAlt}
             layout="fill"
+            objectFit="cover"
           />
         </AboutBookImage>
         <AboutCafeImage>
@@ -258,6 +257,7 @@ const Butik: NextPage<Props> = ({ data }) => {
             src={data.aboutTheStore.cafeImage}
             alt={data.aboutTheStore.cafeImageAlt}
             layout="fill"
+            objectFit="cover"
           />
         </AboutCafeImage>
         <AboutCafe>
@@ -290,16 +290,18 @@ const Butik: NextPage<Props> = ({ data }) => {
             src={data.permanentOffer.image}
             alt={data.permanentOffer.imageAlt}
             layout="fill"
+            objectFit="cover"
           />
         </OfferImage>
       </OfferContainer>
-      <BetweenSections color={'#b17b54;'} />
+      <BetweenSections color={theme.colors.crust} />
       <AboutChildrenContainer>
         <AboutChildrenImageLarge>
           <NextImage
             src={data.aboutTheStore.kidSectionImage1}
             alt={data.aboutTheStore.kidSectionImage1Alt}
             layout="fill"
+            objectFit="cover"
           />
         </AboutChildrenImageLarge>
         <AboutChildrenImageSmallContainer>
@@ -308,6 +310,7 @@ const Butik: NextPage<Props> = ({ data }) => {
               src={data.aboutTheStore.kidSectionImage2}
               alt={data.aboutTheStore.kidSectionImage2Alt}
               layout="fill"
+              objectFit="cover"
             />
           </AboutChildrenImageSmallOne>
           <AboutChildrenImageSmallTwo>
@@ -315,6 +318,7 @@ const Butik: NextPage<Props> = ({ data }) => {
               src={data.aboutTheStore.kidSectionImage3}
               alt={data.aboutTheStore.kidSectionImage3Alt}
               layout="fill"
+              objectFit="cover"
             />
           </AboutChildrenImageSmallTwo>
         </AboutChildrenImageSmallContainer>
