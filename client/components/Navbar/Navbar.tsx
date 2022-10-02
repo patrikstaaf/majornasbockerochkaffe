@@ -1,4 +1,5 @@
 import { NextPage } from 'next'
+import Link from 'next/link'
 import styled from 'styled-components'
 import { Text, H1, LinkText } from '../Text'
 import { NavbarProps } from './types'
@@ -258,23 +259,33 @@ const Navbar: NextPage<Props> = ({ companyInfo }) => {
       </TopBar>
 
       <Nav>
-        <NavLinks className="first navLink" Color={true}>
-          Hem
-        </NavLinks>
-        <NavLinks className="second navLink" Color={true}>
-          Butik och Café
-        </NavLinks>
-        <Logo
-          className="navBarLogo third"
-          Color={true}
-          src="/assets/icons/logoBlack.svg"
-        ></Logo>
-        <NavLinks className="fourth navLink" Color={true}>
-          Evenemang
-        </NavLinks>
-        <NavLinks className="fifth navLink" Color={true}>
-          Kontakt
-        </NavLinks>
+        <Link href={'/'}>
+          <NavLinks className="first navLink" Color={true}>
+            Hem
+          </NavLinks>
+        </Link>
+        <Link href={'/butikochcafe'}>
+          <NavLinks className="second navLink" Color={true}>
+            Butik och Café
+          </NavLinks>
+        </Link>
+        <Link href={'/'}>
+          <Logo
+            className="navBarLogo third"
+            Color={true}
+            src="/assets/icons/logoBlack.svg"
+          ></Logo>
+        </Link>
+        <Link href={'/evenemang'}>
+          <NavLinks className="fourth navLink" Color={true}>
+            Evenemang
+          </NavLinks>
+        </Link>
+        <Link href={'/kontakt'}>
+          <NavLinks className="fifth navLink" Color={true}>
+            Kontakt
+          </NavLinks>
+        </Link>
       </Nav>
     </div>
   )
