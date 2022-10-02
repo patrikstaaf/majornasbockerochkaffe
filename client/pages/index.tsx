@@ -6,6 +6,7 @@ import { startPageQuery } from '../lib/sanity/queries'
 import { H1, H2, Text, LinkText } from '../components/Text'
 import theme from '../lib/styles/theme'
 import NextImage from 'next/image'
+import FutureImage from 'next/future/image'
 import dynamic from 'next/dynamic'
 const HomePageCalendar = dynamic(
   () => import('../components/Calendar/HomePage/HomePageCalendar'),
@@ -85,6 +86,7 @@ const Image = styled.div`
   background-color: lightcoral;
   border-width: 2px 2px 0px 2px;
   border-style: solid;
+  position: relative;
   border-color: ${({ theme }) => theme.colors.coffee};
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     grid-column: 1/2;
@@ -99,6 +101,7 @@ const ImageOne = styled.div`
   background-color: lightcoral;
   border-width: 3px 2px 0px 3px;
   border-style: solid;
+  position: relative;
   border-color: ${({ theme }) => theme.colors.coffee};
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     grid-column: 1/2;
@@ -247,6 +250,7 @@ const OfferImageOne = styled.div`
   background-color: lightcoral;
   border-width: 0px 2px;
   border-style: solid;
+  position: relative;
   border-color: ${({ theme }) => theme.colors.coffee};
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     grid-column: 2;
@@ -339,6 +343,7 @@ const ImageAuthor = styled.div`
   background-color: lightcoral;
   border-width: 0px 2px;
   border-style: solid;
+  position: relative;
   border-color: ${({ theme }) => theme.colors.coffee};
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     grid-column: 1/2;
@@ -488,8 +493,11 @@ const Home: NextPage<Props> = ({ data, images }) => {
       </HeroContainer>
       <Container>
         <ImageOne>
-          {data.aboutTheEvents.generalImageAuthorNights}
-          {data.aboutTheEvents.generalImageAuthorNightsAlt}
+          <NextImage
+            src={data.aboutTheEvents.generalImageAuthorNights}
+            alt={data.aboutTheEvents.generalImageAuthorNightsAlt}
+            layout="fill"
+          />
         </ImageOne>
         <AuthorEvening>
           <H2 Color={false}>Författarkvällar</H2>
@@ -501,8 +509,11 @@ const Home: NextPage<Props> = ({ data, images }) => {
           </LinkText>
         </AuthorEvening>
         <ImageTwo>
-          {data.aboutTheEvents.generalImageAuthorBookClub}
-          {data.aboutTheEvents.generalImageAuthorBookClubAlt}
+          <NextImage
+            src={data.aboutTheEvents.generalImageAuthorBookClub}
+            alt={data.aboutTheEvents.generalImageAuthorBookClubAlt}
+            layout="fill"
+          />
         </ImageTwo>
         <BookCircle>
           <H2 Color={false}>Bokcirklar</H2>
@@ -514,8 +525,11 @@ const Home: NextPage<Props> = ({ data, images }) => {
           </LinkText>
         </BookCircle>
         <ImageThree>
-          {data.aboutTheStore.cafeImage}
-          {data.aboutTheStore.cafeImageAlt}
+          <NextImage
+            src={data.aboutTheStore.cafeImage}
+            alt={data.aboutTheStore.cafeImageAlt}
+            layout="fill"
+          />
         </ImageThree>
         <BookAndCafe>
           <H2 Color>Om Majornas böcker &amp; kaffe</H2>
@@ -591,8 +605,11 @@ const Home: NextPage<Props> = ({ data, images }) => {
       <BetweenSections color={theme.colors.cream} />
       <OfferContainer>
         <OfferImageOne>
-          {data.permanentOffer.image}
-          {data.permanentOffer.imageAlt}
+          <NextImage
+            src={data.permanentOffer.image}
+            alt={data.permanentOffer.imageAlt}
+            layout="fill"
+          />
         </OfferImageOne>
         <Offer>
           <H2 Color={false}>Stående erbjudande</H2>
@@ -600,8 +617,11 @@ const Home: NextPage<Props> = ({ data, images }) => {
           <Price>{data.permanentOffer.price}:-</Price>
         </Offer>
         <OfferImageTwo>
-          {data.aboutTheStore.cafeImage}
-          {data.aboutTheStore.cafeImageAlt}
+          <NextImage
+            src={data.aboutTheStore.cafeImage}
+            alt={data.aboutTheStore.cafeImageAlt}
+            layout="fill"
+          />
         </OfferImageTwo>
         <OfferText>
           <H2 Color>Bokhandeln med kaffehäng</H2>
@@ -632,8 +652,11 @@ const Home: NextPage<Props> = ({ data, images }) => {
           </AuthorWith>
         )}
         <ImageAuthor>
-          {data.aboutTheEvents.generalImageAuthorNights}
-          {data.aboutTheEvents.generalImageAuthorNightsAlt}
+          <NextImage
+            src={data.aboutTheEvents.generalImageAuthorNights}
+            alt={data.aboutTheEvents.generalImageAuthorNightsAlt}
+            layout="fill"
+          />
         </ImageAuthor>
         <AuthorReading>
           <H2 Color>Vill du hålla i en författarkväll hos oss?</H2>
@@ -664,8 +687,11 @@ const Home: NextPage<Props> = ({ data, images }) => {
       </AuthorContainer>
       <BooktipsContainer>
         <Image>
-          {data.bookOfTheMonth.cover}
-          {data.bookOfTheMonth.coverAlt}
+          <NextImage
+            src={data.bookOfTheMonth.cover}
+            alt={data.bookOfTheMonth.coverAlt}
+            layout="fill"
+          />
         </Image>
         <BookTips>
           <BooktipsTextContainer>

@@ -9,6 +9,7 @@ import sanityClient from '../lib/sanity/client'
 import { EventPageSanityData } from '../lib/sanity/types'
 import { eventPageQuery } from '../lib/sanity/queries'
 import theme from '../lib/styles/theme'
+import NextImage from 'next/image'
 
 interface Props {
   data: EventPageSanityData
@@ -48,6 +49,7 @@ const ImageContainer = styled.div`
 const Image = styled.div`
   border-width: 2px 2px 0px 2px;
   border-style: solid;
+  position: relative;
   border-color: ${({ theme }) => theme.colors.coffee};
   background-color: pink;
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
@@ -61,6 +63,7 @@ const Image = styled.div`
 const ImageOne = styled.div`
   height: 168.75px;
   width: 187.5px;
+  position: relative;
   background-color: red;
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     height: 379.88px;
@@ -140,6 +143,7 @@ const BookImage = styled.div`
   height: 262.55px;
   border-width: 0px 2px;
   border-style: solid;
+  position: relative;
   border-color: ${({ theme }) => theme.colors.coffee};
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     height: 266.35px;
@@ -158,6 +162,7 @@ const BookEveningImage = styled.div`
   height: 201px;
   border-width: 0px 2px;
   border-style: solid;
+  position: relative;
   border-color: ${({ theme }) => theme.colors.coffee};
   background-color: pink;
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
@@ -239,8 +244,11 @@ const Evenemang: NextPage<Props> = ({ data }) => {
     >
       <Author>
         <Image>
-          {data.aboutTheEvents.generalImageAuthorNights}
-          {data.aboutTheEvents.generalImageAuthorNightsAlt}
+          <NextImage
+            src={data.aboutTheEvents.generalImageAuthorNights}
+            alt={data.aboutTheEvents.generalImageAuthorNightsAlt}
+            layout="fill"
+          />
         </Image>
         <ContentContainer>
           <TextContainer>
@@ -271,20 +279,32 @@ const Evenemang: NextPage<Props> = ({ data }) => {
         </ContentContainer>
         <ImageContainer>
           <ImageOne>
-            {data.aboutTheEvents.imagesOfPreviousAuthorNights1}
-            {data.aboutTheEvents.imagesOfPreviousAuthorNights1Alt}
+            <NextImage
+              src={data.aboutTheEvents.imagesOfPreviousAuthorNights1}
+              alt={data.aboutTheEvents.imagesOfPreviousAuthorNights1Alt}
+              layout="fill"
+            />
           </ImageOne>
           <ImageTwo>
-            {data.aboutTheEvents.imagesOfPreviousAuthorNights2}
-            {data.aboutTheEvents.imagesOfPreviousAuthorNights2Alt}
+            <NextImage
+              src={data.aboutTheEvents.imagesOfPreviousAuthorNights2}
+              alt={data.aboutTheEvents.imagesOfPreviousAuthorNights2Alt}
+              layout="fill"
+            />
           </ImageTwo>
           <ImageThree>
-            {data.aboutTheEvents.imagesOfPreviousAuthorNights3}
-            {data.aboutTheEvents.imagesOfPreviousAuthorNights3Alt}
+            <NextImage
+              src={data.aboutTheEvents.imagesOfPreviousAuthorNights3}
+              alt={data.aboutTheEvents.imagesOfPreviousAuthorNights3Alt}
+              layout="fill"
+            />
           </ImageThree>
           <ImageFour>
-            {data.aboutTheEvents.imagesOfPreviousAuthorNights4}
-            {data.aboutTheEvents.imagesOfPreviousAuthorNights4Alt}
+            <NextImage
+              src={data.aboutTheEvents.imagesOfPreviousAuthorNights4}
+              alt={data.aboutTheEvents.imagesOfPreviousAuthorNights4Alt}
+              layout="fill"
+            />
           </ImageFour>
         </ImageContainer>
         <AuthorEveningContainer>
@@ -314,8 +334,11 @@ const Evenemang: NextPage<Props> = ({ data }) => {
       <BetweenSections color={theme.colors.hemingway} />
       <Book>
         <BookImage>
-          {data.aboutTheEvents.generalImageAuthorBookClub}
-          {data.aboutTheEvents.generalImageAuthorBookClubAlt}
+          <NextImage
+            src={data.aboutTheEvents.generalImageAuthorBookClub}
+            alt={data.aboutTheEvents.generalImageAuthorBookClubAlt}
+            layout="fill"
+          />
         </BookImage>
         <BookCirkleContainer>
           <H2 Color={false}>Vill du vara med i en bokcirkel?</H2>
@@ -341,8 +364,11 @@ const Evenemang: NextPage<Props> = ({ data }) => {
           </ButtonLink>
         </BookCirkleContainer>
         <BookEveningImage>
-          {data.aboutTheEvents.generalImageAuthorBookStoreNight}
-          {data.aboutTheEvents.generalImageAuthorBookStoreNightAlt}
+          <NextImage
+            src={data.aboutTheEvents.generalImageAuthorBookStoreNight}
+            alt={data.aboutTheEvents.generalImageAuthorBookStoreNightAlt}
+            layout="fill"
+          />
         </BookEveningImage>
         <BookEvening>
           <H2 Color={false}>Välkommen in på bokhandelskväll!</H2>
