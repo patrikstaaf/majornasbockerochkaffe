@@ -7,6 +7,7 @@ import { H1, H2, Text } from '../components/Text'
 import sanityClient from '../lib/sanity/client'
 import { shopPageQuery } from '../lib/sanity/queries'
 import { ShopPageSanityData } from '../lib/sanity/types'
+import NextImage from 'next/image'
 
 const AboutContainer = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
@@ -21,6 +22,7 @@ const AboutContainer = styled.div`
 const AboutBookImage = styled.div`
   height: 438px;
   background-color: yellow;
+  position: relative;
   border-width: 0px 2px 0px 2px;
   border-style: solid;
   border-color: ${({ theme }) => theme.colors.coffee};
@@ -37,6 +39,7 @@ const AboutCafeImage = styled(AboutBookImage)`
   height: 434px;
   background-color: blueviolet;
   border-width: 2px 2px 0px 2px;
+  position: relative;
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     grid-column: 1;
     grid-row: 1/3;
@@ -109,6 +112,7 @@ const OfferImage = styled.div`
   height: 161px;
   background-color: lightblue;
   border-width: 0px 2px;
+  position: relative;
   border-style: solid;
   border-color: ${({ theme }) => theme.colors.coffee};
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
@@ -142,6 +146,7 @@ const AboutChildrenImageLarge = styled.div`
   height: 392px;
   border-width: 0px 2px;
   border-style: solid;
+  position: relative;
   border-color: ${({ theme }) => theme.colors.coffee};
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     grid-column: 1;
@@ -174,6 +179,7 @@ const AboutChildrenImageSmallContainer = styled.div`
 const AboutChildrenImageSmallOne = styled.div`
   height: 167px;
   background-color: blue;
+  position: relative;
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     display: none;
   }
@@ -185,6 +191,7 @@ const AboutChildrenImageSmallOne = styled.div`
 const AboutChildrenImageSmallTwo = styled.div`
   height: 167px;
   background-color: red;
+  position: relative;
   @media screen and (min-width: ${({ theme }) => theme.device.tablet}) {
     display: none;
   }
@@ -240,12 +247,18 @@ const Butik: NextPage<Props> = ({ data }) => {
           </Content>
         </AboutBookShop>
         <AboutBookImage>
-          {data.aboutTheStore.bookStoreImage}
-          {data.aboutTheStore.bookStoreImageAlt}
+          <NextImage
+            src={data.aboutTheStore.bookStoreImage}
+            alt={data.aboutTheStore.bookStoreImageAlt}
+            layout="fill"
+          />
         </AboutBookImage>
         <AboutCafeImage>
-          {data.aboutTheStore.cafeImage}
-          {data.aboutTheStore.cafeImageAlt}
+          <NextImage
+            src={data.aboutTheStore.cafeImage}
+            alt={data.aboutTheStore.cafeImageAlt}
+            layout="fill"
+          />
         </AboutCafeImage>
         <AboutCafe>
           <Content>
@@ -273,24 +286,36 @@ const Butik: NextPage<Props> = ({ data }) => {
           <Price>{data.permanentOffer.price}:- </Price>
         </Offer>
         <OfferImage>
-          {data.permanentOffer.image}
-          {data.permanentOffer.imageAlt}
+          <NextImage
+            src={data.permanentOffer.image}
+            alt={data.permanentOffer.imageAlt}
+            layout="fill"
+          />
         </OfferImage>
       </OfferContainer>
       <BetweenSections color={'#b17b54;'} />
       <AboutChildrenContainer>
         <AboutChildrenImageLarge>
-          {data.aboutTheStore.kidSectionImage1}
-          {data.aboutTheStore.kidSectionImage1Alt}
+          <NextImage
+            src={data.aboutTheStore.kidSectionImage1}
+            alt={data.aboutTheStore.kidSectionImage1Alt}
+            layout="fill"
+          />
         </AboutChildrenImageLarge>
         <AboutChildrenImageSmallContainer>
           <AboutChildrenImageSmallOne>
-            {data.aboutTheStore.kidSectionImage2}
-            {data.aboutTheStore.kidSectionImage2Alt}
+            <NextImage
+              src={data.aboutTheStore.kidSectionImage2}
+              alt={data.aboutTheStore.kidSectionImage2Alt}
+              layout="fill"
+            />
           </AboutChildrenImageSmallOne>
           <AboutChildrenImageSmallTwo>
-            {data.aboutTheStore.kidSectionImage3}
-            {data.aboutTheStore.kidSectionImage3Alt}
+            <NextImage
+              src={data.aboutTheStore.kidSectionImage3}
+              alt={data.aboutTheStore.kidSectionImage3Alt}
+              layout="fill"
+            />
           </AboutChildrenImageSmallTwo>
         </AboutChildrenImageSmallContainer>
         <AboutChildren>

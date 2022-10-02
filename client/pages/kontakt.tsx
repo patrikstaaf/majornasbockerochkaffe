@@ -6,6 +6,7 @@ import type { NextPage, GetStaticProps } from 'next'
 import sanityClient from '../lib/sanity/client'
 import { contactPageQuery } from '../lib/sanity/queries'
 import { ContactPageSanityData } from '../lib/sanity/types'
+import NextImage from 'next/image'
 
 const ContactSection = styled.section`
   display: flex;
@@ -168,6 +169,7 @@ const Image = styled.div`
   height: 347px;
   background-color: pink;
   box-sizing: border-box;
+  position: relative;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   border-width: 2px;
@@ -300,8 +302,11 @@ const Kontakt: NextPage<Props> = ({ data }) => {
           </Contact>
         </ContactContainer>
         <Image>
-          {data.companyInfo.outsideImageOfShop}
-          {data.companyInfo.outsideImageOfShopAlt}
+          <NextImage
+            src={data.companyInfo.outsideImageOfShop}
+            alt={data.companyInfo.outsideImageOfShopAlt}
+            layout="fill"
+          />
         </Image>
       </ContactSection>
       <MapSection>
