@@ -41,11 +41,13 @@ descriptionHostingAuthorNights,
 "generalImageAuthorNightsAlt": generalImageAuthorNights.alt,
 },
 "calendar": *[_type == "calendar" && dateTime(now()) < dateTime(calendarDate)] | order(calendarDate asc)[0..4]{
-...
+...,
 },
 "nextAuthorNight": *[_type == "calendar" && event == 'authorNight' && dateTime(now()) < dateTime(calendarDate)] | order(calendarDate asc)[0]{
 authorEventTitle,
-authorNightDescription
+authorNightDescription,
+  "authorNightImage": authorNightImage.asset->url,
+  "authorNightImageAlt": authorNightImage.alt,
 },
 }`
 

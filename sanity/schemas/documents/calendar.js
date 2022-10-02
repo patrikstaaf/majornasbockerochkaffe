@@ -55,6 +55,28 @@ export default {
       hidden: ({ parent }) => parent?.event !== 'authorNight',
     },
     {
+      title: 'Bild på författaren',
+      name: 'authorNightImage',
+      type: 'image',
+      description: 'Bild på författaren som renderas ut på startsidan.',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          type: 'string',
+          name: 'authorNightImageAlt',
+          title: 'Alternativ text för bilden',
+          description: 'Detta är för tillgänglighet och sökmotorn',
+          options: {
+            isHighlighted: true,
+          },
+        },
+      ],
+      hidden: ({ parent }) => parent?.event !== 'authorNight',
+    },
+
+    {
       title: 'Titel',
       name: 'bookClubTitle',
       type: 'string',
