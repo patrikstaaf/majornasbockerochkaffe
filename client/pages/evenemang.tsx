@@ -34,6 +34,7 @@ const TextContainer = styled.div`
 `
 
 const ImageContainer = styled.div`
+  background-color: ${({ theme }) => theme.colors.coffee};
   display: flex;
   border-width: 2px 2px 0px 2px;
   border-style: solid;
@@ -388,7 +389,6 @@ const Evenemang: NextPage<Props> = ({ data }) => {
               {data.aboutTheEvents.descriptionAboutBookStoreNight}
             </Text>
           )}
-          <LinkText Color={false}>Läs i kalendarium</LinkText>
         </BookEvening>
       </Book>
       <BetweenSections color={theme.colors.hemingway} />
