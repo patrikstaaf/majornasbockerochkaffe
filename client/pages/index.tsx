@@ -543,7 +543,7 @@ const Home: NextPage<Props> = ({ data, images }) => {
             {data.aboutTheEvents.shortGeneralDescriptionAboutBookClub}
           </TextBox>
           <LinkText href="/evenemang" Color={false}>
-            Läs mer om författarkvällar
+            Läs mer om bokcirklar
           </LinkText>
         </BookCircle>
         <ImageThree>
